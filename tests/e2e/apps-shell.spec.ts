@@ -28,8 +28,19 @@ test('mobile menu opens course drawer navigation', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/#/');
 
-  await page.getByRole('button', { name: 'Open navigation menu' }).click();
+  const openMenuButton = page.getByRole('button', { name: 'Open navigation menu' });
+  await openMenuButton.click();
   const drawer = page.getByRole('dialog', { name: 'Course navigation' });
   await expect(drawer).toBeVisible();
   await expect(drawer.getByRole('link', { name: 'From Clicking To Delegating' })).toBeVisible();
+
+  await page.keyboard.press('Escape');
+  await expect(drawer).not.toBeVisible();
+  await expect(openMenuButton).toBeFocused();
+});
+
+test('sidebar helper copy does not imply unavailable keyboard search', async ({ page }) => {
+  await page.goto('/#/');
+  await expect(page.getByText('Course map')).toBeVisible();
+  await expect(page.getByText('⌘ K')).toHaveCount(0);
 });

@@ -190,11 +190,22 @@ button {
   letter-spacing: -0.02em;
   font-weight: 700;
   line-height: 1;
+  white-space: nowrap;
+  min-width: 0;
 }
 
 .top-nav-brand-dex {
   font-size: 0.66em;
   line-height: 1;
+}
+
+.top-nav-brand-text {
+  display: inline;
+  white-space: nowrap;
+}
+
+.top-nav-brand-text-compact {
+  display: none;
 }
 
 .top-nav-links {
@@ -270,8 +281,8 @@ button {
 
 .top-nav-chip-label {
   color: var(--text-600);
-  font-size: 0.62rem;
-  line-height: 1;
+  font-size: 0.64rem;
+  line-height: 1.1;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-family: var(--font-mono);
@@ -303,12 +314,17 @@ button {
   justify-items: center;
   gap: 2px;
   padding: 8px 16px;
+  white-space: nowrap;
+}
+
+.top-nav-cta-label-compact {
+  display: none;
 }
 
 .top-nav-cta-meta {
   font-size: 0.68rem;
   color: var(--surface-150);
-  line-height: 1;
+  line-height: 1.1;
   font-family: var(--font-mono);
   letter-spacing: 0.04em;
 }
@@ -332,7 +348,7 @@ button {
 
 .left-sidebar-search {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr;
   align-items: center;
   gap: var(--space-2);
   border: 1px solid var(--border-strong);
@@ -343,21 +359,11 @@ button {
   font-size: 0.9rem;
 }
 
-.left-sidebar-search kbd {
-  border: 1px solid #3a3a3a;
-  border-radius: 5px;
-  padding: 2px 6px;
-  color: var(--text-700);
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  line-height: 1;
-}
-
 .left-sidebar-breadcrumb {
   margin-top: var(--space-4);
   margin-bottom: var(--space-5);
   color: var(--text-600);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
 }
 
 .left-sidebar-nav {
@@ -927,7 +933,8 @@ button {
   margin-bottom: var(--space-3);
   color: var(--text-600);
   font-family: var(--font-mono);
-  font-size: 0.74rem;
+  font-size: 0.78rem;
+  line-height: 1.25;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
@@ -1585,7 +1592,8 @@ button {
   border-top: 1px solid var(--border-soft);
   padding: var(--space-4) var(--space-8);
   color: var(--text-600);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
   text-align: center;
   background: var(--surface-25);
 }
@@ -1608,6 +1616,7 @@ button {
   inset: 0;
   background: rgba(0, 0, 0, 0.55);
   opacity: 0;
+  visibility: hidden;
   transition: opacity 0.2s ease;
 }
 
@@ -1618,6 +1627,7 @@ button {
   bottom: 0;
   width: min(86vw, 410px);
   transform: translateX(100%);
+  visibility: hidden;
   transition: transform 0.22s ease;
   background: var(--surface-50);
   border-left: 1px solid var(--border-soft);
@@ -1631,10 +1641,12 @@ button {
 
 .mobile-drawer.open .mobile-drawer-backdrop {
   opacity: 1;
+  visibility: visible;
 }
 
 .mobile-drawer.open .mobile-drawer-panel {
   transform: translateX(0);
+  visibility: visible;
 }
 
 .mobile-drawer-header {
@@ -1774,7 +1786,8 @@ button {
 
 @media (max-width: 1024px) {
   .top-nav-inner {
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    column-gap: var(--space-3);
   }
 
   .top-nav-menu {
@@ -1786,8 +1799,8 @@ button {
   }
 
   .top-nav-brand {
-    justify-self: center;
-    font-size: 1.3rem;
+    justify-self: start;
+    font-size: 1.15rem;
   }
 
   .top-nav-chip-level {
@@ -1796,6 +1809,7 @@ button {
 
   .top-nav-actions {
     gap: var(--space-2);
+    min-width: 0;
   }
 
   .top-nav-progress {
@@ -1808,7 +1822,7 @@ button {
   }
 
   .top-nav-continue {
-    min-width: 130px;
+    min-width: 124px;
     padding: 8px 12px;
     font-size: 0.82rem;
   }
@@ -1852,8 +1866,20 @@ button {
 }
 
 @media (max-width: 720px) {
+  .top-nav-inner {
+    gap: var(--space-2);
+  }
+
   .top-nav-brand {
-    font-size: 1.1rem;
+    font-size: 1rem;
+  }
+
+  .top-nav-brand-text-full {
+    display: none;
+  }
+
+  .top-nav-brand-text-compact {
+    display: inline;
   }
 
   .top-nav-progress {
@@ -1861,9 +1887,9 @@ button {
   }
 
   .top-nav-continue {
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     padding: 7px 10px;
-    min-width: 118px;
+    min-width: 112px;
   }
 
   .page-container {
@@ -1970,12 +1996,24 @@ button {
   }
 
   .top-nav-brand {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 
   .top-nav-continue {
-    min-width: 100px;
-    font-size: 0.74rem;
+    min-width: 92px;
+    font-size: 0.72rem;
     padding: 6px 8px;
+  }
+
+  .top-nav-cta-label-full {
+    display: none;
+  }
+
+  .top-nav-cta-label-compact {
+    display: inline;
+  }
+
+  .footer {
+    font-size: 0.86rem;
   }
 }

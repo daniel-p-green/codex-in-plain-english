@@ -23,11 +23,16 @@ export default function TopNav({ onOpenMenu, brandLabel, items, metrics, cta }: 
           <Menu size={18} aria-hidden="true" />
         </button>
 
-        <Link to="/" className="top-nav-brand">
+        <Link to="/" className="top-nav-brand" aria-label={brandLabel}>
           <span className="top-nav-brand-dex" aria-hidden="true">
             🦖
           </span>
-          <span>{brandLabel}</span>
+          <span className="top-nav-brand-text top-nav-brand-text-full" aria-hidden="true">
+            {brandLabel}
+          </span>
+          <span className="top-nav-brand-text top-nav-brand-text-compact" aria-hidden="true">
+            Codex Course
+          </span>
         </Link>
 
         <nav className="top-nav-links" aria-label="Primary">
@@ -59,8 +64,11 @@ export default function TopNav({ onOpenMenu, brandLabel, items, metrics, cta }: 
               <span className="top-nav-chip-label">Streak</span>
             </span>
           </div>
-          <Link to={cta.href} className="top-nav-cta top-nav-continue">
-            <span>{cta.label}</span>
+          <Link to={cta.href} className="top-nav-cta top-nav-continue" aria-label={cta.label}>
+            <span className="top-nav-cta-label top-nav-cta-label-full">{cta.label}</span>
+            <span className="top-nav-cta-label top-nav-cta-label-compact">
+              Continue
+            </span>
             <span className="top-nav-cta-meta">{metrics.overallPercent}% complete</span>
           </Link>
         </div>

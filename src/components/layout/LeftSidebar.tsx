@@ -10,10 +10,9 @@ interface LeftSidebarProps {
 export default function LeftSidebar({ groups, pathname }: LeftSidebarProps) {
   return (
     <aside className="left-sidebar" aria-label="Course sections">
-      <div className="left-sidebar-search" role="search">
-        <span aria-hidden="true">⌕</span>
-        <span>Search</span>
-        <kbd>⌘ K</kbd>
+      <div className="left-sidebar-search" aria-label="Course map overview">
+        <span aria-hidden="true">☰</span>
+        <span>Course map</span>
       </div>
 
       <p className="left-sidebar-breadcrumb">Course › Learning Journey</p>
