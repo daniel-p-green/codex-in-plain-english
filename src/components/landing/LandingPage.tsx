@@ -21,7 +21,7 @@ export default function LandingPage() {
       title: 'From Clicking To Delegating',
       subtitle: 'Quickstart',
       href: `/module/${moduleOne.number}`,
-      copy: 'Start with the non-coder path: describe outcomes, review outputs, and iterate.',
+      copy: 'Start with the non-coders path: describe outcomes, review outputs, and iterate.',
       variant: 'primary',
       locked: false,
     },
@@ -117,7 +117,7 @@ export default function LandingPage() {
       </section>
 
       <section className="landing-section">
-        <h2 className="landing-section-title">Create your app</h2>
+        <h2 className="landing-section-title">Create your workflow</h2>
         <div className="landing-create-grid" data-testid="create-app-grid">
           {createCards.map(card => {
             const className = `create-card ${card.locked ? 'locked' : ''}`;

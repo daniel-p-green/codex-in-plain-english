@@ -4,7 +4,7 @@ import { SOURCE_GABRIEL_X } from '../attribution';
 export const module4: ModuleData = {
   id: 'module-4',
   number: 4,
-  title: 'First Delegation Playbook For Non-Coders',
+  title: 'First Delegation Playbook for Non-Coders',
   subtitle:
     'Use a repeatable brief template to delegate file, document, and report tasks with confidence.',
   depthZone: 'Execution Layer',

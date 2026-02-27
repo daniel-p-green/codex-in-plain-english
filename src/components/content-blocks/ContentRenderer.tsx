@@ -130,7 +130,7 @@ export default function ContentRenderer({ blocks }: { blocks: ContentBlock[] }) 
                     {block.rows.map((row, ri) => (
                       <tr key={ri}>
                         {row.map((cell, ci) => (
-                          <td key={ci}>
+                          <td key={ci} data-label={block.headers[ci] ?? `Column ${ci + 1}`}>
                             {renderInlineText(cell).map((part, i) => (
                               <Fragment key={`${ri}-${ci}-${i}`}>{part}</Fragment>
                             ))}
@@ -203,7 +203,7 @@ export default function ContentRenderer({ blocks }: { blocks: ContentBlock[] }) 
                     {block.rows.map((row, ri) => (
                       <tr key={ri}>
                         {row.cells.map((cell, ci) => (
-                          <td key={ci}>
+                          <td key={ci} data-label={block.headers[ci] ?? `Column ${ci + 1}`}>
                             {renderInlineText(cell).map((part, x) => (
                               <Fragment key={`${ri}-${ci}-${x}`}>{part}</Fragment>
                             ))}

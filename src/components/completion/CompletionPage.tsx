@@ -59,10 +59,10 @@ export default function CompletionPage() {
             <tbody>
               {COURSE_SUMMARY.map((item, i) => (
                 <tr key={i}>
-                  <td>
+                  <td data-label="Module">
                     <strong>{item.module}</strong>
                   </td>
-                  <td>{item.takeaway}</td>
+                  <td data-label="Key Takeaway">{item.takeaway}</td>
                 </tr>
               ))}
             </tbody>
