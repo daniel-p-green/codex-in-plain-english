@@ -3,6 +3,8 @@ node_modules/
 
 # Build output
 dist/
+out/
+.tmp/
 playwright-report/
 test-results/
 

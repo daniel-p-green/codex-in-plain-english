@@ -41,6 +41,23 @@ Optional local preview:
 npm run preview
 ```
 
+## X Demo Video (Remotion)
+
+Capture fresh live interaction clips from the published course:
+
+```bash
+npm run remotion:capture-clips
+```
+
+Then render shareable teaser videos for X:
+
+```bash
+npm run remotion:render:16x9
+npm run remotion:render:9x16
+```
+
+Output files are written to `out/`.
+
 ## Course Structure
 
 - 8 modules (4 Codex fundamentals + 4 Skills modules)

@@ -11,7 +11,12 @@
     "deploy": "npm run build && gh-pages -d dist",
     "test:e2e": "playwright test",
     "test:e2e:update": "playwright test --update-snapshots",
-    "test:e2e:report": "playwright show-report"
+    "test:e2e:report": "playwright show-report",
+    "remotion:capture-shots": "node scripts/capture-remotion-shots.mjs",
+    "remotion:capture-clips": "node scripts/capture-remotion-clips.mjs",
+    "remotion:studio": "remotion studio src/remotion/index.ts",
+    "remotion:render:16x9": "remotion render src/remotion/index.ts CodexTeaser16x9 out/codex-in-plain-english-teaser-16x9.mp4 --overwrite",
+    "remotion:render:9x16": "remotion render src/remotion/index.ts CodexTeaser9x16 out/codex-in-plain-english-teaser-9x16.mp4 --overwrite"
   },
   "dependencies": {
     "canvas-confetti": "^1.9.4",
@@ -25,6 +30,7 @@
     "@axe-core/playwright": "^4.11.0",
     "@eslint/js": "^9.39.1",
     "@playwright/test": "^1.56.1",
+    "@remotion/cli": "^4.0.429",
     "@types/canvas-confetti": "^1.9.0",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.7",
@@ -36,6 +42,7 @@
     "eslint-plugin-react-refresh": "^0.4.24",
     "gh-pages": "^6.3.0",
     "globals": "^16.5.0",
+    "remotion": "^4.0.429",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.48.0",
     "vite": "^7.3.1"
