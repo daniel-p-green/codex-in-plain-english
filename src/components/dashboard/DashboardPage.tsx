@@ -3,6 +3,7 @@ import { useProgressContext } from '../../context/useProgressContext';
 import { allModules } from '../../data/modules';
 import { getDepthLevel, getNextDepthLevel } from '../../data/depth-levels';
 import { BADGES } from '../../data/badges';
+import PageContainer from '../layout/PageContainer';
 
 export default function DashboardPage() {
   const { progress, isModuleUnlocked, isModuleComplete, getModulePercent, getOverallPercent, hasBadge } =
@@ -14,36 +15,28 @@ export default function DashboardPage() {
   const completedModules = allModules.filter(m => isModuleComplete(m.id)).length;
 
   return (
-    <div className="dashboard">
+    <PageContainer className="dashboard">
       <h1>Your Delegation Progress</h1>
 
       <div className="dashboard-stats">
         <div className="stat-card">
           <div className="stat-card-icon">XP</div>
-          <div className="stat-card-value" style={{ color: 'var(--sandy-gold)' }}>
-            {progress.xp}
-          </div>
+          <div className="stat-card-value">{progress.xp}</div>
           <div className="stat-card-label">Total XP</div>
         </div>
         <div className="stat-card">
           <div className="stat-card-icon">LVL</div>
-          <div className="stat-card-value" style={{ color: 'var(--ink-bright)' }}>
-            Lv.{depthLevel.level}
-          </div>
+          <div className="stat-card-value">Lv.{depthLevel.level}</div>
           <div className="stat-card-label">{depthLevel.title}</div>
         </div>
         <div className="stat-card">
           <div className="stat-card-icon">STR</div>
-          <div className="stat-card-value" style={{ color: 'var(--warm-accent)' }}>
-            {progress.streak.current}
-          </div>
+          <div className="stat-card-value">{progress.streak.current}</div>
           <div className="stat-card-label">Day Streak</div>
         </div>
         <div className="stat-card">
           <div className="stat-card-icon">CMP</div>
-          <div className="stat-card-value" style={{ color: 'var(--mint)' }}>
-            {overallPercent}%
-          </div>
+          <div className="stat-card-value">{overallPercent}%</div>
           <div className="stat-card-label">Complete</div>
         </div>
       </div>
@@ -68,7 +61,7 @@ export default function DashboardPage() {
       )}
 
       <h2 className="section-title">Modules</h2>
-      <div className="module-grid" style={{ marginBottom: 'var(--space-2xl)' }}>
+      <div className="module-grid dashboard-module-grid">
         {allModules.map(mod => {
           const unlocked = isModuleUnlocked(mod.id);
           const completed = isModuleComplete(mod.id);
@@ -107,7 +100,7 @@ export default function DashboardPage() {
       </div>
 
       {completedModules === allModules.length && (
-        <div style={{ textAlign: 'center', marginBottom: 'var(--space-2xl)' }}>
+        <div className="dashboard-completion-link">
           <Link to="/completion" className="btn btn-success btn-lg">
             View Completion Summary
           </Link>
@@ -127,6 +120,6 @@ export default function DashboardPage() {
           );
         })}
       </div>
-    </div>
+    </PageContainer>
   );
 }
