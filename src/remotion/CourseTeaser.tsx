@@ -22,43 +22,60 @@ type CourseTeaserProps = {
 
 type Clip = {
   src: string;
-  caption: string;
+  title: string;
+  detail: string;
 };
 
 const landscapeClips: Clip[] = [
   {
     src: landingToModuleDesktop,
-    caption: 'Live flow: landing to first module',
+    title: 'From landing to lesson',
+    detail: 'Live product capture. No mockups.',
   },
   {
     src: moduleFlowDesktop,
-    caption: 'Live flow: module navigation and knowledge check',
+    title: 'Quiz flow in module 1',
+    detail: 'Sections, checkpoint, and knowledge check.',
   },
   {
     src: dashboardDesktop,
-    caption: 'Inspired by Gabriel Chua · x.com/gabrielchua/status/2026832978056458383',
+    title: 'XP dashboard and badges',
+    detail: 'Adapted from Gabriel Chua’s original thread.',
   },
 ];
 
 const portraitClips: Clip[] = [
   {
     src: landingToModuleMobile,
-    caption: 'Mobile live flow: landing to first module',
+    title: 'Mobile course flow',
+    detail: 'Quick start to first lesson.',
   },
   {
     src: moduleFlowMobile,
-    caption: 'Mobile live flow: module interactions',
+    title: 'Module interactions',
+    detail: 'Read, mark complete, answer checks.',
   },
   {
     src: dashboardMobile,
-    caption: 'Source attribution: Gabriel Chua original thread',
+    title: 'Progress in one view',
+    detail: 'XP, modules, and streak momentum.',
   },
 ];
 
 const FADE_IN = 10;
 const FADE_OUT = 8;
 
-const ClipOverlay = ({ caption, duration, isPortrait }: { caption: string; duration: number; isPortrait: boolean }) => {
+const ClipOverlay = ({
+  title,
+  detail,
+  duration,
+  isPortrait,
+}: {
+  title: string;
+  detail: string;
+  duration: number;
+  isPortrait: boolean;
+}) => {
   const frame = useCurrentFrame();
 
   const fadeIn = interpolate(frame, [0, FADE_IN], [0, 1], {
@@ -78,22 +95,53 @@ const ClipOverlay = ({ caption, duration, isPortrait }: { caption: string; durat
       <div
         style={{
           position: 'absolute',
-          left: isPortrait ? 20 : 28,
-          right: isPortrait ? 20 : 28,
-          bottom: isPortrait ? 20 : 18,
-          background: 'rgba(0, 0, 0, 0.58)',
-          border: '1px solid rgba(255,255,255,0.16)',
-          borderRadius: 12,
-          padding: isPortrait ? '10px 12px' : '9px 12px',
+          inset: 0,
+          background:
+            'linear-gradient(180deg, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.09) 55%, rgba(0,0,0,0.52) 100%)',
+          pointerEvents: 'none',
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          left: isPortrait ? 32 : 44,
+          right: isPortrait ? 32 : 44,
+          bottom: isPortrait ? 38 : 34,
+          background: 'rgba(6, 6, 8, 0.78)',
+          border: '1px solid rgba(255,255,255,0.22)',
+          borderRadius: 16,
+          padding: isPortrait ? '20px 22px' : '18px 22px',
+          boxShadow: '0 12px 34px rgba(0, 0, 0, 0.45)',
           color: '#f4f4f5',
-          fontSize: isPortrait ? 16 : 14,
-          lineHeight: 1.26,
+          display: 'grid',
+          gap: isPortrait ? 10 : 8,
+          lineHeight: 1.18,
           letterSpacing: '0.01em',
           fontFamily:
             'OpenAI Sans, ui-sans-serif, system-ui, -apple-system, Segoe UI, Helvetica Neue, Arial, sans-serif',
         }}
       >
-        {caption}
+        <div
+          style={{
+            fontSize: isPortrait ? 52 : 56,
+            fontWeight: 700,
+            letterSpacing: '-0.03em',
+            color: '#ffffff',
+            textShadow: '0 3px 16px rgba(0,0,0,0.34)',
+          }}
+        >
+          {title}
+        </div>
+        <div
+          style={{
+            fontSize: isPortrait ? 31 : 33,
+            fontWeight: 500,
+            color: 'rgba(236, 242, 247, 0.96)',
+            lineHeight: 1.24,
+          }}
+        >
+          {detail}
+        </div>
       </div>
     </AbsoluteFill>
   );
@@ -124,7 +172,7 @@ export const CourseTeaser = ({ orientation }: CourseTeaserProps) => {
                   objectFit: 'cover',
                 }}
               />
-              <ClipOverlay caption={clip.caption} duration={duration} isPortrait={isPortrait} />
+              <ClipOverlay title={clip.title} detail={clip.detail} duration={duration} isPortrait={isPortrait} />
             </AbsoluteFill>
           </Sequence>
         );
