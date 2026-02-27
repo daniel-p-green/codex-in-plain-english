@@ -12,7 +12,7 @@ export const SOURCE_OPENAI_SKILLS_DOC: SourceRef = {
   note: 'Reference source for the skills workflow and terminology sections.',
 };
 
-export const COURSE_ATTRIBUTION_TITLE = 'Attribution First';
+export const COURSE_ATTRIBUTION_TITLE = 'Attribution';
 
 export const COURSE_ATTRIBUTION_COPY =
   'This course is an educational repackaging of ideas and material by Gabriel Chua. The structure, quizzes, and interactive format were added here, but the core concepts are credited to Gabriel and linked per module.';

@@ -29,9 +29,32 @@ test('landing page shows attribution and source links', async ({ page }) => {
   await expect(page.getByText('Start Module 1 (15 min) →')).toBeVisible();
   await expect(page.getByText('Take Quiz →')).toBeVisible();
   await expect(page.getByText('Track Progress →')).toBeVisible();
-  await expect(page.getByRole('heading', { level: 2, name: 'Attribution First' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 2, name: 'Attribution' })).toBeVisible();
   await expect(page.getByRole('link', { name: /Gabriel Chua thread/i })).toBeVisible();
   await expect(page.getByRole('link', { name: /OpenAI Docs: Codex Skills/i })).toBeVisible();
+
+  const attributionPlacement = await page.evaluate(() => {
+    const sections = Array.from(document.querySelectorAll('.landing-page > section'));
+    const attributionIndex = sections.findIndex(section => section.classList.contains('attribution-banner'));
+    const createWorkflowIndex = sections.findIndex(
+      section => section.querySelector('.landing-section-title')?.textContent?.trim() === 'Create your workflow'
+    );
+    const dashboardIndex = sections.findIndex(section => section.classList.contains('landing-dashboard-link'));
+
+    if (attributionIndex === -1 || createWorkflowIndex === -1 || dashboardIndex === -1) {
+      return null;
+    }
+
+    return {
+      attributionIndex,
+      createWorkflowIndex,
+      dashboardIndex,
+      orderIsCorrect: attributionIndex > createWorkflowIndex && attributionIndex > dashboardIndex,
+    };
+  });
+  if (!attributionPlacement?.orderIsCorrect) {
+    throw new Error(`Attribution order mismatch: ${JSON.stringify(attributionPlacement)}`);
+  }
 });
 
 test('locked modules redirect to home for fresh users', async ({ page }) => {

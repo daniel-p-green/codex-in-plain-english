@@ -457,10 +457,12 @@ button {
 
 .landing-hero h1 {
   color: var(--text-900);
-  font-size: clamp(2.2rem, 4.6vw, 3.35rem);
-  line-height: 1.08;
+  font-size: clamp(1.9rem, 3.4vw, 2.75rem);
+  line-height: 1.1;
   letter-spacing: -0.03em;
-  max-width: 17ch;
+  max-width: none;
+  white-space: nowrap;
+  text-wrap: balance;
   margin: 0 auto;
 }
 
@@ -471,7 +473,7 @@ button {
 .hero-title-suffix {
   font-weight: 500;
   color: var(--text-700);
-  white-space: normal;
+  white-space: nowrap;
 }
 
 .landing-hero p {
@@ -535,7 +537,8 @@ button {
   align-items: center;
   gap: var(--space-4);
   padding: var(--space-4) var(--space-5);
-  margin-bottom: var(--space-8);
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-2);
 }
 
 .attribution-banner-icon {
@@ -1953,27 +1956,47 @@ button {
   }
 
   .landing-page {
-    padding-top: var(--space-6);
+    padding-top: var(--space-5);
+  }
+
+  .landing-hero {
+    text-align: left;
+    margin-bottom: var(--space-6);
   }
 
   .landing-hero h1 {
-    font-size: clamp(1.95rem, 7.6vw, 2.35rem);
-    line-height: 1.12;
-    max-width: 13ch;
+    font-size: clamp(1.48rem, 6.9vw, 1.86rem);
+    line-height: 1.14;
+    max-width: 14.5ch;
+    white-space: normal;
+    text-wrap: balance;
     letter-spacing: -0.022em;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .hero-title-suffix {
+    white-space: normal;
+    font-size: 0.9em;
   }
 
   .landing-hero p {
     margin-top: var(--space-3);
-    font-size: 1.02rem;
-    line-height: 1.32;
+    font-size: 0.92rem;
+    line-height: 1.42;
     letter-spacing: -0.01em;
+    max-width: 31ch;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .landing-hero-note {
     margin-top: var(--space-2);
-    font-size: 0.88rem;
-    line-height: 1.4;
+    font-size: 0.8rem;
+    line-height: 1.42;
+    max-width: 35ch;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .course-clarity {
@@ -2002,6 +2025,8 @@ button {
   .attribution-banner {
     flex-direction: column;
     align-items: flex-start;
+    margin-top: var(--space-6);
+    margin-bottom: 0;
   }
 
   .attribution-banner-links {
@@ -2018,6 +2043,27 @@ button {
 
   .create-card h3 {
     font-size: 1.45rem;
+  }
+
+  .starter-card {
+    min-height: 216px;
+    padding: var(--space-5);
+  }
+
+  .starter-card h3 {
+    font-size: clamp(1.9rem, 8.6vw, 2.3rem);
+    line-height: 1.04;
+    margin-bottom: var(--space-2);
+  }
+
+  .starter-card-secondary h3 {
+    font-size: clamp(1.5rem, 6.9vw, 1.95rem);
+  }
+
+  .starter-card p {
+    max-width: 100%;
+    font-size: 0.92rem;
+    line-height: 1.42;
   }
 
   .create-card {
@@ -2113,7 +2159,24 @@ button {
   }
 
   .landing-hero h1 {
-    font-size: 1.84rem;
+    font-size: 1.42rem;
+    max-width: 15ch;
+  }
+
+  .landing-hero p {
+    font-size: 0.88rem;
+  }
+
+  .landing-hero-note {
+    font-size: 0.77rem;
+  }
+
+  .starter-card h3 {
+    font-size: 1.95rem;
+  }
+
+  .starter-card-secondary h3 {
+    font-size: 1.65rem;
   }
 
   .top-nav-continue {
