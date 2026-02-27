@@ -39,7 +39,7 @@ export default function CompletionPage() {
 
   return (
     <PageContainer className="completion-page">
-      <div className="completion-mascot">DEX</div>
+      <div className="completion-mascot">Dex 🦖</div>
       <h1>You Completed The Course</h1>
       <p className="completion-intro">
         You now have a practical delegation mindset and a repeatable path to skill-based workflows.

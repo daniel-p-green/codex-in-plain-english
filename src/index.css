@@ -182,6 +182,9 @@ button {
 
 .top-nav-brand {
   justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
   color: var(--text-1000);
   font-size: 2rem;
   letter-spacing: -0.02em;
@@ -189,46 +192,89 @@ button {
   line-height: 1;
 }
 
+.top-nav-brand-dex {
+  font-size: 0.66em;
+  line-height: 1;
+}
+
 .top-nav-links {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--space-1);
+  gap: var(--space-2);
 }
 
 .top-nav-link {
   color: var(--text-700);
   font-size: 0.92rem;
   line-height: 1;
-  padding: 8px 12px;
+  padding: 8px 13px;
   border-radius: var(--radius-sm);
-  border: 1px solid transparent;
+  border: 1px solid var(--border-soft);
+  background: var(--surface-50);
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  justify-content: center;
+  min-width: 88px;
 }
 
-.top-nav-caret {
-  font-size: 0.64rem;
+.top-nav-link.locked {
   color: var(--text-600);
+  background: var(--surface-25);
+  border-color: var(--border-soft);
+  cursor: not-allowed;
 }
 
 .top-nav-link:hover {
   color: var(--text-1000);
   background: var(--surface-100);
+  border-color: var(--border-strong);
 }
 
 .top-nav-link.active {
   color: var(--text-1000);
-  background: var(--surface-200);
-  border-color: var(--border-soft);
+  background: var(--surface-150);
+  border-color: color-mix(in srgb, var(--blue-200) 35%, var(--border-soft));
 }
 
 .top-nav-actions {
   justify-self: end;
   display: flex;
   align-items: center;
-  gap: var(--space-4);
+  gap: var(--space-3);
+}
+
+.top-nav-progress {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.top-nav-chip {
+  min-width: 68px;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  background: var(--surface-100);
+  padding: 4px 8px;
+  display: grid;
+  gap: 1px;
+}
+
+.top-nav-chip-value {
+  color: var(--text-900);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+.top-nav-chip-label {
+  color: var(--text-600);
+  font-size: 0.62rem;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: var(--font-mono);
 }
 
 .top-nav-cta {
@@ -241,7 +287,7 @@ button {
   border: 1px solid var(--text-900);
   padding: 9px 18px;
   font-size: 0.95rem;
-  line-height: 1;
+  line-height: 1.05;
   letter-spacing: -0.01em;
   font-weight: 600;
 }
@@ -252,17 +298,19 @@ button {
   border-color: var(--text-1000);
 }
 
-.top-nav-theme {
-  width: 30px;
-  height: 30px;
-  color: var(--text-700);
-  border-radius: var(--radius-pill);
-  border: 1px solid transparent;
+.top-nav-continue {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  padding: 8px 16px;
 }
 
-.top-nav-theme:hover {
-  color: var(--text-1000);
-  border-color: var(--border-soft);
+.top-nav-cta-meta {
+  font-size: 0.68rem;
+  color: var(--surface-150);
+  line-height: 1;
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
 }
 
 .shell-layout {
@@ -1442,18 +1490,19 @@ button {
 
 .completion-mascot {
   margin: 0 auto var(--space-4);
-  width: 54px;
+  min-width: 96px;
   height: 54px;
   border-radius: var(--radius-pill);
   border: 1px solid var(--border-strong);
   color: var(--text-1000);
   font-family: var(--font-mono);
-  font-size: 0.9rem;
-  letter-spacing: 0.08em;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background: var(--surface-100);
+  padding: 0 var(--space-3);
 }
 
 .completion-intro {
@@ -1686,6 +1735,10 @@ button {
     padding: 0 var(--space-4);
   }
 
+  .top-nav-chip-streak {
+    display: none;
+  }
+
   .page-container {
     padding: var(--space-8) var(--space-6);
   }
@@ -1725,7 +1778,7 @@ button {
     font-size: 1.3rem;
   }
 
-  .top-nav-theme {
+  .top-nav-chip-level {
     display: none;
   }
 
@@ -1733,9 +1786,23 @@ button {
     gap: var(--space-2);
   }
 
-  .top-nav-cta {
+  .top-nav-progress {
+    gap: var(--space-1);
+  }
+
+  .top-nav-chip {
+    min-width: 58px;
+    padding: 4px 7px;
+  }
+
+  .top-nav-continue {
+    min-width: 130px;
     padding: 8px 12px;
     font-size: 0.82rem;
+  }
+
+  .top-nav-cta-meta {
+    display: none;
   }
 
   .shell-layout {
@@ -1777,9 +1844,14 @@ button {
     font-size: 1.1rem;
   }
 
-  .top-nav-cta {
+  .top-nav-progress {
+    display: none;
+  }
+
+  .top-nav-continue {
     font-size: 0.78rem;
     padding: 7px 10px;
+    min-width: 118px;
   }
 
   .page-container {

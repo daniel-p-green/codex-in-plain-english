@@ -1,23 +1,16 @@
-import { Link, NavLink, useLocation } from 'react-router-dom';
-import { Menu, Moon } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Menu } from 'lucide-react';
+import type { TopNavCta, TopNavItem, TopNavMetrics } from '../../types/navigation';
 
 interface TopNavProps {
   onOpenMenu: () => void;
+  brandLabel: string;
+  items: TopNavItem[];
+  metrics: TopNavMetrics;
+  cta: TopNavCta;
 }
 
-const PRIMARY_LINKS = [
-  { id: 'home', label: 'Home', href: '/' },
-  { id: 'api', label: 'API', href: '/dashboard', hasMenu: true },
-  { id: 'codex', label: 'Codex', href: '/module/1' },
-  { id: 'chatgpt', label: 'ChatGPT', href: '/module/1', hasMenu: true },
-  { id: 'learn', label: 'Learn', href: '/completion', hasMenu: true },
-];
-
-export default function TopNav({ onOpenMenu }: TopNavProps) {
-  const location = useLocation();
-  const courseRoutes = ['/', '/dashboard', '/completion'];
-  const inCourseArea = courseRoutes.includes(location.pathname) || location.pathname.startsWith('/module');
-
+export default function TopNav({ onOpenMenu, brandLabel, items, metrics, cta }: TopNavProps) {
   return (
     <header className="top-nav">
       <div className="top-nav-inner">
@@ -31,36 +24,45 @@ export default function TopNav({ onOpenMenu }: TopNavProps) {
         </button>
 
         <Link to="/" className="top-nav-brand">
-          OpenAI Developers
+          <span className="top-nav-brand-dex" aria-hidden="true">
+            🦖
+          </span>
+          <span>{brandLabel}</span>
         </Link>
 
         <nav className="top-nav-links" aria-label="Primary">
-          {PRIMARY_LINKS.map(link => (
-            <NavLink
-              key={link.id}
-              to={link.href}
-              end={link.href === '/'}
-              className={({ isActive }) =>
-                `top-nav-link ${isActive || (link.id === 'chatgpt' && inCourseArea) ? 'active' : ''}`
-              }
-            >
-              {link.label}
-              {link.hasMenu && (
-                <span className="top-nav-caret" aria-hidden="true">
-                  ▾
-                </span>
-              )}
-            </NavLink>
-          ))}
+          {items.map(item =>
+            item.locked ? (
+              <span key={item.id} className="top-nav-link locked" aria-disabled="true">
+                {item.label}
+              </span>
+            ) : (
+              <Link key={item.id} to={item.href} className={`top-nav-link ${item.active ? 'active' : ''}`}>
+                {item.label}
+              </Link>
+            )
+          )}
         </nav>
 
         <div className="top-nav-actions">
-          <Link to="/dashboard" className="top-nav-cta">
-            API Dashboard ↗
+          <div className="top-nav-progress" aria-label="Progress highlights">
+            <span className="top-nav-chip top-nav-chip-xp">
+              <span className="top-nav-chip-value">{metrics.xp}</span>
+              <span className="top-nav-chip-label">XP</span>
+            </span>
+            <span className="top-nav-chip top-nav-chip-level">
+              <span className="top-nav-chip-value">Lv.{metrics.level}</span>
+              <span className="top-nav-chip-label">Level</span>
+            </span>
+            <span className="top-nav-chip top-nav-chip-streak">
+              <span className="top-nav-chip-value">{metrics.streak}</span>
+              <span className="top-nav-chip-label">Streak</span>
+            </span>
+          </div>
+          <Link to={cta.href} className="top-nav-cta top-nav-continue">
+            <span>{cta.label}</span>
+            <span className="top-nav-cta-meta">{metrics.overallPercent}% complete</span>
           </Link>
-          <button type="button" className="top-nav-theme" aria-label="Toggle theme">
-            <Moon size={16} aria-hidden="true" />
-          </button>
         </div>
       </div>
     </header>

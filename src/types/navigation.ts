@@ -11,3 +11,23 @@ export interface NavGroup {
   title: string;
   items: NavItem[];
 }
+
+export interface TopNavItem {
+  id: 'overview' | 'modules' | 'progress' | 'completion';
+  label: string;
+  href: string;
+  active: boolean;
+  locked: boolean;
+}
+
+export interface TopNavMetrics {
+  xp: number;
+  level: number;
+  streak: number;
+  overallPercent: number;
+}
+
+export interface TopNavCta {
+  href: string;
+  label: string;
+}

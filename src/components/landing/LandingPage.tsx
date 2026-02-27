@@ -68,8 +68,8 @@ export default function LandingPage() {
   return (
     <PageContainer className="landing-page">
       <section className="landing-hero">
-        <h1>Apps SDK</h1>
-        <p>Our framework to build delegation habits for Codex.</p>
+        <h1>Codex In Plain English</h1>
+        <p>Learn to delegate digital work with confidence, one practical module at a time.</p>
       </section>
 
       <section className="attribution-banner" aria-label="source attribution">

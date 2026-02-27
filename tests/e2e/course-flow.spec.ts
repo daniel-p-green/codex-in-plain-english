@@ -18,7 +18,7 @@ async function answerQuestion(page: Page, answerText: string, isLast: boolean) {
 test('landing page shows attribution and source links', async ({ page }) => {
   await page.goto('/#/');
 
-  await expect(page.getByRole('heading', { level: 1, name: 'Apps SDK' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: 'Codex In Plain English' })).toBeVisible();
   await expect(page.getByRole('heading', { level: 2, name: 'Attribution First' })).toBeVisible();
   await expect(page.getByRole('link', { name: /Gabriel Chua thread/i })).toBeVisible();
   await expect(page.getByRole('link', { name: /OpenAI Docs: Codex Skills/i })).toBeVisible();
@@ -27,7 +27,61 @@ test('landing page shows attribution and source links', async ({ page }) => {
 test('locked modules redirect to home for fresh users', async ({ page }) => {
   await page.goto('/#/module/2');
   await expect(page).toHaveURL(/#\/$/);
-  await expect(page.getByRole('heading', { level: 1, name: 'Apps SDK' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: 'Codex In Plain English' })).toBeVisible();
+});
+
+test('continue course sends fresh learners to module 1', async ({ page }) => {
+  await page.goto('/#/dashboard');
+  await page.getByRole('link', { name: /Continue Course/i }).click();
+  await expect(page).toHaveURL(/#\/module\/1$/);
+});
+
+test('continue course sends fully completed learners to completion', async ({ page }) => {
+  await page.addInitScript(() => {
+    const now = new Date().toISOString();
+    const completedModule = {
+      started: true,
+      startedAt: now,
+      completedAt: now,
+      sectionsRead: ['seed'],
+      totalSections: 1,
+      quiz: {
+        completed: true,
+        score: 3,
+        totalQuestions: 3,
+        attempts: 1,
+        bestScore: 3,
+        questionResults: {},
+      },
+    };
+
+    const seeded = {
+      version: 1,
+      startedAt: now,
+      lastActiveAt: now,
+      currentModule: 1,
+      xp: 999,
+      streak: { current: 8, lastActiveDate: now.split('T')[0], longest: 8 },
+      modules: {
+        'module-1': completedModule,
+        'module-2': completedModule,
+        'module-3': completedModule,
+        'module-4': completedModule,
+        'module-5': completedModule,
+        'module-6': completedModule,
+        'module-7': completedModule,
+        'module-8': completedModule,
+      },
+      badges: ['course-complete'],
+      quizHistory: [],
+    };
+
+    localStorage.setItem('codex-in-plain-english-progress-v1', JSON.stringify(seeded));
+  });
+
+  await page.goto('/#/dashboard');
+  await page.locator('.top-nav-continue').click();
+  await expect(page).toHaveURL(/#\/completion$/);
 });
 
 test('completing module 1 unlocks module 2', async ({ page }) => {
@@ -41,13 +95,7 @@ test('completing module 1 unlocks module 2', async ({ page }) => {
   await answerQuestion(page, 'Automation was always possible; access was the barrier', true);
 
   await expect(page.getByRole('heading', { level: 2, name: 'Quiz Complete!' })).toBeVisible();
-
-  const nextModuleLink = page.getByRole('link', {
-    name: 'Module 2: What Codex Actually Does →',
-  });
-  await expect(nextModuleLink).toBeVisible();
-  await nextModuleLink.click();
-
+  await page.getByRole('link', { name: /Continue Course/i }).click();
   await expect(page).toHaveURL(/#\/module\/2$/);
   await expect(page.getByRole('heading', { level: 1, name: 'What Codex Actually Does' })).toBeVisible();
 });

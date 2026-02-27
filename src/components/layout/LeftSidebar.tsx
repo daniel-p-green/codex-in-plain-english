@@ -16,7 +16,7 @@ export default function LeftSidebar({ groups, pathname }: LeftSidebarProps) {
         <kbd>⌘ K</kbd>
       </div>
 
-      <p className="left-sidebar-breadcrumb">ChatGPT › Codex In Plain English</p>
+      <p className="left-sidebar-breadcrumb">Course › Learning Journey</p>
 
       <nav className="left-sidebar-nav" aria-label="Course sections">
         {groups.map(group => (

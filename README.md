@@ -1,62 +1,78 @@
 # Codex In Plain English
 
-An interactive, gamified web course for non-coders who want to delegate digital busywork using Codex.
+Interactive course for non-coders to learn how to delegate digital work with Codex.
 
-## Attribution (Prominent by Design)
-This project is an educational repackaging of content and ideas by **Gabriel Chua**.
+## Attribution
 
-Primary sources:
-- [Gabriel Chua - "Codex, in Plain English" thread](https://x.com/gabrielchua/status/2026832978056458383)
+This course adapts ideas from **Gabriel Chua** and keeps source attribution visible across the app and docs.
+
+- [Gabriel Chua - "Codex, in Plain English" (X thread)](https://x.com/gabrielchua/status/2026832978056458383)
 - [OpenAI Docs - Codex Skills](https://developers.openai.com/codex/skills)
 
-What this project adds:
-- Interactive module flow
-- Quiz mechanics and progression
-- XP, badges, streaks, and completion UX
-- A structured curriculum wrapper around the original ideas
+This repository is an educational adaptation. It is **not** official OpenAI product documentation.
 
-This is **not** official OpenAI product documentation.
+## Quickstart
 
-## What You Get
-- 8 modules (4 on Codex delegation fundamentals, 4 on Skills)
-- 24 quiz questions (3 per module)
-- Sequential unlocking (complete module quiz to unlock next)
-- Local progress persistence via `localStorage`
-- Mobile-friendly responsive experience
-- Strong source attribution on landing page and each module
+### Requirements
 
-## Tech Stack
-- React 19 + TypeScript
-- Vite
-- React Router (`HashRouter` for static hosting)
-- Framer Motion (available for animations)
-- Canvas Confetti (completion celebration)
+- Node.js 20+
+- npm 10+
 
-## Local Development
+### Setup
+
 ```bash
 npm install
 npm run dev
 ```
 
-Then open `http://localhost:5173`.
+Open [http://localhost:5173](http://localhost:5173).
 
-## Build, Lint, Preview
+## Validate
+
 ```bash
 npm run lint
+npm run test:e2e
 npm run build
+```
+
+Optional local preview:
+
+```bash
 npm run preview
 ```
 
-## GitHub Pages Deploy
-This repo is configured for GitHub Pages base path:
-- `/codex-in-plain-english/`
+## Course Structure
 
-Deploy command:
+- 8 modules (4 Codex fundamentals + 4 Skills modules)
+- 3 quiz questions per module (24 total)
+- Sequential unlock progression (module `N` unlocks module `N+1`)
+- XP, streaks, badges, and completion flow
+- Local progress persistence (`localStorage`)
+
+### Module List
+
+1. From Clicking to Delegating
+2. What Codex Actually Does
+3. Two Execution Modes (Code vs UI)
+4. First Delegation Playbook for Non-Coders
+5. Skills 101 (Reusable Prompting as Workflow)
+6. Progressive Disclosure and Skill Structure
+7. Team Practices, Consistency, and Scaling
+8. Build/Adopt Your First Skill
+
+## Deploy
+
+This project is configured for GitHub Pages at `/codex-in-plain-english/`.
+
 ```bash
 npm run deploy
 ```
 
-## Project Structure
+Published URL:
+[https://daniel-p-green.github.io/codex-in-plain-english/](https://daniel-p-green.github.io/codex-in-plain-english/)
+
+## Project Layout
+
 ```text
 src/
   components/
@@ -78,15 +94,16 @@ src/
   types/
 ```
 
-## Course Outline
-1. From Clicking To Delegating
-2. What Codex Actually Does
-3. Two Execution Modes: Code vs UI
-4. First Delegation Playbook For Non-Coders
-5. Skills 101: Reusable Prompting As Workflow
-6. Progressive Disclosure And Skill Structure
-7. Team Practices: Consistency And Scale
-8. Build Or Adopt Your First Skill
+## Related OpenAI Docs
+
+- [Codex Quickstart](https://developers.openai.com/codex/quickstart/)
+- [Codex Skills](https://developers.openai.com/codex/skills)
+- [Apps SDK Quickstart](https://developers.openai.com/apps-sdk/quickstart/)
+
+## Disclaimer
+
+This project reflects an independent educational framing of publicly shared material. Product behavior, limits, and implementation details should be confirmed against official OpenAI documentation.
 
 ## License
+
 MIT

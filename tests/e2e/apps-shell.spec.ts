@@ -16,7 +16,9 @@ test('shared shell appears on dashboard and module pages', async ({ page }) => {
   await page.goto('/#/dashboard');
 
   await expect(page.getByRole('navigation', { name: 'Course sections' })).toBeVisible();
-  await expect(page.getByRole('link', { name: 'API Dashboard ↗' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Codex In Plain English' })).toBeVisible();
+  await expect(page.getByRole('link', { name: /Continue Course/i })).toBeVisible();
+  await expect(page.getByText('OpenAI Developers')).toHaveCount(0);
 
   await page.goto('/#/module/1');
   await expect(page.getByRole('navigation', { name: 'Course sections' })).toBeVisible();
@@ -29,5 +31,5 @@ test('mobile menu opens course drawer navigation', async ({ page }) => {
   await page.getByRole('button', { name: 'Open navigation menu' }).click();
   const drawer = page.getByRole('dialog', { name: 'Course navigation' });
   await expect(drawer).toBeVisible();
-  await expect(drawer.getByRole('link', { name: 'Quickstart' })).toBeVisible();
+  await expect(drawer.getByRole('link', { name: 'From Clicking To Delegating' })).toBeVisible();
 });
