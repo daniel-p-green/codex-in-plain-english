@@ -1166,6 +1166,11 @@ button {
   margin-bottom: var(--space-2);
 }
 
+.callout-mascot {
+  font-size: 1rem;
+  line-height: 1;
+}
+
 .callout-marker {
   font-family: var(--font-mono);
   border: 1px solid currentColor;

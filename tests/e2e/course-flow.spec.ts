@@ -84,6 +84,11 @@ test('continue course sends fully completed learners to completion', async ({ pa
   await expect(page).toHaveURL(/#\/completion$/);
 });
 
+test('tip sections show Dex mascot emoji', async ({ page }) => {
+  await page.goto('/#/module/1');
+  await expect(page.locator('.callout-title', { hasText: '🦖' }).first()).toBeVisible();
+});
+
 test('completing module 1 unlocks module 2', async ({ page }) => {
   await page.goto('/#/module/1');
   await expect(page.getByRole('heading', { level: 1, name: 'From Clicking To Delegating' })).toBeVisible();

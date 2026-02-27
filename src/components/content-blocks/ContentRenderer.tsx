@@ -81,9 +81,15 @@ export default function ContentRenderer({ blocks }: { blocks: ContentBlock[] }) 
 
           case 'callout': {
             const labels = { info: 'INFO', warning: 'CAUTION', tip: 'TIP' };
+            const isTip = block.variant === 'tip';
             return (
               <div key={index} className={`callout callout-${block.variant}`}>
                 <div className="callout-title">
+                  {isTip && (
+                    <span className="callout-mascot" aria-hidden="true">
+                      🦖
+                    </span>
+                  )}
                   <span className="callout-marker">{labels[block.variant]}</span>
                   {block.title}
                 </div>
