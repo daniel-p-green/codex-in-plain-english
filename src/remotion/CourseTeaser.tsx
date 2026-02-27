@@ -1,12 +1,4 @@
-import {
-  AbsoluteFill,
-  Easing,
-  OffthreadVideo,
-  Sequence,
-  interpolate,
-  useCurrentFrame,
-  useVideoConfig,
-} from 'remotion';
+import { AbsoluteFill, Easing, OffthreadVideo, Sequence, interpolate, useCurrentFrame, useVideoConfig } from 'remotion';
 
 import dashboardDesktop from './assets/clips/dashboard-desktop.webm';
 import dashboardMobile from './assets/clips/dashboard-mobile.webm';
@@ -23,180 +15,100 @@ type CourseTeaserProps = {
 
 type Clip = {
   src: string;
-  title: string;
-  detail: string;
 };
 
+const CROSSFADE = 14;
+const OPEN_FADE = 16;
+const CLOSE_FADE = 18;
+
 const landscapeClips: Clip[] = [
-  {
-    src: landingToModuleDesktop,
-    title: 'Live course experience',
-    detail: 'From landing page to first module in one flow.',
-  },
-  {
-    src: moduleFlowDesktop,
-    title: 'Readable module structure',
-    detail: 'Sections, tips, and quiz checks with clear progress.',
-  },
-  {
-    src: dashboardDesktop,
-    title: 'Progress that motivates completion',
-    detail: 'XP, unlocks, and dashboard momentum.',
-  },
+  { src: landingToModuleDesktop },
+  { src: moduleFlowDesktop },
+  { src: dashboardDesktop },
 ];
 
 const portraitClips: Clip[] = [
-  {
-    src: landingToModuleMobile,
-    title: 'Mobile-first course flow',
-    detail: 'Quick start, clean reading rhythm, and clear actions.',
-  },
-  {
-    src: moduleFlowMobile,
-    title: 'Guided module interactions',
-    detail: 'Read, mark complete, and validate understanding.',
-  },
-  {
-    src: dashboardMobile,
-    title: 'Progress in one view',
-    detail: 'Track completion across modules and streaks.',
-  },
+  { src: landingToModuleMobile },
+  { src: moduleFlowMobile },
+  { src: dashboardMobile },
 ];
 
-const FADE_IN = 12;
-const FADE_OUT = 10;
-const SLIDE_IN = 24;
-
-const ClipOverlay = ({
-  title,
-  detail,
+const ClipScene = ({
+  clip,
   duration,
+  isFirst,
+  isLast,
   isPortrait,
-  isFinal,
-  clipIndex,
-  clipCount,
 }: {
-  title: string;
-  detail: string;
+  clip: Clip;
   duration: number;
+  isFirst: boolean;
+  isLast: boolean;
   isPortrait: boolean;
-  isFinal: boolean;
-  clipIndex: number;
-  clipCount: number;
 }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
 
-  const fadeIn = interpolate(frame, [0, FADE_IN], [0, 1], {
+  const enterOpacity = isFirst
+    ? interpolate(frame, [0, OPEN_FADE], [0, 1], {
+        extrapolateLeft: 'clamp',
+        extrapolateRight: 'clamp',
+        easing: Easing.out(Easing.cubic),
+      })
+    : interpolate(frame, [0, CROSSFADE], [0, 1], {
+        extrapolateLeft: 'clamp',
+        extrapolateRight: 'clamp',
+        easing: Easing.out(Easing.cubic),
+      });
+
+  const exitOpacity = isLast
+    ? interpolate(frame, [duration - CLOSE_FADE, duration], [1, 0], {
+        extrapolateLeft: 'clamp',
+        extrapolateRight: 'clamp',
+        easing: Easing.in(Easing.cubic),
+      })
+    : interpolate(frame, [duration - CROSSFADE, duration], [1, 0], {
+        extrapolateLeft: 'clamp',
+        extrapolateRight: 'clamp',
+        easing: Easing.in(Easing.cubic),
+      });
+
+  const opacity = Math.min(enterOpacity, exitOpacity);
+
+  const scale = interpolate(frame, [0, duration], [1.008, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
-    easing: Easing.out(Easing.cubic),
+    easing: Easing.out(Easing.quad),
   });
-  const fadeOut = interpolate(frame, [duration - FADE_OUT, duration], [1, 0], {
+
+  const driftY = interpolate(frame, [0, duration], [isPortrait ? 2 : 1, isPortrait ? -1 : -0.5], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
-    easing: Easing.in(Easing.cubic),
-  });
-  const opacity = Math.min(fadeIn, fadeOut);
-  const slide = interpolate(frame, [0, SLIDE_IN], [22, 0], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-    easing: Easing.out(Easing.cubic),
-  });
-  const tagOpacity = interpolate(frame, [0, Math.round(0.5 * fps)], [0, 1], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-    easing: Easing.out(Easing.cubic),
+    easing: Easing.inOut(Easing.quad),
   });
 
   return (
     <AbsoluteFill style={{ opacity }}>
-      <div
+      <OffthreadVideo
+        src={clip.src}
+        muted
+        endAt={duration}
         style={{
-          position: 'absolute',
-          inset: 0,
-          background:
-            'linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.08) 48%, rgba(0,0,0,0.58) 100%)',
-          pointerEvents: 'none',
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          transform: `translate3d(0, ${driftY}px, 0) scale(${scale})`,
+          transformOrigin: '50% 50%',
         }}
       />
       <div
         style={{
           position: 'absolute',
-          left: isPortrait ? 30 : 44,
-          top: isPortrait ? 30 : 34,
-          borderRadius: 999,
-          border: '1px solid rgba(255,255,255,0.24)',
-          background: 'rgba(8, 10, 14, 0.7)',
-          color: '#e8e8e8',
-          fontSize: isPortrait ? 20 : 18,
-          fontWeight: 600,
-          letterSpacing: '-0.01em',
-          padding: isPortrait ? '8px 14px' : '8px 12px',
-          opacity: tagOpacity,
-          fontFamily:
-            'OpenAI Sans, ui-sans-serif, system-ui, -apple-system, Segoe UI, Helvetica Neue, Arial, sans-serif',
+          inset: 0,
+          background:
+            'linear-gradient(180deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.08) 55%, rgba(0,0,0,0.22) 100%)',
+          pointerEvents: 'none',
         }}
-      >
-        {`Scene ${clipIndex + 1}/${clipCount}`}
-      </div>
-      <div
-        style={{
-          position: 'absolute',
-          left: isPortrait ? 32 : 44,
-          right: isPortrait ? 32 : 360,
-          bottom: isPortrait ? 38 : 34,
-          background: 'rgba(6, 8, 12, 0.76)',
-          border: '1px solid rgba(255,255,255,0.24)',
-          borderRadius: 16,
-          padding: isPortrait ? '16px 18px' : '16px 20px',
-          boxShadow: '0 12px 34px rgba(0, 0, 0, 0.45)',
-          color: '#f4f4f5',
-          display: 'grid',
-          gap: isPortrait ? 8 : 7,
-          lineHeight: 1.18,
-          letterSpacing: '0.01em',
-          transform: `translateY(${slide}px)`,
-          fontFamily:
-            'OpenAI Sans, ui-sans-serif, system-ui, -apple-system, Segoe UI, Helvetica Neue, Arial, sans-serif',
-        }}
-      >
-        <div
-          style={{
-            fontSize: isPortrait ? 38 : 44,
-            fontWeight: 700,
-            letterSpacing: '-0.03em',
-            color: '#ffffff',
-            lineHeight: 1.06,
-            textShadow: '0 2px 12px rgba(0,0,0,0.36)',
-          }}
-        >
-          {title}
-        </div>
-        <div
-          style={{
-            fontSize: isPortrait ? 22 : 24,
-            fontWeight: 500,
-            color: 'rgba(236, 242, 247, 0.96)',
-            lineHeight: 1.22,
-          }}
-        >
-          {detail}
-        </div>
-        {isFinal ? (
-          <div
-            style={{
-              marginTop: isPortrait ? 2 : 4,
-              fontSize: isPortrait ? 17 : 18,
-              fontWeight: 500,
-              color: 'rgba(186, 227, 255, 0.95)',
-              letterSpacing: '-0.01em',
-            }}
-          >
-            Adapted from Gabriel Chua&apos;s original post.
-          </div>
-        ) : null}
-      </div>
+      />
     </AbsoluteFill>
   );
 };
@@ -205,38 +117,22 @@ export const CourseTeaser = ({ orientation }: CourseTeaserProps) => {
   const isPortrait = orientation === 'portrait';
   const clips = isPortrait ? portraitClips : landscapeClips;
   const { durationInFrames } = useVideoConfig();
+
   const totalFrames = durationInFrames;
-  const clipDuration = Math.floor(totalFrames / clips.length);
+  const sceneDuration = Math.floor((totalFrames + CROSSFADE * (clips.length - 1)) / clips.length);
+  const sceneStep = sceneDuration - CROSSFADE;
 
   return (
     <AbsoluteFill style={{ backgroundColor: '#000' }}>
       {clips.map((clip, index) => {
-        const from = index * clipDuration;
-        const duration = index === clips.length - 1 ? totalFrames - from : clipDuration;
+        const isFirst = index === 0;
+        const isLast = index === clips.length - 1;
+        const from = index * sceneStep;
+        const duration = isLast ? totalFrames - from : sceneDuration;
 
         return (
-          <Sequence key={clip.src} from={from} durationInFrames={duration}>
-            <AbsoluteFill>
-              <OffthreadVideo
-                src={clip.src}
-                muted
-                endAt={duration}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                }}
-              />
-              <ClipOverlay
-                title={clip.title}
-                detail={clip.detail}
-                duration={duration}
-                isPortrait={isPortrait}
-                isFinal={index === clips.length - 1}
-                clipIndex={index}
-                clipCount={clips.length}
-              />
-            </AbsoluteFill>
+          <Sequence key={`${clip.src}-${index}`} from={from} durationInFrames={duration}>
+            <ClipScene clip={clip} duration={duration} isFirst={isFirst} isLast={isLast} isPortrait={isPortrait} />
           </Sequence>
         );
       })}

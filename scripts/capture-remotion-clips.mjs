@@ -120,13 +120,10 @@ async function captureDesktopClips(browser) {
     contextOptions: desktopOptions,
     flow: async page => {
       await goTo(page, '/#/');
-      await safeAction(() => page.getByRole('link', { name: /From Clicking To Delegating/i }).first().click());
-      await sleep(1400);
-      if (!page.url().includes('/#/module/1')) {
-        await goTo(page, '/#/module/1');
-      }
-      await safeAction(() => page.mouse.wheel(0, 700));
+      await safeAction(() => page.mouse.move(1320, 188, { steps: 24 }));
       await sleep(900);
+      await safeAction(() => page.getByRole('link', { name: /From Clicking To Delegating/i }).first().hover());
+      await sleep(1400);
     },
   });
 
@@ -137,13 +134,11 @@ async function captureDesktopClips(browser) {
     flow: async page => {
       await goTo(page, '/#/module/1');
       await safeAction(() => page.getByRole('button', { name: /1\.5 - Dex Checkpoint/i }).click());
-      await sleep(700);
+      await sleep(900);
       await safeAction(() => page.getByRole('button', { name: /Knowledge Check/i }).click());
-      await sleep(700);
+      await sleep(900);
       await safeAction(() => page.getByRole('button', { name: /Sources/i }).click());
-      await sleep(700);
-      await safeAction(() => page.mouse.wheel(0, -600));
-      await sleep(600);
+      await sleep(900);
     },
   });
 
@@ -161,10 +156,11 @@ async function captureDesktopClips(browser) {
     },
     flow: async page => {
       await goTo(page, '/#/dashboard');
-      await safeAction(() => page.mouse.wheel(0, 560));
-      await sleep(900);
+      await sleep(1000);
       await safeAction(() => page.getByRole('link', { name: /What Codex Actually Does/i }).first().click());
-      await sleep(1300);
+      await sleep(1500);
+      await safeAction(() => page.getByRole('link', { name: /Continue Course/i }).first().hover());
+      await sleep(800);
     },
   });
 }
@@ -176,13 +172,9 @@ async function captureMobileClips(browser) {
     contextOptions: mobileOptions,
     flow: async page => {
       await goTo(page, '/#/');
-      await safeAction(() => page.mouse.wheel(0, 320));
-      await sleep(500);
-      await safeAction(() => page.getByRole('link', { name: /From Clicking To Delegating/i }).first().click());
-      await sleep(1500);
-      if (!page.url().includes('/#/module/1')) {
-        await goTo(page, '/#/module/1');
-      }
+      await sleep(900);
+      await safeAction(() => page.getByRole('link', { name: /From Clicking To Delegating/i }).first().hover());
+      await sleep(1400);
     },
   });
 
@@ -192,12 +184,11 @@ async function captureMobileClips(browser) {
     contextOptions: mobileOptions,
     flow: async page => {
       await goTo(page, '/#/module/1');
-      await safeAction(() => page.mouse.wheel(0, 740));
-      await sleep(900);
+      await sleep(700);
       await safeAction(() => page.getByRole('button', { name: /Knowledge Check/i }).click());
-      await sleep(800);
-      await safeAction(() => page.mouse.wheel(0, 420));
-      await sleep(650);
+      await sleep(1100);
+      await safeAction(() => page.getByRole('button', { name: /Sources/i }).click());
+      await sleep(900);
     },
   });
 
@@ -215,10 +206,9 @@ async function captureMobileClips(browser) {
     },
     flow: async page => {
       await goTo(page, '/#/dashboard');
-      await safeAction(() => page.mouse.wheel(0, 860));
-      await sleep(900);
-      await safeAction(() => page.getByRole('link', { name: /Continue Course/i }).first().click());
-      await sleep(1200);
+      await sleep(1000);
+      await safeAction(() => page.getByRole('link', { name: /What Codex Actually Does/i }).first().click());
+      await sleep(1300);
     },
   });
 }
