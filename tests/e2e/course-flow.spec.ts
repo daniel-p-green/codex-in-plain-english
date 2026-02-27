@@ -18,7 +18,17 @@ async function answerQuestion(page: Page, answerText: string, isLast: boolean) {
 test('landing page shows attribution and source links', async ({ page }) => {
   await page.goto('/#/');
 
-  await expect(page.getByRole('heading', { level: 1, name: 'Codex In Plain English' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: 'Codex In Plain English: The Course' })).toBeVisible();
+  await expect(page.locator('.landing-hero .hero-title-suffix')).toHaveText('The Course');
+  await expect(page.getByText('Guided modules + quizzes, not a live coding sandbox.')).toBeVisible();
+  await expect(page.getByRole('heading', { level: 2, name: 'How this course works' })).toBeVisible();
+  const clarityPanel = page.locator('.course-clarity');
+  await expect(clarityPanel.getByText('Start Module 1 (15 min)', { exact: true })).toBeVisible();
+  await expect(clarityPanel.getByText('Take Quiz', { exact: true })).toBeVisible();
+  await expect(clarityPanel.getByText('Track Progress', { exact: true })).toBeVisible();
+  await expect(page.getByText('Start Module 1 (15 min) →')).toBeVisible();
+  await expect(page.getByText('Take Quiz →')).toBeVisible();
+  await expect(page.getByText('Track Progress →')).toBeVisible();
   await expect(page.getByRole('heading', { level: 2, name: 'Attribution First' })).toBeVisible();
   await expect(page.getByRole('link', { name: /Gabriel Chua thread/i })).toBeVisible();
   await expect(page.getByRole('link', { name: /OpenAI Docs: Codex Skills/i })).toBeVisible();
@@ -27,7 +37,7 @@ test('landing page shows attribution and source links', async ({ page }) => {
 test('locked modules redirect to home for fresh users', async ({ page }) => {
   await page.goto('/#/module/2');
   await expect(page).toHaveURL(/#\/$/);
-  await expect(page.getByRole('heading', { level: 1, name: 'Codex In Plain English' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: 'Codex In Plain English: The Course' })).toBeVisible();
 });
 
 test('continue course sends fresh learners to module 1', async ({ page }) => {

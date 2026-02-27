@@ -13,7 +13,6 @@ export default function LandingPage() {
   const { isModuleUnlocked } = useProgressContext();
   const moduleOne = allModules[0];
   const moduleFive = allModules[4];
-  const moduleFour = allModules[3];
 
   const starterCards = [
     {
@@ -43,23 +42,23 @@ export default function LandingPage() {
       id: 'plan',
       title: 'Research use cases',
       copy: 'Identify repetitive digital tasks and define the outcome before implementation.',
-      cta: 'Plan',
+      cta: 'Start Module 1 (15 min)',
       href: `/module/${moduleOne.number}`,
       locked: false,
     },
     {
       id: 'build',
       title: 'Build your delegation flow',
-      copy: 'Use modules 2-6 to design reliable execution steps and reusable skill patterns.',
-      cta: 'Build',
-      href: `/module/${moduleFour.number}`,
-      locked: !isModuleUnlocked(moduleFour.id),
+      copy: 'Jump into the first knowledge check and get fast feedback on what to improve.',
+      cta: 'Take Quiz',
+      href: `/module/${moduleOne.number}`,
+      locked: false,
     },
     {
       id: 'deploy',
       title: 'Deploy your workflow',
       copy: 'Track progress, unlock all modules, and finish with a reusable operating playbook.',
-      cta: 'Deploy',
+      cta: 'Track Progress',
       href: '/dashboard',
       locked: false,
     },
@@ -68,8 +67,30 @@ export default function LandingPage() {
   return (
     <PageContainer className="landing-page">
       <section className="landing-hero">
-        <h1>Codex In Plain English</h1>
+        <h1>
+          <span className="hero-title-main">Codex In Plain English:</span>{' '}
+          <span className="hero-title-suffix">The Course</span>
+        </h1>
         <p>Learn to delegate digital work with confidence, one practical module at a time.</p>
+        <p className="landing-hero-note">Guided modules + quizzes, not a live coding sandbox.</p>
+      </section>
+
+      <section className="course-clarity" aria-labelledby="course-clarity-title">
+        <h2 id="course-clarity-title">How this course works</h2>
+        <ol>
+          <li>
+            <strong>Start Module 1 (15 min)</strong>
+            <span>Get the core model first: outcome, constraints, and checks.</span>
+          </li>
+          <li>
+            <strong>Take Quiz</strong>
+            <span>Validate understanding with three quick questions per module.</span>
+          </li>
+          <li>
+            <strong>Track Progress</strong>
+            <span>Use XP, streaks, and unlocks to keep momentum through all 8 modules.</span>
+          </li>
+        </ol>
       </section>
 
       <section className="attribution-banner" aria-label="source attribution">
@@ -126,7 +147,7 @@ export default function LandingPage() {
                 <article key={card.id} className={className}>
                   <h3>{card.title}</h3>
                   <p>{card.copy}</p>
-                  <span className="create-card-cta">Locked</span>
+                  <span className="create-card-cta">{card.cta} (Locked)</span>
                 </article>
               );
             }

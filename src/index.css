@@ -457,10 +457,21 @@ button {
 
 .landing-hero h1 {
   color: var(--text-900);
-  font-size: clamp(2.7rem, 4.8vw, 3.5rem);
-  line-height: 1.06;
+  font-size: clamp(2.2rem, 4.6vw, 3.35rem);
+  line-height: 1.08;
   letter-spacing: -0.03em;
+  max-width: 17ch;
+  margin: 0 auto;
+}
+
+.hero-title-main {
   font-weight: 700;
+}
+
+.hero-title-suffix {
+  font-weight: 500;
+  color: var(--text-700);
+  white-space: normal;
 }
 
 .landing-hero p {
@@ -469,6 +480,51 @@ button {
   font-size: clamp(1.3rem, 2vw, 2rem);
   line-height: 1.15;
   letter-spacing: -0.02em;
+}
+
+.landing-hero-note {
+  margin-top: var(--space-3);
+  color: var(--text-600);
+  font-size: 0.98rem;
+  letter-spacing: 0;
+  line-height: 1.45;
+}
+
+.course-clarity {
+  margin-bottom: var(--space-8);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  background: var(--surface-50);
+  padding: var(--space-5);
+}
+
+.course-clarity h2 {
+  color: var(--text-900);
+  font-size: 1.1rem;
+  margin-bottom: var(--space-3);
+}
+
+.course-clarity ol {
+  list-style: decimal;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: var(--space-3);
+}
+
+.course-clarity li {
+  color: var(--text-700);
+  display: grid;
+  gap: 2px;
+}
+
+.course-clarity strong {
+  color: var(--text-900);
+  font-size: 0.96rem;
+}
+
+.course-clarity li span {
+  font-size: 0.92rem;
+  line-height: 1.45;
 }
 
 .attribution-banner {
@@ -654,11 +710,11 @@ button {
 }
 
 .create-card-cta {
-  font-size: 1.35rem;
-  line-height: 1;
+  font-size: 1rem;
+  line-height: 1.2;
   color: var(--text-900);
   font-weight: 600;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.01em;
 }
 
 .landing-dashboard-link {
@@ -1900,6 +1956,49 @@ button {
     padding-top: var(--space-6);
   }
 
+  .landing-hero h1 {
+    font-size: clamp(1.95rem, 7.6vw, 2.35rem);
+    line-height: 1.12;
+    max-width: 13ch;
+    letter-spacing: -0.022em;
+  }
+
+  .landing-hero p {
+    margin-top: var(--space-3);
+    font-size: 1.02rem;
+    line-height: 1.32;
+    letter-spacing: -0.01em;
+  }
+
+  .landing-hero-note {
+    margin-top: var(--space-2);
+    font-size: 0.88rem;
+    line-height: 1.4;
+  }
+
+  .course-clarity {
+    margin-bottom: var(--space-6);
+    padding: var(--space-4);
+  }
+
+  .course-clarity h2 {
+    font-size: 1rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .course-clarity ol {
+    gap: var(--space-2);
+  }
+
+  .course-clarity strong {
+    font-size: 0.9rem;
+  }
+
+  .course-clarity li span {
+    font-size: 0.84rem;
+    line-height: 1.36;
+  }
+
   .attribution-banner {
     flex-direction: column;
     align-items: flex-start;
@@ -1919,6 +2018,20 @@ button {
 
   .create-card h3 {
     font-size: 1.45rem;
+  }
+
+  .create-card {
+    min-height: 192px;
+    padding: var(--space-5);
+  }
+
+  .create-card p {
+    font-size: 0.92rem;
+    line-height: 1.45;
+  }
+
+  .create-card-cta {
+    font-size: 0.92rem;
   }
 
   .module-grid,
@@ -1997,6 +2110,10 @@ button {
 
   .top-nav-brand {
     font-size: 0.9rem;
+  }
+
+  .landing-hero h1 {
+    font-size: 1.84rem;
   }
 
   .top-nav-continue {
