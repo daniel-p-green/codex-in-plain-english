@@ -93,24 +93,6 @@ export default function LandingPage() {
         </ol>
       </section>
 
-      <section className="attribution-banner" aria-label="source attribution">
-        <div className="attribution-banner-icon" aria-hidden="true">
-          i
-        </div>
-        <div className="attribution-banner-main">
-          <h2>{COURSE_ATTRIBUTION_TITLE}</h2>
-          <p>{COURSE_ATTRIBUTION_COPY}</p>
-        </div>
-        <div className="attribution-banner-links">
-          <a href={SOURCE_GABRIEL_X.url} target="_blank" rel="noreferrer noopener">
-            Gabriel Chua thread
-          </a>
-          <a href={SOURCE_OPENAI_SKILLS_DOC.url} target="_blank" rel="noreferrer noopener">
-            OpenAI Docs: Codex Skills
-          </a>
-        </div>
-      </section>
-
       <section className="landing-section">
         <h2 className="landing-section-title">Get started</h2>
         <div className="landing-starter-grid" data-testid="get-started-grid">
@@ -166,6 +148,24 @@ export default function LandingPage() {
         <p>
           Continue through all 8 modules in the <Link to="/dashboard">Course Dashboard</Link>.
         </p>
+      </section>
+
+      <section className="attribution-banner" aria-label="source attribution">
+        <div className="attribution-banner-icon" aria-hidden="true">
+          i
+        </div>
+        <div className="attribution-banner-main">
+          <h2>{COURSE_ATTRIBUTION_TITLE}</h2>
+          <p>{COURSE_ATTRIBUTION_COPY}</p>
+        </div>
+        <div className="attribution-banner-links">
+          <a href={SOURCE_GABRIEL_X.url} target="_blank" rel="noreferrer noopener">
+            Gabriel Chua thread
+          </a>
+          <a href={SOURCE_OPENAI_SKILLS_DOC.url} target="_blank" rel="noreferrer noopener">
+            OpenAI Docs: Codex Skills
+          </a>
+        </div>
       </section>
     </PageContainer>
   );
