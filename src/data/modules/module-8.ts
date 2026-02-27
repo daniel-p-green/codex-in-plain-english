@@ -102,7 +102,7 @@ export const module8: ModuleData = {
           type: 'callout',
           variant: 'info',
           title: 'You are now ready',
-          text: 'You can now go from plain-language outcomes to reusable delegated workflows with visible quality standards.',
+          text: 'You now have a repeatable path for turning plain-language outcomes into reusable delegated workflows with visible quality standards.',
         },
       ],
     },

@@ -6,7 +6,7 @@ export const module2: ModuleData = {
   number: 2,
   title: 'What Codex Actually Does',
   subtitle:
-    'Break down Codex as an execution agent: planning, selecting tools, writing instructions, and retrying when things fail.',
+    'Break down Codex as an execution agent: planning, selecting tools, writing instructions, and retrying when things fail in supported environments.',
   depthZone: 'Starter Layer',
   depthMeters: 30,
   estimatedMinutes: 20,
@@ -22,7 +22,7 @@ export const module2: ModuleData = {
         {
           type: 'boldText',
           label: 'Practical framing:',
-          text: 'You assign work; Codex handles the technical execution path.',
+          text: 'You assign work; Codex can handle much of the technical execution path when scope, permissions, and environment are set correctly.',
         },
       ],
     },
@@ -95,6 +95,7 @@ export const module2: ModuleData = {
           type: 'unorderedList',
           items: [
             'Deciding what "good" looks like before execution.',
+            'Confirming environment setup and permissions before running sensitive actions.',
             'Reviewing edge cases and exceptions in outputs.',
             'Approving operations that can impact sensitive data.',
             'Defining when to stop and ask for clarification.',
@@ -110,7 +111,7 @@ export const module2: ModuleData = {
           type: 'callout',
           variant: 'info',
           title: 'Checkpoint',
-          text: 'Codex handles technical labor. You own intent, constraints, and final judgment.',
+          text: 'Codex can take on technical labor, but you still own intent, constraints, permissions, and final judgment.',
         },
       ],
     },
