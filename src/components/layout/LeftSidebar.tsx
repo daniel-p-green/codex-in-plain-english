@@ -31,6 +31,9 @@ export default function LeftSidebar({ groups, pathname }: LeftSidebarProps) {
                     <li key={item.id}>
                       <span className="left-sidebar-link locked" aria-disabled="true">
                         {item.label}
+                        <span className="left-sidebar-lock" aria-hidden="true">
+                          Locked
+                        </span>
                       </span>
                     </li>
                   );

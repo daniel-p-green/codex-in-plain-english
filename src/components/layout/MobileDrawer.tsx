@@ -33,7 +33,12 @@ export default function MobileDrawer({ open, groups, pathname, onClose }: Mobile
                   return (
                     <li key={item.id}>
                       {item.locked ? (
-                        <span className="mobile-drawer-link locked">{item.label}</span>
+                        <span className="mobile-drawer-link locked" aria-disabled="true">
+                          {item.label}
+                          <span className="mobile-drawer-lock" aria-hidden="true">
+                            Locked
+                          </span>
+                        </span>
                       ) : (
                         <Link
                           className={`mobile-drawer-link ${active ? 'active' : ''}`}

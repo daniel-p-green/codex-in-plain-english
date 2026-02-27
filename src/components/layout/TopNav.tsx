@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, Moon } from 'lucide-react';
 
 interface TopNavProps {
@@ -7,13 +7,17 @@ interface TopNavProps {
 
 const PRIMARY_LINKS = [
   { id: 'home', label: 'Home', href: '/' },
-  { id: 'api', label: 'API', href: '/dashboard' },
+  { id: 'api', label: 'API', href: '/dashboard', hasMenu: true },
   { id: 'codex', label: 'Codex', href: '/module/1' },
-  { id: 'chatgpt', label: 'ChatGPT', href: '/module/1', forceActive: true },
-  { id: 'learn', label: 'Learn', href: '/completion' },
+  { id: 'chatgpt', label: 'ChatGPT', href: '/module/1', hasMenu: true },
+  { id: 'learn', label: 'Learn', href: '/completion', hasMenu: true },
 ];
 
 export default function TopNav({ onOpenMenu }: TopNavProps) {
+  const location = useLocation();
+  const courseRoutes = ['/', '/dashboard', '/completion'];
+  const inCourseArea = courseRoutes.includes(location.pathname) || location.pathname.startsWith('/module');
+
   return (
     <header className="top-nav">
       <div className="top-nav-inner">
@@ -36,9 +40,16 @@ export default function TopNav({ onOpenMenu }: TopNavProps) {
               key={link.id}
               to={link.href}
               end={link.href === '/'}
-              className={({ isActive }) => `top-nav-link ${isActive || link.forceActive ? 'active' : ''}`}
+              className={({ isActive }) =>
+                `top-nav-link ${isActive || (link.id === 'chatgpt' && inCourseArea) ? 'active' : ''}`
+              }
             >
               {link.label}
+              {link.hasMenu && (
+                <span className="top-nav-caret" aria-hidden="true">
+                  ▾
+                </span>
+              )}
             </NavLink>
           ))}
         </nav>
