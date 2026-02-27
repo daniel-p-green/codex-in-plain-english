@@ -18,7 +18,7 @@ async function answerQuestion(page: Page, answerText: string, isLast: boolean) {
 test('landing page shows attribution and source links', async ({ page }) => {
   await page.goto('/#/');
 
-  await expect(page.getByRole('heading', { level: 1, name: 'Codex In Plain English' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: 'Apps SDK' })).toBeVisible();
   await expect(page.getByRole('heading', { level: 2, name: 'Attribution First' })).toBeVisible();
   await expect(page.getByRole('link', { name: /Gabriel Chua thread/i })).toBeVisible();
   await expect(page.getByRole('link', { name: /OpenAI Docs: Codex Skills/i })).toBeVisible();
@@ -27,7 +27,7 @@ test('landing page shows attribution and source links', async ({ page }) => {
 test('locked modules redirect to home for fresh users', async ({ page }) => {
   await page.goto('/#/module/2');
   await expect(page).toHaveURL(/#\/$/);
-  await expect(page.getByRole('heading', { level: 1, name: 'Codex In Plain English' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: 'Apps SDK' })).toBeVisible();
 });
 
 test('completing module 1 unlocks module 2', async ({ page }) => {
