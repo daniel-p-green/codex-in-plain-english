@@ -467,7 +467,9 @@ button {
 }
 
 .hero-title-main {
+  display: inline-block;
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .hero-title-suffix {
@@ -1965,12 +1967,12 @@ button {
   }
 
   .landing-hero h1 {
-    font-size: clamp(1.48rem, 6.9vw, 1.86rem);
-    line-height: 1.14;
-    max-width: 14.5ch;
+    font-size: clamp(1.2rem, 4.8vw, 1.46rem);
+    line-height: 1.18;
+    max-width: none;
     white-space: normal;
     text-wrap: balance;
-    letter-spacing: -0.022em;
+    letter-spacing: -0.016em;
     margin-left: 0;
     margin-right: 0;
   }
@@ -2159,8 +2161,8 @@ button {
   }
 
   .landing-hero h1 {
-    font-size: 1.42rem;
-    max-width: 15ch;
+    font-size: 1.18rem;
+    max-width: none;
   }
 
   .landing-hero p {

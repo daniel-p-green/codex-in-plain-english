@@ -39,6 +39,14 @@ test('mobile menu opens course drawer navigation', async ({ page }) => {
   await expect(openMenuButton).toBeFocused();
 });
 
+test('mobile hero keeps "Codex In Plain English" on one line', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/');
+
+  const titleMainLineCount = await page.locator('.hero-title-main').evaluate(element => element.getClientRects().length);
+  expect(titleMainLineCount).toBe(1);
+});
+
 test('sidebar helper copy does not imply unavailable keyboard search', async ({ page }) => {
   await page.goto('/#/');
   await expect(page.getByText('Course map')).toBeVisible();
