@@ -4,12 +4,24 @@ import confetti from 'canvas-confetti';
 import { useProgressContext } from '../../context/useProgressContext';
 import { COURSE_SUMMARY, NEXT_STEPS } from '../../data/completion';
 import { BADGES } from '../../data/badges';
+import { allModules } from '../../data/modules';
 import PageContainer from '../layout/PageContainer';
 
 export default function CompletionPage() {
-  const { progress, hasBadge } = useProgressContext();
+  const { progress, hasBadge, isModuleComplete, getModuleProgress } = useProgressContext();
+
+  const completedModules = allModules.filter(moduleData => isModuleComplete(moduleData.id)).length;
+  const allComplete = completedModules === allModules.length;
+
+  const firstIncomplete = allModules.find(moduleData => !isModuleComplete(moduleData.id));
+  const resumedIncomplete = allModules.find(
+    moduleData => !isModuleComplete(moduleData.id) && getModuleProgress(moduleData.id).started
+  );
+  const continueTarget = resumedIncomplete ?? firstIncomplete;
 
   useEffect(() => {
+    if (!allComplete) return;
+
     const duration = 1400;
     const end = Date.now() + duration;
 
@@ -33,17 +45,31 @@ export default function CompletionPage() {
     };
 
     frame();
-  }, []);
+  }, [allComplete]);
 
   const earnedBadges = BADGES.filter(badge => hasBadge(badge.id));
 
   return (
     <PageContainer className="completion-page">
       <div className="completion-mascot">Dex 🦖</div>
-      <h1>You Completed The Course</h1>
-      <p className="completion-intro">
-        You now have a practical delegation mindset and a repeatable path to skill-based workflows.
-      </p>
+      {allComplete ? (
+        <>
+          <h1>You Completed The Course</h1>
+          <p className="completion-intro">
+            You now have a practical delegation mindset and a repeatable path to skill-based workflows.
+          </p>
+        </>
+      ) : (
+        <>
+          <h1>Course In Progress</h1>
+          <p className="completion-intro">
+            You are building strong delegation habits. Finish all sections to unlock full course completion.
+          </p>
+          <p className="completion-xp">
+            Modules completed: {completedModules}/{allModules.length}
+          </p>
+        </>
+      )}
       <p className="completion-xp">Total XP: {progress.xp}</p>
 
       <div className="completion-summary">
@@ -95,10 +121,15 @@ export default function CompletionPage() {
       </div>
 
       <div className="completion-actions">
+        {continueTarget && (
+          <Link to={`/module/${continueTarget.number}`} className="btn btn-primary">
+            Continue with Module {continueTarget.number}
+          </Link>
+        )}
         <Link to="/dashboard" className="btn btn-secondary">
           View Dashboard
         </Link>
-        <Link to="/" className="btn btn-primary">
+        <Link to="/" className="btn btn-secondary">
           Back to Home
         </Link>
       </div>

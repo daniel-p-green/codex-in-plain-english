@@ -26,20 +26,18 @@ export default function AppShell() {
     () =>
       buildCourseNavGroups({
         pathname: location.pathname,
-        isModuleUnlocked,
         isModuleComplete,
       }),
-    [location.pathname, isModuleUnlocked, isModuleComplete]
+    [location.pathname, isModuleComplete]
   );
 
   const topNavItems = useMemo(
     () =>
       buildTopNavItems({
         pathname: location.pathname,
-        isModuleUnlocked,
         isModuleComplete,
       }),
-    [location.pathname, isModuleUnlocked, isModuleComplete]
+    [location.pathname, isModuleComplete]
   );
 
   const topNavMetrics = useMemo(() => {

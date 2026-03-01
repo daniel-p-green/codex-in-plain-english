@@ -62,20 +62,21 @@ Output files are written to `out/`.
 
 - 8 modules (4 Codex fundamentals + 4 Skills modules)
 - 3 quiz questions per module (24 total)
-- Sequential unlock progression (module `N` unlocks module `N+1`)
+- Open module access (start anywhere in the 8-module journey)
+- Section-based completion with optional quizzes for mastery
 - XP, streaks, badges, and completion flow
 - Local progress persistence (`localStorage`)
 
 ### Module List
 
-1. From Clicking to Delegating
+1. From Clicking To Delegating
 2. What Codex Actually Does
 3. Two Execution Modes (Code vs UI)
 4. First Delegation Playbook for Non-Coders
 5. Skills 101 (Reusable Prompting as Workflow)
 6. Progressive Disclosure and Skill Structure
 7. Team Practices, Consistency, and Scaling
-8. Build/Adopt Your First Skill
+8. Build Or Adopt Your First Skill
 
 ## Deploy
 

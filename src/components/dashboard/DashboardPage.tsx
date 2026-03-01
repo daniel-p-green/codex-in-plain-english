@@ -6,8 +6,7 @@ import { BADGES } from '../../data/badges';
 import PageContainer from '../layout/PageContainer';
 
 export default function DashboardPage() {
-  const { progress, isModuleUnlocked, isModuleComplete, getModulePercent, getOverallPercent, hasBadge } =
-    useProgressContext();
+  const { progress, isModuleComplete, getModulePercent, getOverallPercent, hasBadge } = useProgressContext();
 
   const depthLevel = getDepthLevel(progress.xp);
   const nextLevel = getNextDepthLevel(progress.xp);
@@ -63,19 +62,17 @@ export default function DashboardPage() {
       <h2 className="section-title">Modules</h2>
       <div className="module-grid dashboard-module-grid">
         {allModules.map(mod => {
-          const unlocked = isModuleUnlocked(mod.id);
           const completed = isModuleComplete(mod.id);
           const percent = getModulePercent(mod.id);
 
           let cardClass = 'module-card';
           if (completed) cardClass += ' completed';
-          if (!unlocked) cardClass += ' locked';
 
           const modProgress = progress.modules[mod.id];
           const sectionsRead = modProgress?.sectionsRead.length ?? 0;
           const totalSections = mod.sections.length;
 
-          return unlocked ? (
+          return (
             <Link key={mod.id} to={`/module/${mod.number}`} className={cardClass}>
               <div className="module-card-number">{mod.number}</div>
               {completed && <span className="module-card-check">Done</span>}
@@ -88,13 +85,6 @@ export default function DashboardPage() {
                 <div className="module-card-progress-fill" style={{ width: `${percent}%` }} />
               </div>
             </Link>
-          ) : (
-            <div key={mod.id} className={cardClass}>
-              <div className="module-card-number">{mod.number}</div>
-              <span className="module-card-lock">Locked</span>
-              <h3>{mod.title}</h3>
-              <p>Complete Module {mod.number - 1} to unlock</p>
-            </div>
           );
         })}
       </div>

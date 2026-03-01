@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { useProgressContext } from '../../context/useProgressContext';
 import { allModules } from '../../data/modules';
 import {
   COURSE_ATTRIBUTION_COPY,
@@ -10,7 +9,6 @@ import {
 import PageContainer from '../layout/PageContainer';
 
 export default function LandingPage() {
-  const { isModuleUnlocked } = useProgressContext();
   const moduleOne = allModules[0];
   const moduleFive = allModules[4];
 
@@ -22,18 +20,14 @@ export default function LandingPage() {
       href: `/module/${moduleOne.number}`,
       copy: 'Start with the non-coders path: describe outcomes, review outputs, and iterate.',
       variant: 'primary',
-      locked: false,
     },
     {
       id: 'right-secondary',
       title: 'Skills 101',
       subtitle: 'Next track',
       href: `/module/${moduleFive.number}`,
-      copy: isModuleUnlocked(moduleFive.id)
-        ? 'Shift from one-off prompts to repeatable workflow modules.'
-        : 'Complete the first four modules to unlock this skills track.',
+      copy: 'Shift from one-off prompts to repeatable workflow modules.',
       variant: 'secondary',
-      locked: !isModuleUnlocked(moduleFive.id),
     },
   ] as const;
 
@@ -44,23 +38,20 @@ export default function LandingPage() {
       copy: 'Identify repetitive digital tasks and define the outcome before implementation.',
       cta: 'Start Module 1 (15 min)',
       href: `/module/${moduleOne.number}`,
-      locked: false,
     },
     {
       id: 'build',
       title: 'Build your delegation flow',
-      copy: 'Jump into the first knowledge check and get fast feedback on what to improve.',
-      cta: 'Take Quiz',
-      href: `/module/${moduleOne.number}`,
-      locked: false,
+      copy: 'Jump to the knowledge check when you want optional mastery feedback.',
+      cta: 'Take Optional Quiz',
+      href: `/module/${moduleOne.number}?focus=quiz`,
     },
     {
       id: 'deploy',
       title: 'Deploy your workflow',
-      copy: 'Track progress, unlock all modules, and finish with a reusable operating playbook.',
+      copy: 'Track progress across all modules and finish with a reusable operating playbook.',
       cta: 'Track Progress',
       href: '/dashboard',
-      locked: false,
     },
   ] as const;
 
@@ -72,7 +63,7 @@ export default function LandingPage() {
           <span className="hero-title-suffix">The Course</span>
         </h1>
         <p>Learn to delegate digital work with confidence, one practical module at a time.</p>
-        <p className="landing-hero-note">Guided modules + quizzes, not a live coding sandbox.</p>
+        <p className="landing-hero-note">Guided modules with optional quizzes, not a live coding sandbox.</p>
       </section>
 
       <section className="course-clarity" aria-labelledby="course-clarity-title">
@@ -83,12 +74,12 @@ export default function LandingPage() {
             <span>Get the core model first: outcome, constraints, and checks.</span>
           </li>
           <li>
-            <strong>Take Quiz</strong>
-            <span>Validate understanding with three quick questions per module.</span>
+            <strong>Take Optional Quiz</strong>
+            <span>Validate understanding with three quick questions per module whenever you want.</span>
           </li>
           <li>
             <strong>Track Progress</strong>
-            <span>Use XP, streaks, and unlocks to keep momentum through all 8 modules.</span>
+            <span>Use section progress, XP, and streaks to keep momentum through all 8 modules.</span>
           </li>
         </ol>
       </section>
@@ -97,17 +88,7 @@ export default function LandingPage() {
         <h2 className="landing-section-title">Get started</h2>
         <div className="landing-starter-grid" data-testid="get-started-grid">
           {starterCards.map(card => {
-            const className = `starter-card starter-card-${card.variant} ${card.locked ? 'locked' : ''}`;
-            if (card.locked) {
-              return (
-                <article key={card.id} className={className}>
-                  <p className="starter-card-kicker">{card.subtitle}</p>
-                  <h3>{card.title}</h3>
-                  <p>{card.copy}</p>
-                </article>
-              );
-            }
-
+            const className = `starter-card starter-card-${card.variant}`;
             return (
               <Link key={card.id} to={card.href} className={className}>
                 <p className="starter-card-kicker">{card.subtitle}</p>
@@ -122,25 +103,13 @@ export default function LandingPage() {
       <section className="landing-section">
         <h2 className="landing-section-title">Create your workflow</h2>
         <div className="landing-create-grid" data-testid="create-app-grid">
-          {createCards.map(card => {
-            const className = `create-card ${card.locked ? 'locked' : ''}`;
-            if (card.locked) {
-              return (
-                <article key={card.id} className={className}>
-                  <h3>{card.title}</h3>
-                  <p>{card.copy}</p>
-                  <span className="create-card-cta">{card.cta} (Locked)</span>
-                </article>
-              );
-            }
-            return (
-              <Link key={card.id} to={card.href} className={className}>
-                <h3>{card.title}</h3>
-                <p>{card.copy}</p>
-                <span className="create-card-cta">{card.cta} →</span>
-              </Link>
-            );
-          })}
+          {createCards.map(card => (
+            <Link key={card.id} to={card.href} className="create-card">
+              <h3>{card.title}</h3>
+              <p>{card.copy}</p>
+              <span className="create-card-cta">{card.cta} →</span>
+            </Link>
+          ))}
         </div>
       </section>
 

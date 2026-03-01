@@ -5,6 +5,17 @@ import { XP_REWARDS } from '../types/gamification';
 import { allModules } from '../data/modules';
 
 const STORAGE_KEY = 'codex-in-plain-english-progress-v1';
+const MODULE_BADGE_MAP: Record<string, string> = {
+  'module-1': 'first-delegate',
+  'module-2': 'outcome-thinker',
+  'module-3': 'mode-switcher',
+  'module-4': 'playbook-builder',
+  'module-5': 'skill-spotter',
+  'module-6': 'context-curator',
+  'module-7': 'team-scaler',
+  'module-8': 'workflow-author',
+};
+const MODULE_BADGE_IDS = new Set(Object.values(MODULE_BADGE_MAP));
 
 function applyDailyStreak(prev: CourseProgress): CourseProgress {
   const today = new Date().toISOString().split('T')[0];
@@ -36,6 +47,78 @@ function applyDailyStreak(prev: CourseProgress): CourseProgress {
   };
 }
 
+function isSectionComplete(mod: ModuleProgress | undefined): boolean {
+  if (!mod) return false;
+  if (mod.totalSections <= 0) return false;
+  return mod.sectionsRead.length >= mod.totalSections;
+}
+
+function addBadgeIfMissing(badges: string[], badgeId: string) {
+  if (!badges.includes(badgeId)) badges.push(badgeId);
+}
+
+function normalizeProgressForSectionCompletion(prev: CourseProgress): CourseProgress {
+  let changed = false;
+  const normalizedModules = { ...prev.modules };
+  const now = new Date().toISOString();
+
+  for (const moduleData of allModules) {
+    const existing = prev.modules[moduleData.id];
+    if (!existing) continue;
+
+    const expectedSections = moduleData.sections.length;
+    const expectedQuestions = moduleData.quiz.length;
+    let updated = existing;
+
+    if (existing.totalSections !== expectedSections || existing.quiz.totalQuestions !== expectedQuestions) {
+      updated = {
+        ...updated,
+        totalSections: expectedSections,
+        quiz: {
+          ...updated.quiz,
+          totalQuestions: expectedQuestions,
+        },
+      };
+      changed = true;
+    }
+
+    const shouldBeComplete = expectedSections > 0 && updated.sectionsRead.length >= expectedSections;
+    const isComplete = updated.completedAt != null;
+    if (shouldBeComplete !== isComplete) {
+      updated = {
+        ...updated,
+        completedAt: shouldBeComplete ? updated.completedAt ?? now : null,
+      };
+      changed = true;
+    }
+
+    normalizedModules[moduleData.id] = updated;
+  }
+
+  const preservedBadges = prev.badges.filter(badge => !MODULE_BADGE_IDS.has(badge) && badge !== 'course-complete');
+  const nextBadges = [...preservedBadges];
+
+  for (const moduleData of allModules) {
+    if (isSectionComplete(normalizedModules[moduleData.id])) {
+      const moduleBadge = MODULE_BADGE_MAP[moduleData.id];
+      if (moduleBadge) addBadgeIfMissing(nextBadges, moduleBadge);
+    }
+  }
+
+  const allComplete = allModules.every(moduleData => isSectionComplete(normalizedModules[moduleData.id]));
+  if (allComplete) addBadgeIfMissing(nextBadges, 'course-complete');
+
+  const badgesChanged =
+    nextBadges.length !== prev.badges.length || nextBadges.some((badge, idx) => prev.badges[idx] !== badge);
+
+  if (!changed && !badgesChanged) return prev;
+  return {
+    ...prev,
+    modules: normalizedModules,
+    badges: nextBadges,
+  };
+}
+
 function loadProgress(): CourseProgress {
   let base = createDefaultProgress();
   try {
@@ -50,7 +133,8 @@ function loadProgress(): CourseProgress {
     // Ignore malformed persisted data and reset to defaults.
   }
 
-  return applyDailyStreak(base);
+  const normalized = normalizeProgressForSectionCompletion(base);
+  return applyDailyStreak(normalized);
 }
 
 function saveProgress(progress: CourseProgress) {
@@ -83,24 +167,53 @@ export function useProgress() {
 
   const markSectionRead = useCallback((moduleId: string, sectionId: string) => {
     setProgress(prev => {
+      const moduleData = allModules.find(moduleItem => moduleItem.id === moduleId);
+      if (!moduleData) return prev;
+      if (!moduleData.sections.some(section => section.id === sectionId)) return prev;
+
       const defaults = getModuleDefaults(moduleId);
-      const mod =
-        prev.modules[moduleId] ?? createDefaultModuleProgress(defaults.sections, defaults.questions);
+      const mod = prev.modules[moduleId] ?? createDefaultModuleProgress(defaults.sections, defaults.questions);
 
       if (mod.sectionsRead.includes(sectionId)) return prev;
+      const now = new Date().toISOString();
 
       const updated: ModuleProgress = {
         ...mod,
         started: true,
-        startedAt: mod.startedAt ?? new Date().toISOString(),
+        startedAt: mod.startedAt ?? now,
         sectionsRead: [...mod.sectionsRead, sectionId],
       };
 
+      const newBadges = [...prev.badges];
+      let xpGain = XP_REWARDS.SECTION_READ;
+
+      const justCompletedModule = updated.totalSections > 0 && updated.sectionsRead.length >= updated.totalSections;
+      if (justCompletedModule && updated.completedAt == null) {
+        updated.completedAt = now;
+        xpGain += XP_REWARDS.MODULE_COMPLETE;
+
+        const moduleBadge = MODULE_BADGE_MAP[moduleId];
+        if (moduleBadge) addBadgeIfMissing(newBadges, moduleBadge);
+
+        if (updated.startedAt) {
+          const elapsed = Date.now() - new Date(updated.startedAt).getTime();
+          if (elapsed < 10 * 60 * 1000) addBadgeIfMissing(newBadges, 'speed-demon');
+        }
+      }
+
+      const updatedModules = { ...prev.modules, [moduleId]: updated };
+      const allModulesComplete = allModules.every(moduleItem => isSectionComplete(updatedModules[moduleItem.id]));
+      if (allModulesComplete && !newBadges.includes('course-complete')) {
+        addBadgeIfMissing(newBadges, 'course-complete');
+        xpGain += XP_REWARDS.COURSE_COMPLETE;
+      }
+
       return {
         ...prev,
-        xp: prev.xp + XP_REWARDS.SECTION_READ,
-        lastActiveAt: new Date().toISOString(),
-        modules: { ...prev.modules, [moduleId]: updated },
+        xp: prev.xp + xpGain,
+        lastActiveAt: now,
+        modules: updatedModules,
+        badges: newBadges,
       };
     });
   }, []);
@@ -116,8 +229,7 @@ export function useProgress() {
 
       setProgress(prev => {
         const defaults = getModuleDefaults(moduleId);
-        const modProgress =
-          prev.modules[moduleId] ?? createDefaultModuleProgress(defaults.sections, defaults.questions);
+        const modProgress = prev.modules[moduleId] ?? createDefaultModuleProgress(defaults.sections, defaults.questions);
 
         const prevResult = modProgress.quiz.questionResults[questionId];
         const attemptNum = (prevResult?.attempts ?? 0) + 1;
@@ -141,39 +253,9 @@ export function useProgress() {
         const allCorrect = moduleData.quiz.every(q => newResults[q.id]?.correct);
         const score = Object.values(newResults).filter(r => r.correct).length;
         const wasAlreadyComplete = modProgress.quiz.completed;
-
-        let moduleCompletionXP = 0;
         const newBadges = [...prev.badges];
-        let completedAt = modProgress.completedAt;
-
-        const allSectionsRead = modProgress.sectionsRead.length >= modProgress.totalSections;
 
         if (allCorrect && !wasAlreadyComplete) {
-          if (allSectionsRead) {
-            moduleCompletionXP = XP_REWARDS.MODULE_COMPLETE;
-            completedAt = new Date().toISOString();
-
-            const moduleBadgeMap: Record<string, string> = {
-              'module-1': 'first-delegate',
-              'module-2': 'outcome-thinker',
-              'module-3': 'mode-switcher',
-              'module-4': 'playbook-builder',
-              'module-5': 'skill-spotter',
-              'module-6': 'context-curator',
-              'module-7': 'team-scaler',
-              'module-8': 'workflow-author',
-            };
-            const badge = moduleBadgeMap[moduleId];
-            if (badge && !newBadges.includes(badge)) newBadges.push(badge);
-
-            if (modProgress.startedAt) {
-              const elapsed = Date.now() - new Date(modProgress.startedAt).getTime();
-              if (elapsed < 10 * 60 * 1000 && !newBadges.includes('speed-demon')) {
-                newBadges.push('speed-demon');
-              }
-            }
-          }
-
           const allFirstTry = moduleData.quiz.every(q => {
             const result = newResults[q.id];
             return result?.correct && result.attempts === 1;
@@ -187,7 +269,6 @@ export function useProgress() {
           ...prev.modules,
           [moduleId]: {
             ...modProgress,
-            completedAt,
             quiz: {
               ...modProgress.quiz,
               completed: allCorrect,
@@ -199,30 +280,20 @@ export function useProgress() {
           },
         };
 
-        const allModulesComplete = allModules.every(moduleItem => {
+        const allPerfect = allModules.every(moduleItem => {
           const moduleProgress = updatedModules[moduleItem.id];
-          return moduleProgress?.completedAt != null;
-        });
-
-        if (allModulesComplete && !newBadges.includes('course-complete')) {
-          newBadges.push('course-complete');
-          moduleCompletionXP += XP_REWARDS.COURSE_COMPLETE;
-
-          const allPerfect = allModules.every(moduleItem => {
-            const moduleProgress = updatedModules[moduleItem.id];
-            return moduleItem.quiz.every(q => {
-              const result = moduleProgress?.quiz.questionResults[q.id];
-              return result?.correct && result.attempts === 1;
-            });
+          return moduleItem.quiz.every(q => {
+            const result = moduleProgress?.quiz.questionResults[q.id];
+            return result?.correct && result.attempts === 1;
           });
-          if (allPerfect && !newBadges.includes('all-perfect')) {
-            newBadges.push('all-perfect');
-          }
+        });
+        if (allPerfect && !newBadges.includes('all-perfect')) {
+          newBadges.push('all-perfect');
         }
 
         return {
           ...prev,
-          xp: prev.xp + xpGain + moduleCompletionXP,
+          xp: prev.xp + xpGain,
           lastActiveAt: new Date().toISOString(),
           modules: updatedModules,
           badges: newBadges,
@@ -246,23 +317,17 @@ export function useProgress() {
   );
 
   const isModuleComplete = useCallback(
-    (moduleId: string): boolean => progress.modules[moduleId]?.completedAt != null,
+    (moduleId: string): boolean => isSectionComplete(progress.modules[moduleId]),
     [progress.modules]
   );
 
   const isModuleUnlocked = useCallback(
-    (moduleId: string): boolean => {
-      const num = Number.parseInt(moduleId.replace('module-', ''), 10);
-      if (num === 1) return true;
-      const prevId = `module-${num - 1}`;
-      return progress.modules[prevId]?.quiz.completed === true;
-    },
-    [progress.modules]
+    (moduleId: string): boolean => allModules.some(moduleItem => moduleItem.id === moduleId),
+    []
   );
 
   const getOverallPercent = useCallback((): number => {
-    const completed = allModules.filter(moduleItem => progress.modules[moduleItem.id]?.completedAt != null)
-      .length;
+    const completed = allModules.filter(moduleItem => isSectionComplete(progress.modules[moduleItem.id])).length;
     return Math.round((completed / allModules.length) * 100);
   }, [progress.modules]);
 
@@ -271,8 +336,7 @@ export function useProgress() {
       const mod = progress.modules[moduleId];
       if (!mod) return 0;
       const sectionPct = mod.totalSections > 0 ? mod.sectionsRead.length / mod.totalSections : 0;
-      const quizPct = mod.quiz.completed ? 1 : 0;
-      return Math.round((sectionPct * 0.7 + quizPct * 0.3) * 100);
+      return Math.round(sectionPct * 100);
     },
     [progress.modules]
   );

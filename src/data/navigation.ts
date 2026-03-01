@@ -7,7 +7,6 @@ interface NavTemplate {
   href: string;
   group: string;
   moduleId?: string;
-  completionGate?: 'all-modules';
   aliases?: string[];
 }
 
@@ -16,7 +15,6 @@ interface TopNavTemplate {
   label: string;
   href: string;
   aliases?: string[];
-  completionGate?: 'all-modules';
 }
 
 const MODULE_GROUPS: Record<number, string> = {
@@ -57,7 +55,6 @@ const SIDEBAR_NAV_ITEMS: NavTemplate[] = [
     label: 'Completion Summary',
     href: '/completion',
     group: 'Capstone',
-    completionGate: 'all-modules',
   },
 ];
 
@@ -81,7 +78,6 @@ const TOP_NAV_ITEMS: TopNavTemplate[] = [
     id: 'completion',
     label: 'Completion',
     href: '/completion',
-    completionGate: 'all-modules',
   },
 ];
 
@@ -89,7 +85,6 @@ export const SIDEBAR_GROUP_ORDER = ['Foundations', 'Practice', 'Skills', 'Capsto
 
 export interface BuildCourseNavParams {
   pathname: string;
-  isModuleUnlocked: (moduleId: string) => boolean;
   isModuleComplete: (moduleId: string) => boolean;
 }
 
@@ -97,16 +92,13 @@ function isRouteActive(pathname: string, href: string, aliases: string[] = []) {
   return pathname === href || aliases.includes(pathname);
 }
 
-function resolveNavItem(template: NavTemplate, params: BuildCourseNavParams, allComplete: boolean): NavItem {
-  const lockedFromModule = template.moduleId ? !params.isModuleUnlocked(template.moduleId) : false;
-  const lockedFromCompletion = template.completionGate === 'all-modules' && !allComplete;
-
+function resolveNavItem(template: NavTemplate, params: BuildCourseNavParams): NavItem {
   return {
     id: template.id,
     label: template.label,
     href: template.href,
     group: template.group,
-    locked: lockedFromModule || lockedFromCompletion,
+    locked: false,
     completed: template.moduleId ? params.isModuleComplete(template.moduleId) : false,
   };
 }
@@ -120,23 +112,20 @@ function isTopNavTemplateActive(pathname: string, template: TopNavTemplate) {
 }
 
 export function buildTopNavItems(params: BuildCourseNavParams): TopNavItem[] {
-  const allComplete = allModules.every(moduleData => params.isModuleComplete(moduleData.id));
-
   return TOP_NAV_ITEMS.map(template => ({
     id: template.id,
     label: template.label,
     href: template.href,
     active: isTopNavTemplateActive(params.pathname, template),
-    locked: template.completionGate === 'all-modules' && !allComplete,
+    locked: false,
   }));
 }
 
 export function buildCourseNavGroups(params: BuildCourseNavParams): NavGroup[] {
-  const allComplete = allModules.every(moduleData => params.isModuleComplete(moduleData.id));
   const byGroup = new Map<string, NavItem[]>();
 
   for (const template of SIDEBAR_NAV_ITEMS) {
-    const resolved = resolveNavItem(template, params, allComplete);
+    const resolved = resolveNavItem(template, params);
     const existing = byGroup.get(template.group) ?? [];
     byGroup.set(template.group, [...existing, resolved]);
   }

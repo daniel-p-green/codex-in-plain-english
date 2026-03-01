@@ -1,4 +1,5 @@
-import { useParams, Navigate, Link } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import { useProgressContext } from '../../context/useProgressContext';
 import { allModules } from '../../data/modules';
 import ContentRenderer from '../content-blocks/ContentRenderer';
@@ -7,11 +8,92 @@ import PageContainer from '../layout/PageContainer';
 
 export default function ModulePage() {
   const { id } = useParams<{ id: string }>();
-  const { getModuleProgress, markSectionRead, isModuleUnlocked, isModuleComplete, getModulePercent, progress } =
-    useProgressContext();
+  const location = useLocation();
+  const { getModuleProgress, markSectionRead, isModuleComplete, getModulePercent, progress } = useProgressContext();
 
   const moduleId = `module-${id}`;
+  const focusParam = (() => {
+    const fromSearch = new URLSearchParams(location.search).get('focus');
+    if (fromSearch) return fromSearch;
+    if (typeof window === 'undefined') return null;
+    const hash = window.location.hash;
+    const queryIndex = hash.indexOf('?');
+    if (queryIndex === -1) return null;
+    return new URLSearchParams(hash.slice(queryIndex + 1)).get('focus');
+  })();
+  const autoTrackingEnabled = focusParam !== 'quiz';
   const moduleData = allModules.find(m => m.id === moduleId);
+  const observedSections = useRef<Set<string>>(new Set());
+
+  const moduleProgress = getModuleProgress(moduleId);
+  const percent = getModulePercent(moduleId);
+
+  const moduleIndex = allModules.findIndex(m => m.id === moduleId);
+  const prevModule = moduleIndex > 0 ? allModules[moduleIndex - 1] : null;
+  const nextModule = moduleIndex < allModules.length - 1 ? allModules[moduleIndex + 1] : null;
+
+  const scrollToSection = (sectionId: string, behavior: ScrollBehavior = 'smooth') => {
+    const el = document.getElementById(sectionId);
+    if (el) el.scrollIntoView({ behavior });
+  };
+
+  useEffect(() => {
+    if (!moduleData || !autoTrackingEnabled) return undefined;
+
+    observedSections.current = new Set(moduleProgress.sectionsRead);
+    const markIfNeeded = (sectionId: string) => {
+      if (observedSections.current.has(sectionId)) return;
+      observedSections.current.add(sectionId);
+      markSectionRead(moduleId, sectionId);
+    };
+
+    let rafId = 0;
+    const scanVisibleSections = () => {
+      rafId = 0;
+      for (const section of moduleData.sections) {
+        if (observedSections.current.has(section.id)) continue;
+        const node = document.getElementById(section.id);
+        if (!node) continue;
+
+        const rect = node.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+        const isVisible = rect.top < viewportHeight * 0.75 && rect.bottom > viewportHeight * 0.2;
+        if (isVisible) {
+          markIfNeeded(section.id);
+        }
+      }
+
+    };
+
+    const queueScan = () => {
+      if (rafId !== 0) return;
+      rafId = window.requestAnimationFrame(scanVisibleSections);
+    };
+
+    queueScan();
+    const intervalId = window.setInterval(queueScan, 250);
+    window.addEventListener('scroll', queueScan, { passive: true });
+    window.addEventListener('resize', queueScan);
+
+    return () => {
+      if (rafId !== 0) window.cancelAnimationFrame(rafId);
+      window.clearInterval(intervalId);
+      window.removeEventListener('scroll', queueScan);
+      window.removeEventListener('resize', queueScan);
+    };
+  }, [autoTrackingEnabled, markSectionRead, moduleData, moduleId, moduleProgress.sectionsRead]);
+
+  useEffect(() => {
+    const targetSectionId =
+      focusParam === 'quiz' ? 'quiz-section' : focusParam === 'sources' ? 'sources-section' : null;
+    if (!targetSectionId) return;
+
+    const timeoutId = window.setTimeout(() => {
+      scrollToSection(targetSectionId, 'auto');
+    }, 60);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [focusParam]);
 
   if (!moduleData) {
     return (
@@ -26,22 +108,6 @@ export default function ModulePage() {
       </PageContainer>
     );
   }
-
-  if (!isModuleUnlocked(moduleId)) {
-    return <Navigate to="/" replace />;
-  }
-
-  const moduleProgress = getModuleProgress(moduleId);
-  const percent = getModulePercent(moduleId);
-
-  const moduleIndex = allModules.findIndex(m => m.id === moduleId);
-  const prevModule = moduleIndex > 0 ? allModules[moduleIndex - 1] : null;
-  const nextModule = moduleIndex < allModules.length - 1 ? allModules[moduleIndex + 1] : null;
-
-  const scrollToSection = (sectionId: string) => {
-    const el = document.getElementById(sectionId);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <PageContainer className="module-page">
@@ -87,19 +153,18 @@ export default function ModulePage() {
       {moduleData.sections.map(section => {
         const isRead = moduleProgress.sectionsRead.includes(section.id);
         return (
-          <section key={section.id} id={section.id} className="section">
+          <section
+            key={section.id}
+            id={section.id}
+            className="section"
+            data-section-id={section.id}
+          >
             <h2>{section.title}</h2>
             <ContentRenderer blocks={section.content} />
             <div className="section-mark-complete">
-              {isRead ? (
-                <button className="btn btn-sm btn-success" disabled>
-                  Section Complete
-                </button>
-              ) : (
-                <button className="btn btn-sm btn-secondary" onClick={() => markSectionRead(moduleId, section.id)}>
-                  Mark Section Complete
-                </button>
-              )}
+              <span className={`module-outline-item ${isRead ? 'completed' : ''}`}>
+                {isRead ? 'Section Viewed' : 'Auto-tracked when viewed'}
+              </span>
             </div>
           </section>
         );
@@ -118,7 +183,7 @@ export default function ModulePage() {
               <a href={source.url} target="_blank" rel="noreferrer noopener">
                 {source.label}
               </a>
-              {source.note && <span> — {source.note}</span>}
+              {source.note && <span> - {source.note}</span>}
             </li>
           ))}
         </ul>
@@ -133,21 +198,13 @@ export default function ModulePage() {
           <span />
         )}
         {nextModule ? (
-          isModuleComplete(moduleId) ? (
-            <Link to={`/module/${nextModule.number}`} className="btn btn-primary">
-              Module {nextModule.number}: {nextModule.title} →
-            </Link>
-          ) : (
-            <button className="btn btn-primary" disabled>
-              Complete this module to continue →
-            </button>
-          )
+          <Link to={`/module/${nextModule.number}`} className="btn btn-primary">
+            Module {nextModule.number}: {nextModule.title} →
+          </Link>
         ) : (
-          isModuleComplete(moduleId) && (
-            <Link to="/completion" className="btn btn-success btn-lg">
-              View Course Completion
-            </Link>
-          )
+          <Link to="/completion" className="btn btn-success btn-lg">
+            View Course Summary
+          </Link>
         )}
       </nav>
     </PageContainer>
