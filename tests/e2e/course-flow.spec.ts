@@ -199,6 +199,63 @@ test('module progression does not require passing quizzes', async ({ page }) => 
   await expect(page.getByRole('heading', { level: 1, name: 'What Codex Actually Does' })).toBeVisible();
 });
 
+test('module page explains section-view completion and optional quiz behavior', async ({ page }) => {
+  await page.goto('/#/module/1');
+
+  await expect(page.getByText(/Section progress: \d\/5 sections viewed\./)).toBeVisible();
+  await expect(page.getByText('Progress increases as you view each section.')).toBeVisible();
+  await expect(page.getByText('Quizzes are optional for XP and badges.')).toBeVisible();
+});
+
+test('continue module jumps to the next unread section', async ({ page }) => {
+  await page.addInitScript(() => {
+    const now = new Date().toISOString();
+    localStorage.setItem(
+      'codex-in-plain-english-progress-v1',
+      JSON.stringify({
+        version: 1,
+        startedAt: now,
+        lastActiveAt: now,
+        currentModule: 1,
+        xp: 15,
+        streak: { current: 1, lastActiveDate: now.split('T')[0], longest: 1 },
+        badges: [],
+        quizHistory: [],
+        modules: {
+          'module-1': {
+            started: true,
+            startedAt: now,
+            completedAt: null,
+            sectionsRead: ['section-1-1', 'section-1-2'],
+            totalSections: 5,
+            quiz: {
+              completed: false,
+              score: 0,
+              totalQuestions: 3,
+              attempts: 0,
+              bestScore: 0,
+              questionResults: {},
+            },
+          },
+        },
+      })
+    );
+  });
+
+  await page.setViewportSize({ width: 1280, height: 640 });
+  await page.goto('/#/module/1');
+  await page.getByRole('button', { name: 'Continue module' }).click();
+
+  await expect.poll(async () => {
+    return page.evaluate(() => {
+      const target = document.getElementById('section-1-3');
+      if (!target) return false;
+      const rect = target.getBoundingClientRect();
+      return rect.top < window.innerHeight * 0.45 && rect.bottom > 0;
+    });
+  }).toBe(true);
+});
+
 test('auto-marked sections persist after reload', async ({ page }) => {
   await page.goto('/#/module/1');
 

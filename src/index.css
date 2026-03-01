@@ -1119,9 +1119,29 @@ button {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: var(--space-2) var(--space-4);
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-2);
   color: var(--text-700);
   font-size: 0.86rem;
+}
+
+.module-progress-actions {
+  margin-bottom: var(--space-3);
+}
+
+.module-progress-continue {
+  border: 1px solid var(--border-soft);
+  background: var(--surface-75);
+  color: var(--text-800);
+  border-radius: var(--radius-pill);
+  padding: 8px 12px;
+  font-size: 0.83rem;
+  font-weight: 600;
+}
+
+.module-progress-continue:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-100);
+  color: var(--text-900);
 }
 
 .module-progress-toast {

@@ -29,6 +29,8 @@ export default function ModulePage() {
   const percent = getModulePercent(moduleId);
   const sectionsViewed = moduleProgress.sectionsRead.length;
   const totalSections = moduleData?.sections.length ?? 0;
+  const firstUnreadSectionId =
+    moduleData?.sections.find(section => !moduleProgress.sectionsRead.includes(section.id))?.id ?? null;
   const [sectionSavedMessage, setSectionSavedMessage] = useState<{ moduleId: string; text: string } | null>(null);
 
   const moduleIndex = allModules.findIndex(m => m.id === moduleId);
@@ -195,8 +197,16 @@ export default function ModulePage() {
       </div>
       <div className="module-progress-meta">
         <span>Section progress: {sectionsViewed}/{totalSections} sections viewed.</span>
+        <span>Progress increases as you view each section.</span>
         <span>Quizzes are optional for XP and badges.</span>
       </div>
+      {firstUnreadSectionId && (
+        <div className="module-progress-actions">
+          <button type="button" className="module-progress-continue" onClick={() => scrollToSection(firstUnreadSectionId)}>
+            Continue module
+          </button>
+        </div>
+      )}
       {sectionSavedMessage?.moduleId === moduleId && (
         <p className="module-progress-toast" role="status" aria-live="polite">
           {sectionSavedMessage.text}
