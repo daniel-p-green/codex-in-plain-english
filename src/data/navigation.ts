@@ -49,6 +49,12 @@ const SIDEBAR_NAV_ITEMS: NavTemplate[] = [
     href: '/dashboard',
     group: 'Foundations',
   },
+  {
+    id: 'glossary',
+    label: 'Plain-English Glossary',
+    href: '/glossary',
+    group: 'Foundations',
+  },
   ...MODULE_NAV_ITEMS,
   {
     id: 'completion',
@@ -73,6 +79,11 @@ const TOP_NAV_ITEMS: TopNavTemplate[] = [
     id: 'progress',
     label: 'Progress',
     href: '/dashboard',
+  },
+  {
+    id: 'glossary',
+    label: 'Glossary',
+    href: '/glossary',
   },
   {
     id: 'completion',

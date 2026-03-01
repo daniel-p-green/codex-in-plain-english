@@ -8,6 +8,7 @@ import LandingPage from '../landing/LandingPage';
 import DashboardPage from '../dashboard/DashboardPage';
 import ModulePage from '../module/ModulePage';
 import CompletionPage from '../completion/CompletionPage';
+import GlossaryPage from '../glossary/GlossaryPage';
 import TopNav from './TopNav';
 import LeftSidebar from './LeftSidebar';
 import MobileDrawer from './MobileDrawer';
@@ -102,6 +103,7 @@ export default function AppShell() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/module/:id" element={<ModulePage />} />
+            <Route path="/glossary" element={<GlossaryPage />} />
             <Route path="/completion" element={<CompletionPage />} />
           </Routes>
           <Footer />

@@ -94,14 +94,38 @@ export default function QuizSection({ moduleId, questions }: QuizSectionProps) {
   if (!currentQuestion) return null;
 
   const xpForCorrect = attemptsSoFar === 0 ? XP_REWARDS.QUIZ_CORRECT_FIRST_TRY : XP_REWARDS.QUIZ_CORRECT_RETRY;
+  const isAnsweredCorrectly = hasChecked && lastResult?.correct;
+  const actionGuidance = !hasChecked
+    ? 'Select one option, then choose Check Answer.'
+    : lastResult?.correct
+      ? currentIndex < questions.length - 1
+        ? 'Correct. Continue when ready.'
+        : 'Correct. See results to finish this quiz.'
+      : 'Choose another option and check again.';
 
   return (
     <div className="quiz-section">
       <h2>
         <span>Knowledge Check</span>
       </h2>
+      <p className="quiz-optional-note">Optional quiz for XP and badges. Module completion is section-based.</p>
       <p className="quiz-progress-text">
         Question {currentIndex + 1} of {questions.length}
+      </p>
+      <div className="quiz-progress-dots" aria-hidden="true">
+        {questions.map((question, index) => {
+          const completed = index < currentIndex || (index === currentIndex && isAnsweredCorrectly);
+          const active = index === currentIndex && !completed;
+          return (
+            <span
+              key={question.id}
+              className={`quiz-progress-dot ${completed ? 'done' : active ? 'active' : ''}`}
+            />
+          );
+        })}
+      </div>
+      <p className="quiz-guidance-text" role="status" aria-live="polite">
+        {actionGuidance}
       </p>
 
       <div className="quiz-question-card">
@@ -148,9 +172,10 @@ export default function QuizSection({ moduleId, questions }: QuizSectionProps) {
                   <span className="quiz-feedback-xp">+{xpForCorrect} XP</span>
                 </>
               ) : (
-                'Not quite yet'
+                'Not correct yet'
               )}
             </div>
+            {!lastResult.correct && <p className="quiz-feedback-retry">Choose another option and check again.</p>}
             <p className="quiz-feedback-explanation">{currentQuestion.explanation}</p>
           </div>
         )}
@@ -168,7 +193,7 @@ export default function QuizSection({ moduleId, questions }: QuizSectionProps) {
           )}
           {hasChecked && lastResult && !lastResult.correct && (
             <button className="btn btn-secondary" onClick={handleTryAgain}>
-              Try Again
+              Try Another Option
             </button>
           )}
         </div>

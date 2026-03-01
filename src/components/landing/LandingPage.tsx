@@ -82,6 +82,9 @@ export default function LandingPage() {
             <span>Use section progress, XP, and streaks to keep momentum through all 8 modules.</span>
           </li>
         </ol>
+        <p className="course-clarity-glossary-link">
+          New to the terminology? Open the <Link to="/glossary">plain-English glossary</Link>.
+        </p>
       </section>
 
       <section className="landing-section">

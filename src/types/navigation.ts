@@ -13,7 +13,7 @@ export interface NavGroup {
 }
 
 export interface TopNavItem {
-  id: 'overview' | 'modules' | 'progress' | 'completion';
+  id: 'overview' | 'modules' | 'progress' | 'glossary' | 'completion';
   label: string;
   href: string;
   active: boolean;

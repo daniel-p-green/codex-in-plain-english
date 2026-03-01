@@ -71,6 +71,7 @@ export default function DashboardPage() {
           const modProgress = progress.modules[mod.id];
           const sectionsRead = modProgress?.sectionsRead.length ?? 0;
           const totalSections = mod.sections.length;
+          const quizStatus = modProgress?.quiz.completed ? 'Quiz complete (optional)' : 'Quiz optional';
 
           return (
             <Link key={mod.id} to={`/module/${mod.number}`} className={cardClass}>
@@ -78,8 +79,7 @@ export default function DashboardPage() {
               {completed && <span className="module-card-check">Done</span>}
               <h3>{mod.title}</h3>
               <p>
-                {sectionsRead}/{totalSections} sections
-                {modProgress?.quiz.completed ? ' • Quiz passed' : ''}
+                {sectionsRead}/{totalSections} sections viewed • {quizStatus}
               </p>
               <div className="module-card-progress">
                 <div className="module-card-progress-fill" style={{ width: `${percent}%` }} />

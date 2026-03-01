@@ -74,6 +74,15 @@ test('all modules are directly accessible for fresh users', async ({ page }) => 
   await expect(page.getByRole('heading', { level: 1, name: 'Build Or Adopt Your First Skill' })).toBeVisible();
 });
 
+test('glossary page is accessible with plain-English definitions', async ({ page }) => {
+  await page.goto('/#/glossary');
+
+  await expect(page.getByRole('heading', { level: 1, name: 'Plain-English Glossary' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 2, name: 'API' })).toBeVisible();
+  await expect(page.getByText('A way one app or service talks to another with structured requests.')).toBeVisible();
+  await expect(page.getByRole('heading', { level: 2, name: 'Sandbox' })).toBeVisible();
+});
+
 test('continue course sends fresh learners to module 1', async ({ page }) => {
   await page.goto('/#/dashboard');
   await page.getByRole('link', { name: /Continue Course/i }).click();
@@ -235,4 +244,15 @@ test('quiz remains optional but functional', async ({ page }) => {
   });
 
   expect(quizCompleted).toBe(true);
+});
+
+test('quiz wrong-answer flow shows clear retry guidance', async ({ page }) => {
+  await page.goto('/#/module/1?focus=quiz');
+
+  await page.locator('.quiz-option', { hasText: 'They are impossible to learn' }).first().click();
+  await page.getByRole('button', { name: 'Check Answer' }).click();
+
+  await expect(page.getByText('Not correct yet')).toBeVisible();
+  await expect(page.locator('.quiz-feedback-retry')).toHaveText('Choose another option and check again.');
+  await expect(page.getByRole('button', { name: 'Try Another Option' })).toBeVisible();
 });
