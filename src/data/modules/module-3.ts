@@ -7,8 +7,6 @@ export const module3: ModuleData = {
   title: 'Two Execution Modes: Code vs UI',
   subtitle:
     'Learn when AI should use scripts and APIs versus directly operating interfaces like a human.',
-  releaseStatus: 'updated',
-  releaseLabel: 'Updated May 17',
   releaseDate: '2026-05-17',
   depthZone: 'Core Course',
   depthMeters: 60,

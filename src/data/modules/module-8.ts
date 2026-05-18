@@ -7,8 +7,6 @@ export const module8: ModuleData = {
   title: 'Build Or Adopt Your First Skill',
   subtitle:
     'Finish strong by turning one repeated workflow into a practical skill and defining your adoption loop.',
-  releaseStatus: 'updated',
-  releaseLabel: 'Updated May 17',
   releaseDate: '2026-05-17',
   depthZone: 'Core Course',
   depthMeters: 210,

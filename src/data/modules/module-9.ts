@@ -12,8 +12,6 @@ export const module9: ModuleData = {
   title: 'Codex As A Work Super App',
   subtitle:
     'Update the mental model: Codex is becoming a place where different kinds of digital work can live, continue, and be reviewed.',
-  releaseStatus: 'new',
-  releaseLabel: 'New May 17',
   releaseDate: '2026-05-17',
   depthZone: 'Expanded Codex 2026',
   depthMeters: 240,

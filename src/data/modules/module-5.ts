@@ -7,8 +7,6 @@ export const module5: ModuleData = {
   title: 'Skills 101: Reusable Prompting As Workflow',
   subtitle:
     'Understand skills as packaged, reusable workflows instead of scattered prompts across chat history and notes.',
-  releaseStatus: 'updated',
-  releaseLabel: 'Updated May 17',
   releaseDate: '2026-05-17',
   depthZone: 'Core Course',
   depthMeters: 120,

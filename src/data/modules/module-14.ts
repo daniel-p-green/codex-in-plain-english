@@ -13,8 +13,6 @@ export const module14: ModuleData = {
   title: 'Review, Safety, And The Living Course',
   subtitle:
     'Close the expanded course with the habits that keep Codex useful as it keeps growing: proof, approvals, source notes, and course updates.',
-  releaseStatus: 'new',
-  releaseLabel: 'New May 17',
   releaseDate: '2026-05-17',
   depthZone: 'Expanded Codex 2026',
   depthMeters: 390,

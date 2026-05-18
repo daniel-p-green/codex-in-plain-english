@@ -7,8 +7,6 @@ export const module2: ModuleData = {
   title: 'What Codex Actually Does',
   subtitle:
     'Break down Codex as an execution agent: planning, selecting tools, writing instructions, and retrying when things fail in supported environments.',
-  releaseStatus: 'updated',
-  releaseLabel: 'Updated May 17',
   releaseDate: '2026-05-17',
   depthZone: 'Core Course',
   depthMeters: 30,

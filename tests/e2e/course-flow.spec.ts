@@ -40,7 +40,8 @@ test('landing page shows attribution and source links', async ({ page }) => {
   await expect(page.getByText('Start Module 1 (18 min) →')).toBeVisible();
   await expect(page.getByText('Open Module 10 →')).toBeVisible();
   await expect(page.getByText('Open Module 13 →')).toBeVisible();
-  await expect(page.getByText('New May 17').first()).toBeVisible();
+  await expect(page.getByText('Updated May 17, 2026.').first()).toBeVisible();
+  await expect(page.getByText('New May 17')).toHaveCount(0);
 
   await expect(page.getByRole('heading', { level: 2, name: 'Attribution' })).toBeVisible();
   await expect(page.getByRole('link', { name: /Gabriel Chua thread/i })).toBeVisible();
@@ -77,7 +78,7 @@ test('all modules are directly accessible for fresh users', async ({ page }) => 
   await page.goto('/#/module/14');
   await expect(page).toHaveURL(/#\/module\/14$/);
   await expect(page.getByRole('heading', { level: 1, name: 'Review, Safety, And The Living Course' })).toBeVisible();
-  await expect(page.getByText('New May 17').first()).toBeVisible();
+  await expect(page.getByText('New May 17')).toHaveCount(0);
 });
 
 test('glossary page is accessible with plain-English definitions', async ({ page }) => {

@@ -34,9 +34,6 @@ export default function MobileDrawer({ open, groups, pathname, onClose }: Mobile
 
   const renderLinkMeta = (item: NavGroup['items'][number]) => (
     <span className="mobile-drawer-meta">
-      {item.releaseLabel && item.releaseStatus && (
-        <span className={`mobile-drawer-release ${item.releaseStatus}`}>{item.releaseLabel}</span>
-      )}
       {item.completed && <span className="mobile-drawer-done">Done</span>}
     </span>
   );

@@ -7,8 +7,6 @@ export const module4: ModuleData = {
   title: 'First Delegation Playbook for Non-Coders',
   subtitle:
     'Use a repeatable brief template to delegate file, document, and report tasks with confidence.',
-  releaseStatus: 'updated',
-  releaseLabel: 'Updated May 17',
   releaseDate: '2026-05-17',
   depthZone: 'Core Course',
   depthMeters: 90,

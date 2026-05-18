@@ -69,7 +69,7 @@ Output files are written to `out/`.
 - 3 quiz questions per module (42 total)
 - Open module access (start anywhere in the 14-module journey)
 - Section-based completion with optional quizzes for mastery
-- New and Updated labels for returning learners
+- Course-level refresh note for returning learners
 - XP, streaks, badges, and completion flow
 - Local progress persistence (`localStorage`)
 
@@ -77,23 +77,23 @@ Output files are written to `out/`.
 
 #### Core Course
 
-1. From Clicking To Delegating (Updated May 17, 2026)
-2. What Codex Actually Does (Updated May 17, 2026)
-3. Two Execution Modes: Code vs UI (Updated May 17, 2026)
-4. First Delegation Playbook for Non-Coders (Updated May 17, 2026)
-5. Skills 101: Reusable Prompting As Workflow (Updated May 17, 2026)
-6. Progressive Disclosure And Skill Structure (Updated May 17, 2026)
-7. Team Practices: Consistency And Scale (Updated May 17, 2026)
-8. Build Or Adopt Your First Skill (Updated May 17, 2026)
+1. From Clicking To Delegating
+2. What Codex Actually Does
+3. Two Execution Modes: Code vs UI
+4. First Delegation Playbook for Non-Coders
+5. Skills 101: Reusable Prompting As Workflow
+6. Progressive Disclosure And Skill Structure
+7. Team Practices: Consistency And Scale
+8. Build Or Adopt Your First Skill
 
 #### Expanded Codex 2026
 
-9. Codex As A Work Super App (New May 17, 2026)
-10. Browser, Chrome, And Computer Use (New May 17, 2026)
-11. Mobile Remote Control And Steering (New May 17, 2026)
-12. Durable Threads, Memory, And Work Notes (New May 17, 2026)
-13. Goals, Heartbeats, And Long-Running Loops (New May 17, 2026)
-14. Review, Safety, And The Living Course (New May 17, 2026)
+9. Codex As A Work Super App
+10. Browser, Chrome, And Computer Use
+11. Mobile Remote Control And Steering
+12. Durable Threads, Memory, And Work Notes
+13. Goals, Heartbeats, And Long-Running Loops
+14. Review, Safety, And The Living Course
 
 ## Deploy
 

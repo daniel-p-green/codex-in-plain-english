@@ -17,7 +17,7 @@ export default function LandingPage() {
     {
       id: 'left-primary',
       title: 'From Clicking To Delegating',
-      subtitle: moduleOne.releaseLabel ?? 'Core Course',
+      subtitle: 'Core Course',
       href: `/module/${moduleOne.number}`,
       copy: 'Start with the original plain-English foundation: outcomes, constraints, and checks.',
       variant: 'primary',
@@ -25,7 +25,7 @@ export default function LandingPage() {
     {
       id: 'right-secondary',
       title: 'Codex As A Work Super App',
-      subtitle: moduleNine.releaseLabel ?? 'New',
+      subtitle: 'Expanded Codex 2026',
       href: `/module/${moduleNine.number}`,
       copy: 'Jump to the new expansion track for current Codex surfaces and long-running workflows.',
       variant: 'secondary',
@@ -82,7 +82,7 @@ export default function LandingPage() {
           </li>
           <li>
             <strong>Track Progress</strong>
-            <span>Use New and Updated labels to jump to what changed across the current {COURSE_TOTAL_MODULES}-module course.</span>
+            <span>Use the dashboard to move through the current {COURSE_TOTAL_MODULES}-module course and return to your next unread section.</span>
           </li>
         </ol>
         <p className="course-clarity-glossary-link">

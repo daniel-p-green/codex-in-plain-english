@@ -77,9 +77,6 @@ export default function DashboardPage() {
             <Link key={mod.id} to={`/module/${mod.number}`} className={cardClass}>
               <div className="module-card-meta">
                 <div className="module-card-number">Module {mod.number}</div>
-                {mod.releaseLabel && mod.releaseStatus && (
-                  <span className={`module-card-release ${mod.releaseStatus}`}>{mod.releaseLabel}</span>
-                )}
               </div>
               {completed && <span className="module-card-check">Done</span>}
               <h3>{mod.title}</h3>

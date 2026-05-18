@@ -11,8 +11,6 @@ export const module13: ModuleData = {
   title: 'Goals, Heartbeats, And Long-Running Loops',
   subtitle:
     'Learn when to ask Codex to keep working until a finish line is proven, and when to schedule a thread to check back later.',
-  releaseStatus: 'new',
-  releaseLabel: 'New May 17',
   releaseDate: '2026-05-17',
   depthZone: 'Expanded Codex 2026',
   depthMeters: 360,

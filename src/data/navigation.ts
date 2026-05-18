@@ -7,8 +7,6 @@ interface NavTemplate {
   href: string;
   group: string;
   moduleId?: string;
-  releaseStatus?: 'updated' | 'new';
-  releaseLabel?: string;
   aliases?: string[];
 }
 
@@ -42,8 +40,6 @@ const MODULE_NAV_ITEMS: NavTemplate[] = allModules.map(moduleData => ({
   href: `/module/${moduleData.number}`,
   group: MODULE_GROUPS[moduleData.number] ?? 'Practice',
   moduleId: moduleData.id,
-  releaseStatus: moduleData.releaseStatus,
-  releaseLabel: moduleData.releaseLabel,
 }));
 
 const SIDEBAR_NAV_ITEMS: NavTemplate[] = [
@@ -119,8 +115,6 @@ function resolveNavItem(template: NavTemplate, params: BuildCourseNavParams): Na
     label: template.label,
     href: template.href,
     group: template.group,
-    releaseStatus: template.releaseStatus,
-    releaseLabel: template.releaseLabel,
     locked: false,
     completed: template.moduleId ? params.isModuleComplete(template.moduleId) : false,
   };

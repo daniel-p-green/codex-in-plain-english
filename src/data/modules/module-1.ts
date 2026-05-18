@@ -7,8 +7,6 @@ export const module1: ModuleData = {
   title: 'From Clicking To Delegating',
   subtitle:
     'Understand why so much digital work feels busy and how outcome-based delegation changes the game for non-coders.',
-  releaseStatus: 'updated',
-  releaseLabel: 'Updated May 17',
   releaseDate: '2026-05-17',
   depthZone: 'Core Course',
   depthMeters: 10,

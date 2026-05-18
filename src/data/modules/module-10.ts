@@ -11,8 +11,6 @@ export const module10: ModuleData = {
   title: 'Browser, Chrome, And Computer Use',
   subtitle:
     'Learn when Codex should inspect a local preview, work through signed-in browser state, or operate a desktop app.',
-  releaseStatus: 'new',
-  releaseLabel: 'New May 17',
   releaseDate: '2026-05-17',
   depthZone: 'Expanded Codex 2026',
   depthMeters: 270,

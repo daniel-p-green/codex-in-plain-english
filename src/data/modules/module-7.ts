@@ -7,8 +7,6 @@ export const module7: ModuleData = {
   title: 'Team Practices: Consistency And Scale',
   subtitle:
     'Translate personal prompting habits into shared operational standards that teams can trust and reuse.',
-  releaseStatus: 'updated',
-  releaseLabel: 'Updated May 17',
   releaseDate: '2026-05-17',
   depthZone: 'Core Course',
   depthMeters: 180,

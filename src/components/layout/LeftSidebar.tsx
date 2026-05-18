@@ -27,9 +27,6 @@ export default function LeftSidebar({ groups, pathname }: LeftSidebarProps) {
 
   const renderLinkMeta = (item: NavGroup['items'][number]) => (
     <span className="left-sidebar-meta">
-      {item.releaseLabel && item.releaseStatus && (
-        <span className={`left-sidebar-release ${item.releaseStatus}`}>{item.releaseLabel}</span>
-      )}
       {item.completed && <span className="left-sidebar-status">Done</span>}
     </span>
   );

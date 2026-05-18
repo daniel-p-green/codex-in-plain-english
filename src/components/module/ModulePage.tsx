@@ -136,9 +136,6 @@ export default function ModulePage() {
           <span>~{moduleData.estimatedMinutes} min</span>
           <span>{moduleData.sourceRefs.length} sources linked</span>
           <span>{progress.xp} XP</span>
-          {moduleData.releaseLabel && moduleData.releaseStatus && (
-            <span className={`module-release-chip ${moduleData.releaseStatus}`}>{moduleData.releaseLabel}</span>
-          )}
           {isModuleComplete(moduleId) && <span className="module-complete-chip">Complete</span>}
         </div>
         <h1>{moduleData.title}</h1>

@@ -11,8 +11,6 @@ export const module12: ModuleData = {
   title: 'Durable Threads, Memory, And Work Notes',
   subtitle:
     'Learn how long-running work stays coherent through focused threads, written notes, memories, and explicit project instructions.',
-  releaseStatus: 'new',
-  releaseLabel: 'New May 17',
   releaseDate: '2026-05-17',
   depthZone: 'Expanded Codex 2026',
   depthMeters: 330,

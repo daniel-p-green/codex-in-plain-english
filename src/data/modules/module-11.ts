@@ -7,8 +7,6 @@ export const module11: ModuleData = {
   title: 'Mobile Remote Control And Steering',
   subtitle:
     'Learn how to start Codex work on the host machine, then continue, approve, and redirect it from mobile.',
-  releaseStatus: 'new',
-  releaseLabel: 'New May 17',
   releaseDate: '2026-05-17',
   depthZone: 'Expanded Codex 2026',
   depthMeters: 300,
