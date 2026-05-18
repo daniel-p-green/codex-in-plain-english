@@ -44,7 +44,7 @@ export const module1: ModuleData = {
               cells: [
                 'Rename 1,000 files',
                 'Write a script yourself or ask an engineer',
-                'Describe the outcome and constraints in plain language',
+                'Describe the outcome and boundaries in plain language',
               ],
             },
             {
@@ -83,12 +83,12 @@ export const module1: ModuleData = {
             },
             {
               number: 2,
-              title: 'Set constraints',
+              title: 'Set boundaries',
               description: 'Name folder, preserve originals, and define how errors should be reported.',
             },
             {
               number: 3,
-              title: 'Review output, not internals',
+              title: 'Review the result, not every step',
               description: 'Your role becomes quality control and decision-making, not typing every step.',
             },
           ],
@@ -97,7 +97,7 @@ export const module1: ModuleData = {
           type: 'callout',
           variant: 'info',
           title: 'Important',
-          text: 'You are not "avoiding code." You are delegating code execution while staying accountable for outcomes.',
+          text: 'You are not "avoiding responsibility." You are delegating the work steps while staying accountable for outcomes.',
         },
       ],
     },
@@ -117,8 +117,8 @@ export const module1: ModuleData = {
               definition: 'The final state you want to make true, independent of specific clicks.',
             },
             {
-              term: 'Acceptance Check',
-              definition: 'A test you run to decide if the delegated task succeeded.',
+              term: 'Success Check',
+              definition: 'A quick way to decide if the delegated task succeeded.',
             },
           ],
         },
@@ -157,12 +157,12 @@ export const module1: ModuleData = {
       options: [
         { id: 'a', text: 'You stop caring about results' },
         { id: 'b', text: 'You focus on tools only' },
-        { id: 'c', text: 'You define end state and constraints, then review output' },
+        { id: 'c', text: 'You define the end state and boundaries, then review the result' },
         { id: 'd', text: 'You must become a professional developer first' },
       ],
       correctAnswer: 'c',
       explanation:
-        'Delegation shifts effort from manual execution to clear specification and validation.',
+        'Delegation shifts effort from manual execution to clear instructions and checks.',
     },
     {
       id: 'q1-3',

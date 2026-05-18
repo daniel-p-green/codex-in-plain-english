@@ -10,7 +10,7 @@ export const module12: ModuleData = {
   number: 12,
   title: 'Durable Threads, Memory, And Work Notes',
   subtitle:
-    'Learn how long-running work stays coherent through focused threads, written notes, memories, and explicit project instructions.',
+    'Learn how long-running work stays understandable through focused threads, written notes, memories, and clear project instructions.',
   releaseDate: '2026-05-17',
   depthZone: 'Expanded Codex 2026',
   depthMeters: 330,
@@ -22,13 +22,13 @@ export const module12: ModuleData = {
       content: [
         {
           type: 'paragraph',
-          text: 'A Codex thread is not just a conversation. It is a container for one workstream: what you asked, what Codex inspected, what it tried, what changed, and what still needs attention.',
+          text: 'A Codex thread is not just a conversation. It is a home for one piece of work: what you asked, what Codex looked at, what it tried, what changed, and what still needs attention.',
         },
         {
           type: 'callout',
           variant: 'tip',
           title: 'Dex says',
-          text: 'One thread per workstream is the simplest way to keep context useful instead of noisy.',
+          text: 'One thread per piece of work is the simplest way to keep context useful instead of noisy.',
         },
       ],
     },
@@ -38,16 +38,16 @@ export const module12: ModuleData = {
       content: [
         {
           type: 'paragraph',
-          text: 'Long threads can carry history, but important decisions should not live only in chat. Put stable context into files Codex and humans can inspect.',
+          text: 'Long threads can carry history, but important decisions should not live only in chat. Put stable context into files that people and Codex can inspect.',
         },
         {
           type: 'table',
-          headers: ['Context Type', 'Good Home', 'Why'],
+          headers: ['What To Save', 'Good Home', 'Why'],
           rows: [
             ['Required project rules', 'AGENTS.md or checked-in docs', 'Shared, reviewable instructions.'],
             ['Open loops', 'TODO.md or project notes', 'Keeps follow-ups from getting buried.'],
             ['Decisions', 'decision-log.md', 'Prevents re-deciding the same thing.'],
-            ['Attempts and outcomes', 'ATTEMPTS.md or EXPERIMENTS.md', 'Shows what worked and what failed.'],
+            ['Attempts and outcomes', 'ATTEMPTS.md or notes', 'Shows what worked and what failed.'],
             ['Stable preferences', 'Codex memories', 'Useful recall across future work.'],
           ],
         },
@@ -64,7 +64,7 @@ export const module12: ModuleData = {
         },
         {
           type: 'paragraph',
-          text: 'These files make work auditable. Codex can resume with less confusion, and you can see whether it is repeating failed attempts.',
+          text: 'These files make the work easier to inspect. Codex can resume with less confusion, and you can see whether it is repeating failed attempts.',
         },
       ],
     },
@@ -78,7 +78,7 @@ export const module12: ModuleData = {
           rows: [
             { cells: ['Stable preferences and recurring habits.', 'Rules that must be inspected, changed, reviewed, or shared.'] },
             { cells: ['Known pitfalls you want Codex to recall.', 'Project instructions, compliance notes, source links, and task state.'] },
-            { cells: ['Lightweight recall across future work.', 'Durable knowledge that should survive thread drift.'] },
+            { cells: ['Lightweight recall across future work.', 'Knowledge that should survive a messy or long thread.'] },
           ],
         },
       ],
@@ -91,7 +91,7 @@ export const module12: ModuleData = {
           type: 'callout',
           variant: 'info',
           title: 'Checkpoint',
-          text: 'Durable Codex work needs a thread for action and files for memory. The thread does the work. The files preserve what the work learned.',
+          text: 'Long-running Codex work needs a thread for action and files for memory. The thread does the work. The files preserve what the work learned.',
         },
       ],
     },
@@ -101,14 +101,14 @@ export const module12: ModuleData = {
       id: 'q12-1',
       question: 'What is a Codex thread most useful for?',
       options: [
-        { id: 'a', text: 'Holding one coherent workstream and its context' },
+        { id: 'a', text: 'Holding one focused piece of work and its context' },
         { id: 'b', text: 'Replacing all written project instructions' },
         { id: 'c', text: 'Mixing unrelated tasks forever' },
-        { id: 'd', text: 'Avoiding all artifacts' },
+        { id: 'd', text: 'Avoiding all outputs' },
       ],
       correctAnswer: 'a',
       explanation:
-        'Threads are most useful when they hold one coherent workstream.',
+        'Threads are most useful when they hold one focused piece of work.',
     },
     {
       id: 'q12-2',

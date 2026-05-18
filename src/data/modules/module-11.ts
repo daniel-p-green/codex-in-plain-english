@@ -55,7 +55,7 @@ export const module11: ModuleData = {
             ['The preview is too busy.', 'Make the cards smaller and preserve all copy.'],
             ['Codex found multiple paths.', 'Use the lowest-risk path and tell me what it skips.'],
             ['A draft is ready.', 'Do not send. Save it as a draft and summarize the assumptions.'],
-            ['A check is slow.', 'Run the smaller validation first and tell me what the full check would cover.'],
+            ['A check is slow.', 'Run the smaller check first and tell me what the full check would cover.'],
           ],
         },
       ],
@@ -67,7 +67,7 @@ export const module11: ModuleData = {
         {
           type: 'orderedList',
           items: [
-            'Do not approve sensitive actions from a tiny summary if you have not inspected the artifact.',
+            'Do not approve sensitive actions from a tiny summary if you have not inspected the result.',
             'Ask Codex to pause when the task touches money, accounts, private data, or publishing.',
             'Use mobile for direction changes, not for silently expanding scope.',
             'Request a final evidence summary before calling the work done.',
@@ -109,7 +109,7 @@ export const module11: ModuleData = {
         { id: 'a', text: 'Do whatever' },
         { id: 'b', text: 'Use the lowest-risk path and tell me what it skips' },
         { id: 'c', text: 'Send it without review' },
-        { id: 'd', text: 'Ignore the artifact' },
+        { id: 'd', text: 'Ignore the result' },
       ],
       correctAnswer: 'b',
       explanation:

@@ -6,7 +6,7 @@ export const module8: ModuleData = {
   number: 8,
   title: 'Build Or Adopt Your First Skill',
   subtitle:
-    'Finish strong by turning one repeated workflow into a practical skill and defining your adoption loop.',
+    'Turn one repeated workflow into a practical skill and decide how you will use it again.',
   releaseDate: '2026-05-17',
   depthZone: 'Core Course',
   depthMeters: 210,
@@ -19,7 +19,7 @@ export const module8: ModuleData = {
         {
           type: 'unorderedList',
           items: [
-            'Recurring and boring enough to justify automation.',
+            'Recurring and boring enough to be worth packaging.',
             'Clear input and output boundaries.',
             'Low risk if first run is imperfect.',
             'Easy to verify in a few objective checks.',
@@ -29,7 +29,7 @@ export const module8: ModuleData = {
     },
     {
       id: 'section-8-2',
-      title: '8.2 - Minimal Skill Starter Blueprint',
+      title: '8.2 - Small Skill Starter Blueprint',
       content: [
         {
           type: 'code',
@@ -38,22 +38,22 @@ export const module8: ModuleData = {
         },
         {
           type: 'paragraph',
-          text: 'Keep V1 small. A narrow skill that works beats a broad skill that is inconsistent.',
+          text: 'Keep the first version small. A narrow skill that works beats a broad skill that behaves differently every time.',
         },
       ],
     },
     {
       id: 'section-8-3',
-      title: '8.3 - Acceptance Rubric',
+      title: '8.3 - Simple Quality Checklist',
       content: [
         {
           type: 'table',
-          headers: ['Check', 'Pass Condition'],
+          headers: ['Check', 'What Passing Looks Like'],
           rows: [
-            ['Correctness', 'Output matches schema/format requirements'],
+            ['Correctness', 'Output matches the required format'],
             ['Completeness', 'No required fields are missing'],
-            ['Safety', 'No unauthorized paths or sensitive operations executed'],
-            ['Repeatability', 'Second run yields equivalent result on same input'],
+            ['Safety', 'No unexpected files, accounts, or sensitive actions are touched'],
+            ['Repeatability', 'Running it again on the same input gives the same kind of result'],
           ],
         },
       ],
@@ -73,7 +73,7 @@ export const module8: ModuleData = {
             {
               number: 2,
               title: 'Week 2: Stabilize prompts and checks',
-              description: 'Refine SKILL.md with concrete instructions.',
+              description: 'Refine the main instruction file with concrete steps.',
             },
             {
               number: 3,
@@ -91,7 +91,7 @@ export const module8: ModuleData = {
           type: 'callout',
           variant: 'tip',
           title: 'Dex says',
-          text: 'Your first skill is a product. Ship small, measure, iterate.',
+          text: 'Your first skill is a tiny product. Start small, check results, and improve it.',
         },
       ],
     },
@@ -103,7 +103,7 @@ export const module8: ModuleData = {
           type: 'callout',
           variant: 'info',
           title: 'You are now ready',
-          text: 'You now have a repeatable path for turning plain-language outcomes into reusable delegated workflows with visible quality standards.',
+          text: 'You now have a repeatable path for turning plain-language outcomes into reusable Codex workflows with visible quality standards.',
         },
       ],
     },
@@ -113,18 +113,18 @@ export const module8: ModuleData = {
       id: 'q8-1',
       question: 'What makes a good first skill candidate?',
       options: [
-        { id: 'a', text: 'High-risk production migration' },
+        { id: 'a', text: 'High-risk live task' },
         { id: 'b', text: 'Rare one-time task with unclear outputs' },
         { id: 'c', text: 'Recurring low-risk workflow with clear checks' },
         { id: 'd', text: 'Task that cannot be evaluated' },
       ],
       correctAnswer: 'c',
       explanation:
-        'Strong first skills are frequent, bounded, and easy to validate objectively.',
+        'Strong first skills are frequent, bounded, and easy to check.',
     },
     {
       id: 'q8-2',
-      question: 'Why should V1 skills stay narrow?',
+      question: 'Why should first-version skills stay narrow?',
       options: [
         { id: 'a', text: 'To reduce learning opportunities' },
         { id: 'b', text: 'Because narrow scope improves reliability and iteration speed' },
@@ -137,7 +137,7 @@ export const module8: ModuleData = {
     },
     {
       id: 'q8-3',
-      question: 'Which acceptance criterion supports repeatability?',
+      question: 'Which success check supports repeatability?',
       options: [
         { id: 'a', text: 'Looks creative each run' },
         { id: 'b', text: 'Equivalent output on repeated runs with same input' },
@@ -146,7 +146,7 @@ export const module8: ModuleData = {
       ],
       correctAnswer: 'b',
       explanation:
-        'Repeatability is a direct measure of workflow stability and trustworthiness.',
+        'Repeatability shows whether the workflow is stable enough to trust.',
     },
   ],
   sourceRefs: [SOURCE_GABRIEL_X, SOURCE_OPENAI_SKILLS_DOC],

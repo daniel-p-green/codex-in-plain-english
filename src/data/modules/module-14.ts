@@ -12,7 +12,7 @@ export const module14: ModuleData = {
   number: 14,
   title: 'Review, Safety, And The Living Course',
   subtitle:
-    'Close the expanded course with the habits that keep Codex useful as it keeps growing: proof, approvals, source notes, and course updates.',
+    'Close the expanded course with the habits that keep Codex useful as it grows: proof, approvals, source notes, and clear updates.',
   releaseDate: '2026-05-17',
   depthZone: 'Expanded Codex 2026',
   depthMeters: 390,
@@ -24,7 +24,7 @@ export const module14: ModuleData = {
       content: [
         {
           type: 'paragraph',
-          text: 'As Codex becomes a broader work app, the review habit becomes more important, not less. The right question is not "can Codex do this?" It is "what proof would let me approve this responsibly?"',
+          text: 'As Codex becomes a broader work app, review becomes more important, not less. The right question is not "can Codex do this?" It is "what proof would let me approve this responsibly?"',
         },
       ],
     },
@@ -39,7 +39,7 @@ export const module14: ModuleData = {
             ['Sandbox', 'The boundary around what Codex can access or change.'],
             ['Approval', 'The point where Codex pauses before a higher-risk action.'],
             ['Diff', 'The exact file changes you review before accepting.'],
-            ['Artifact', 'The output you can inspect, annotate, and reuse.'],
+            ['Reviewable output', 'The file, draft, screenshot, page, or checklist you can inspect and reuse.'],
             ['Source notes', 'The record of where course claims came from.'],
           ],
         },
@@ -51,7 +51,7 @@ export const module14: ModuleData = {
       content: [
         {
           type: 'paragraph',
-          text: 'This project should grow like Codex grows. New features become new modules when they change how normal people delegate work. Small changes become source notes, glossary entries, or updated callouts.',
+          text: 'This project should grow as Codex grows. New features become new modules when they change how normal people delegate work. Smaller changes become source notes, glossary entries, or updated callouts.',
         },
         {
           type: 'orderedList',
@@ -59,8 +59,8 @@ export const module14: ModuleData = {
             'Confirm current behavior against official OpenAI docs.',
             'Translate product terms into plain-English decisions.',
             'Add or update source notes in Markdown.',
-            'Mark modules as New or Updated so returning learners know where to go.',
-            'Keep Gabriel\'s original plain-English foundation visible.',
+            'Keep one clear course-level update note for returning learners.',
+            'Keep the original plain-English foundation visible.',
           ],
         },
       ],
@@ -79,13 +79,13 @@ export const module14: ModuleData = {
             },
             {
               number: 2,
-              title: 'Choose the surface',
-              description: 'Pick Local, Worktree, Cloud, Chat, browser, Chrome, or Computer Use.',
+              title: 'Choose where Codex works',
+              description: 'Pick the place Codex should work: local files, cloud work, chat, browser, Chrome, or Computer Use.',
             },
             {
               number: 3,
-              title: 'Review the artifact',
-              description: 'Inspect the file, diff, preview, draft, screenshot, or checklist.',
+              title: 'Review the result',
+              description: 'Inspect the file changes, preview, draft, screenshot, or checklist.',
             },
             {
               number: 4,
@@ -104,7 +104,7 @@ export const module14: ModuleData = {
           type: 'callout',
           variant: 'info',
           title: 'You are now ready',
-          text: 'Codex in plain English is a living operating practice: direct the work, bound the access, review the proof, preserve what mattered, and keep expanding as the app expands.',
+          text: 'Codex in Plain English is a living practice: direct the work, set boundaries, review the proof, preserve what mattered, and keep expanding as the app expands.',
         },
       ],
     },
@@ -129,25 +129,25 @@ export const module14: ModuleData = {
       options: [
         { id: 'a', text: 'When it changes how normal people delegate, review, or repeat work' },
         { id: 'b', text: 'Whenever a product term exists' },
-        { id: 'c', text: 'Only when it has API details' },
+        { id: 'c', text: 'Only when it has developer details' },
         { id: 'd', text: 'Never; living courses should not grow' },
       ],
       correctAnswer: 'a',
       explanation:
-        'The course should expand when the feature changes the learner operating model.',
+        'The course should expand when the feature changes how learners delegate, review, or repeat work.',
     },
     {
       id: 'q14-3',
-      question: 'What should returning learners be able to see in the UI?',
+      question: 'What should returning learners be able to see?',
       options: [
-        { id: 'a', text: 'Which modules are new or updated' },
+        { id: 'a', text: 'A clear course-level update note and source trail' },
         { id: 'b', text: 'Only hidden source changes' },
         { id: 'c', text: 'No update trail' },
         { id: 'd', text: 'Only developer docs' },
       ],
       correctAnswer: 'a',
       explanation:
-        'New and updated labels help returning learners jump to what changed.',
+        'Returning learners need a clear update trail without cluttering every module card.',
     },
   ],
   sourceRefs: [

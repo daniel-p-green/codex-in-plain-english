@@ -83,7 +83,7 @@ const TOP_NAV_ITEMS: TopNavTemplate[] = [
   },
   {
     id: 'progress',
-    label: 'Progress',
+    label: 'Dashboard',
     href: '/dashboard',
   },
   {

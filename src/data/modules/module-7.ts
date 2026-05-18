@@ -6,7 +6,7 @@ export const module7: ModuleData = {
   number: 7,
   title: 'Team Practices: Consistency And Scale',
   subtitle:
-    'Translate personal prompting habits into shared operational standards that teams can trust and reuse.',
+    'Turn one person\'s good Codex habit into a shared way of working that a team can trust.',
   releaseDate: '2026-05-17',
   depthZone: 'Core Course',
   depthMeters: 180,
@@ -18,7 +18,7 @@ export const module7: ModuleData = {
       content: [
         {
           type: 'paragraph',
-          text: 'In many teams, expertise is procedural: what to check, what to avoid, and what good output should contain. Skills make that procedural know-how explicit.',
+          text: 'In many teams, the important knowledge is practical: what to check, what to avoid, and what good work should contain. Skills write that know-how down.',
         },
       ],
     },
@@ -34,10 +34,10 @@ export const module7: ModuleData = {
               cells: ['Solo/Freelancer', 'Rebuilds prompts from memory', 'Reuses one tested workflow package'],
             },
             {
-              cells: ['Small Team', 'Inconsistent outputs across teammates', 'Shared defaults and quality bars'],
+              cells: ['Small Team', 'Inconsistent outputs across teammates', 'Shared defaults and quality standards'],
             },
             {
-              cells: ['Large Org', 'Knowledge trapped in silos', 'Codified repeatable process and onboarding speed'],
+              cells: ['Large Org', 'Knowledge trapped in silos', 'Written-down process and faster onboarding'],
             },
           ],
         },
@@ -45,14 +45,14 @@ export const module7: ModuleData = {
     },
     {
       id: 'section-7-3',
-      title: '7.3 - Governance Lite For Skills',
+      title: '7.3 - Lightweight Care For Skills',
       content: [
         {
           type: 'orderedList',
           items: [
             'Assign owners for each critical skill.',
             'Version changes with short changelog notes.',
-            'Review skill outputs against a rubric quarterly.',
+            'Review skill outputs against a simple checklist from time to time.',
             'Retire stale skills instead of letting duplicates spread.',
           ],
         },
@@ -60,7 +60,7 @@ export const module7: ModuleData = {
           type: 'callout',
           variant: 'tip',
           title: 'Dex says',
-          text: 'Treat skills like product assets, not personal notes. Ownership and maintenance matter.',
+          text: 'Treat useful skills like shared team tools, not private notes. Ownership and maintenance matter.',
         },
       ],
     },
@@ -74,12 +74,12 @@ export const module7: ModuleData = {
             {
               number: 1,
               title: 'Choose one recurring workflow',
-              description: 'Start where pain is highest and output is easy to validate.',
+              description: 'Start where pain is highest and output is easy to check.',
             },
             {
               number: 2,
               title: 'Build and document one skill',
-              description: 'Keep first version intentionally narrow and testable.',
+              description: 'Keep first version intentionally narrow and easy to check.',
             },
             {
               number: 3,
@@ -89,7 +89,7 @@ export const module7: ModuleData = {
             {
               number: 4,
               title: 'Scale after quality stabilizes',
-              description: 'Expand usage only after acceptance checks are consistently passed.',
+              description: 'Expand usage only after the checks pass consistently.',
             },
           ],
         },
@@ -103,7 +103,7 @@ export const module7: ModuleData = {
           type: 'callout',
           variant: 'info',
           title: 'Checkpoint',
-          text: 'Teams scale AI workflows when process is shared, versioned, and reviewed - not when everyone improvises alone.',
+          text: 'Teams get better results when the process is shared, updated, and reviewed - not when everyone improvises alone.',
         },
       ],
     },
@@ -111,7 +111,7 @@ export const module7: ModuleData = {
   quiz: [
     {
       id: 'q7-1',
-      question: 'What kind of knowledge do skills help codify?',
+      question: 'What kind of knowledge do skills help capture?',
       options: [
         { id: 'a', text: 'Only factual trivia' },
         { id: 'b', text: 'Procedural habits and quality checks' },
@@ -120,7 +120,7 @@ export const module7: ModuleData = {
       ],
       correctAnswer: 'b',
       explanation:
-        'Skills capture operational know-how that is often undocumented and inconsistent.',
+        'Skills capture practical know-how that is often undocumented and inconsistent.',
     },
     {
       id: 'q7-2',

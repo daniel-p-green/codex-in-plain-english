@@ -6,14 +6,14 @@ export interface GlossaryEntry {
 
 export const GLOSSARY_ENTRIES: GlossaryEntry[] = [
   {
-    term: 'Acceptance Check',
+    term: 'Success Check',
     definition: 'A quick pass/fail way to decide whether Codex finished the work correctly.',
     example: 'Example: "The summary includes all 6 required sections and no unsupported claims."',
   },
   {
     term: 'Artifact',
     definition: 'A reviewable output Codex creates or changes, such as a file, draft, spreadsheet, slide deck, screenshot, or webpage.',
-    example: 'Example: A Markdown plan in `PLAN.md` is an artifact you can inspect and revise.',
+    example: 'Example: A plan in `PLAN.md` is a reviewable output you can inspect and revise.',
   },
   {
     term: 'Approval',
@@ -22,27 +22,27 @@ export const GLOSSARY_ENTRIES: GlossaryEntry[] = [
   },
   {
     term: 'Chat',
-    definition: 'A Codex surface for planning, research, connector work, and tasks that are not tied to one project folder.',
+    definition: 'A place to use Codex for planning, research, connected-tool work, and tasks that are not tied to one project folder.',
     example: 'Example: Use chat to plan a workshop outline before any files exist.',
   },
   {
     term: 'Chrome Extension',
-    definition: 'A way for Codex to work with signed-in Chrome pages and existing browser state.',
+    definition: 'A way for Codex to work with signed-in Chrome pages you already use.',
     example: 'Example: Use Chrome when Codex needs a logged-in dashboard you already have open.',
   },
   {
     term: 'Cloud',
-    definition: 'A remote Codex work environment, often useful for GitHub-backed tasks that do not need your local machine.',
-    example: 'Example: Ask Codex to work on a GitHub issue in the cloud while your laptop is closed.',
+    definition: 'A remote place where Codex can keep working when the task does not need your local machine.',
+    example: 'Example: Ask Codex to work on a project task in the cloud while your laptop is closed.',
   },
   {
     term: 'Computer Use',
-    definition: 'A Codex capability for operating desktop apps and GUI-only workflows on your Mac.',
+    definition: 'A Codex capability for operating desktop apps and screen-only workflows on your Mac.',
     example: 'Example: Use Computer Use when the only way to upload a file is through a desktop file picker.',
   },
   {
     term: 'Diff',
-    definition: 'A view of exactly what changed in files.',
+    definition: 'A view of exactly what changed in a file.',
     example: 'Example: Review the diff before accepting a rewrite of a lesson module.',
   },
   {
@@ -52,12 +52,12 @@ export const GLOSSARY_ENTRIES: GlossaryEntry[] = [
   },
   {
     term: 'Heartbeat',
-    definition: 'A scheduled check-back inside the same thread.',
+    definition: 'A scheduled check-back inside the same Codex thread.',
     example: 'Example: "Every 30 minutes, check whether the reviewer has left comments and draft a response."',
   },
   {
     term: 'In-app Browser',
-    definition: 'The browser surface inside Codex where you and Codex can inspect the same page or local preview.',
+    definition: 'The browser inside Codex where you and Codex can inspect the same page or local preview.',
     example: 'Example: Open a local course page and ask Codex to check whether the mobile layout overlaps.',
   },
   {
@@ -77,27 +77,27 @@ export const GLOSSARY_ENTRIES: GlossaryEntry[] = [
   },
   {
     term: 'Sandbox',
-    definition: 'A boundary around what Codex can access or change without additional permission.',
+    definition: 'A boundary around what Codex can access or change without asking again.',
     example: 'Example: A sandbox can limit work to a project folder instead of your whole machine.',
   },
   {
     term: 'Skill',
-    definition: 'A reusable workflow package that tells Codex how to repeat a proven pattern.',
-    example: 'Example: A weekly-summary skill can include instructions, examples, and a review rubric.',
+    definition: 'A reusable work recipe that tells Codex how to repeat a proven pattern.',
+    example: 'Example: A weekly-summary skill can include instructions, examples, and a simple review checklist.',
   },
   {
     term: 'Thread',
-    definition: 'A work container that holds the conversation, context, tool activity, results, and next steps for one workstream.',
+    definition: 'A work container that holds the conversation, context, results, and next steps for one piece of work.',
     example: 'Example: Keep one thread for a course refresh so Codex remembers decisions from earlier in the work.',
   },
   {
     term: 'Work Contract',
-    definition: 'A plain-language task brief with a goal, context, constraints, deliverable, done check, and stop condition.',
+    definition: 'A plain-language task brief with a goal, context, boundaries, deliverable, done check, and stop condition.',
     example: 'Example: "Goal: merge these exports. Constraints: keep originals untouched. Done when row counts match."',
   },
   {
     term: 'Worktree',
-    definition: 'An isolated copy of a project where Codex can try changes without disturbing the main checkout.',
-    example: 'Example: Use a worktree for a risky redesign before deciding whether to merge it.',
+    definition: 'A separate copy of a project where Codex can try changes without disturbing the main copy.',
+    example: 'Example: Use a worktree for a risky redesign before deciding whether to keep it.',
   },
 ];

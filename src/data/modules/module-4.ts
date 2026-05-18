@@ -23,7 +23,7 @@ export const module4: ModuleData = {
         },
         {
           type: 'paragraph',
-          text: 'This short structure prevents most first-run failures because it covers scope, constraints, and verification.',
+          text: 'This short structure prevents most first-run failures because it covers what to do, what not to touch, and how you will check the result.',
         },
       ],
     },
@@ -34,13 +34,13 @@ export const module4: ModuleData = {
         {
           type: 'code',
           language: 'text',
-          code: 'Goal: Merge all CSV exports into one weekly file.\nInput: /exports/week-12/\nOutput: /exports/weekly-summary.csv\nDo not change: Keep original files untouched.\nEdge cases: Skip corrupted rows and log them.\nSuccess checks: Row count + columns validated, date format normalized.',
+          code: 'Goal: Merge all CSV exports into one weekly file.\nInput: /exports/week-12/\nOutput: /exports/weekly-summary.csv\nDo not change: Keep original files untouched.\nEdge cases: Skip corrupted rows and log them.\nSuccess checks: Row count and columns checked, date format normalized.',
         },
         {
           type: 'callout',
           variant: 'tip',
           title: 'Dex says',
-          text: 'A good brief reads like acceptance criteria, not a vague wish.',
+          text: 'A good brief reads like a checklist for done, not a vague wish.',
         },
       ],
     },
@@ -94,7 +94,7 @@ export const module4: ModuleData = {
       question: 'What is the main purpose of the delegation brief template?',
       options: [
         { id: 'a', text: 'To impress technical teammates' },
-        { id: 'b', text: 'To define scope, constraints, and validation in one place' },
+        { id: 'b', text: 'To define scope, boundaries, and success checks in one place' },
         { id: 'c', text: 'To replace all QA' },
         { id: 'd', text: 'To avoid specifying outputs' },
       ],
@@ -108,7 +108,7 @@ export const module4: ModuleData = {
       options: [
         { id: 'a', text: 'Looks fine to me' },
         { id: 'b', text: 'Done quickly' },
-        { id: 'c', text: 'Row counts validated and date formats normalized' },
+        { id: 'c', text: 'Row counts checked and date formats normalized' },
         { id: 'd', text: 'No logs needed' },
       ],
       correctAnswer: 'c',

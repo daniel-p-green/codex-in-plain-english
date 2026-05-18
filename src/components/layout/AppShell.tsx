@@ -89,7 +89,7 @@ export default function AppShell() {
 
       <TopNav
         onOpenMenu={() => setDrawerState({ open: true, route: location.pathname })}
-        brandLabel="Codex In Plain English"
+        brandLabel="Codex in Plain English"
         items={topNavItems}
         metrics={topNavMetrics}
         cta={continueCta}

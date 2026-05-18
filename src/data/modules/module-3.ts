@@ -4,9 +4,9 @@ import { SOURCE_GABRIEL_X, SOURCE_OPENAI_CODEX_DOCS } from '../attribution';
 export const module3: ModuleData = {
   id: 'module-3',
   number: 3,
-  title: 'Two Execution Modes: Code vs UI',
+  title: 'Two Ways Codex Works: Files Or Screens',
   subtitle:
-    'Learn when AI should use scripts and APIs versus directly operating interfaces like a human.',
+    'Learn when Codex should work behind the scenes with files and data, and when it should operate a screen like a person.',
   releaseDate: '2026-05-17',
   depthZone: 'Core Course',
   depthMeters: 60,
@@ -14,35 +14,35 @@ export const module3: ModuleData = {
   sections: [
     {
       id: 'section-3-1',
-      title: '3.1 - Mode A: Through Code',
+      title: '3.1 - Way A: Behind The Scenes',
       content: [
         {
           type: 'paragraph',
-          text: 'Code mode means scripts, command line tools, and API calls. It is usually faster, repeatable, and easier to scale.',
+          text: 'Behind-the-scenes work means Codex uses files, data, scripts, or app connections instead of clicking around. It is usually faster, easier to repeat, and easier to check.',
         },
         {
           type: 'orderedList',
           items: [
             'Best for high-volume repetitive work.',
-            'Better audit trail through commands and logs.',
-            'Works well when APIs or files are accessible.',
+            'Better trail of what happened.',
+            'Works well when files or structured exports are available.',
           ],
         },
       ],
     },
     {
       id: 'section-3-2',
-      title: '3.2 - Mode B: Through Interface',
+      title: '3.2 - Way B: On The Screen',
       content: [
         {
           type: 'paragraph',
-          text: 'UI mode means clicking through screens, filling forms, and navigating apps. Useful when no API is available.',
+          text: 'Screen work means Codex clicks through pages, fills forms, and navigates apps. It is useful when the only way to do the task is through the interface.',
         },
         {
           type: 'callout',
           variant: 'warning',
           title: 'Tradeoff',
-          text: 'UI automations can be fragile because interfaces and labels change frequently.',
+          text: 'Screen work can be fragile because buttons, labels, and layouts change.',
         },
       ],
     },
@@ -52,19 +52,19 @@ export const module3: ModuleData = {
       content: [
         {
           type: 'comparison',
-          headers: ['Situation', 'Preferred Mode', 'Why'],
+          headers: ['Situation', 'Best Path', 'Why'],
           rows: [
             {
-              cells: ['Batch process 5,000 files', 'Code', 'Speed, scale, deterministic handling'],
+              cells: ['Batch process 5,000 files', 'Behind the scenes', 'Fast and repeatable'],
             },
             {
-              cells: ['Legacy internal tool with no API', 'UI', 'Only reachable through interface'],
+              cells: ['Older internal tool with no export option', 'On the screen', 'Only reachable through the interface'],
             },
             {
-              cells: ['Recurring weekly metric report', 'Code', 'Repeatability and easy scheduling'],
+              cells: ['Recurring weekly report', 'Behind the scenes', 'Easy to repeat and check'],
             },
             {
-              cells: ['One-time data entry in admin panel', 'UI', 'Low setup overhead for single run'],
+              cells: ['One-time data entry in an admin page', 'On the screen', 'Low setup for a single run'],
             },
           ],
         },
@@ -77,17 +77,17 @@ export const module3: ModuleData = {
         {
           type: 'unorderedList',
           items: [
-            'Prefer structured inputs (CSV, JSON, APIs) over screenshots or free text.',
+            'Prefer clean files and exports over screenshots or copied text.',
             'Request dry-run previews before destructive actions.',
             'Keep a rollback path for files and records.',
-            'Log key outputs so reruns are easy to validate.',
+            'Keep a short record of what changed so reruns are easy to check.',
           ],
         },
         {
           type: 'callout',
           variant: 'tip',
           title: 'Dex says',
-          text: 'Start from the most stable integration point. Reliability is usually a format and access problem, not a model problem.',
+          text: 'Start from the most stable source of information. Clean files usually beat fragile screen clicks.',
         },
       ],
     },
@@ -99,7 +99,7 @@ export const module3: ModuleData = {
           type: 'callout',
           variant: 'info',
           title: 'Checkpoint',
-          text: 'Pick code mode when possible, UI mode when necessary, and validate both with explicit checks.',
+          text: 'Use behind-the-scenes work when possible, screen work when necessary, and check both with clear evidence.',
         },
       ],
     },
@@ -107,29 +107,29 @@ export const module3: ModuleData = {
   quiz: [
     {
       id: 'q3-1',
-      question: 'Why is code mode often preferred for recurring work?',
+      question: 'Why is behind-the-scenes work often better for recurring work?',
       options: [
-        { id: 'a', text: 'It looks more technical' },
-        { id: 'b', text: 'It is usually faster, more reliable, and scalable' },
+        { id: 'a', text: 'It looks more complicated' },
+        { id: 'b', text: 'It is usually faster, more reliable, and easier to repeat' },
         { id: 'c', text: 'It always requires no review' },
         { id: 'd', text: 'It works only for coders' },
       ],
       correctAnswer: 'b',
       explanation:
-        'Scripts/APIs generally reduce manual variance and scale more cleanly than click automation.',
+        'Working with files or structured app access usually reduces manual variation.',
     },
     {
       id: 'q3-2',
-      question: 'When is UI mode reasonable?',
+      question: 'When is screen work reasonable?',
       options: [
-        { id: 'a', text: 'When APIs exist and are stable' },
-        { id: 'b', text: 'When no API/integration path exists' },
+        { id: 'a', text: 'When clean files or app connections exist' },
+        { id: 'b', text: 'When the interface is the only available path' },
         { id: 'c', text: 'For all high-volume recurring tasks' },
         { id: 'd', text: 'Only for design teams' },
       ],
       correctAnswer: 'b',
       explanation:
-        'UI mode is often the fallback path when systems are closed or integration points are unavailable.',
+        'Screen work is often the fallback when there is no cleaner file or app connection.',
     },
     {
       id: 'q3-3',
@@ -137,12 +137,12 @@ export const module3: ModuleData = {
       options: [
         { id: 'a', text: 'Skip dry-runs to save time' },
         { id: 'b', text: 'Avoid logs to reduce clutter' },
-        { id: 'c', text: 'Prefer stable structured inputs and clear validation checks' },
+        { id: 'c', text: 'Prefer stable inputs and clear success checks' },
         { id: 'd', text: 'Rely on memory for reruns' },
       ],
       correctAnswer: 'c',
       explanation:
-        'Stable data formats and validation checkpoints are key to dependable automation.',
+        'Stable inputs and clear checks are key to dependable delegation.',
     },
   ],
   sourceRefs: [SOURCE_GABRIEL_X, SOURCE_OPENAI_CODEX_DOCS],

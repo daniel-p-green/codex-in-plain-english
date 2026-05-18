@@ -10,7 +10,7 @@ export const module13: ModuleData = {
   number: 13,
   title: 'Goals, Heartbeats, And Long-Running Loops',
   subtitle:
-    'Learn when to ask Codex to keep working until a finish line is proven, and when to schedule a thread to check back later.',
+    'Learn when to ask Codex to keep working toward proof, and when to have a thread check back later.',
   releaseDate: '2026-05-17',
   depthZone: 'Expanded Codex 2026',
   depthMeters: 360,
@@ -22,7 +22,7 @@ export const module13: ModuleData = {
       content: [
         {
           type: 'paragraph',
-          text: 'Use an ordinary request when the task is small. Use a Goal when the work should keep looping until a specific end state is proven.',
+          text: 'Use an ordinary request when the task is small. Use a Goal when Codex should keep working until a specific finish line is proven.',
         },
         {
           type: 'comparison',
@@ -31,7 +31,7 @@ export const module13: ModuleData = {
             {
               cells: [
                 'Draft a short email, summarize notes, update one file, answer one question.',
-                'Migrate a project until checks pass, reduce runtime by a measured amount, complete a checklist, or fix issues until review is clean.',
+                'Finish a checklist, fix issues until review is clean, or improve a measurable result without breaking existing checks.',
               ],
             },
           ],
@@ -56,13 +56,13 @@ export const module13: ModuleData = {
     },
     {
       id: 'section-13-3',
-      title: '13.3 - Keep The Feedback Loop Tight',
+      title: '13.3 - Make Progress Easy To Check',
       content: [
         {
           type: 'unorderedList',
           items: [
             'Run a small sample before the full folder.',
-            'Use a short checklist before asking for a polished final artifact.',
+            'Use a short checklist before asking for a polished final result.',
             'Prefer checks that run in minutes, not hours.',
             'Tell Codex where to record attempts, blockers, and results.',
             'Stop and ask when the proof cannot be run or inspected.',
@@ -72,7 +72,7 @@ export const module13: ModuleData = {
           type: 'callout',
           variant: 'tip',
           title: 'Dex says',
-          text: 'A Goal should have an oracle: a test, checklist, screenshot, row count, review status, or other proof that says done.',
+          text: 'A Goal needs proof: a test, checklist, screenshot, row count, review status, or other evidence that says done.',
         },
       ],
     },
@@ -82,14 +82,14 @@ export const module13: ModuleData = {
       content: [
         {
           type: 'paragraph',
-          text: 'A Heartbeat is a thread-local schedule. In plain English: "wake this thread up later and check whether something changed."',
+          text: 'A Heartbeat is a scheduled check-back in the same thread. In plain English: "wake this thread up later and check whether something changed."',
         },
         {
           type: 'table',
           headers: ['Good Heartbeat Use', 'Why'],
           rows: [
             ['Check a feedback thread every 30 minutes.', 'The work depends on replies arriving later.'],
-            ['Monitor document comments until review is complete.', 'The same thread already knows the artifact and context.'],
+            ['Monitor document comments until review is complete.', 'The same thread already knows the draft and context.'],
             ['Check whether a long export finished.', 'Codex can resume with the same task state.'],
             ['Draft replies when messages arrive, but do not send.', 'The loop can prepare work while preserving human approval.'],
           ],
@@ -104,7 +104,7 @@ export const module13: ModuleData = {
           type: 'callout',
           variant: 'info',
           title: 'Checkpoint',
-          text: 'Use Goals for "keep working until done is proven." Use Heartbeats for "check back here later." Both need clear boundaries and reviewable evidence.',
+          text: 'Use Goals for "keep working until done is proven." Use Heartbeats for "check back here later." Both need clear boundaries and evidence you can review.',
         },
       ],
     },
@@ -128,7 +128,7 @@ export const module13: ModuleData = {
       question: 'What makes a goal strong?',
       options: [
         { id: 'a', text: 'A vague adjective like better or cleaner' },
-        { id: 'b', text: 'A measurable target, constraints, and proof of completion' },
+        { id: 'b', text: 'A measurable target, boundaries, and proof of completion' },
         { id: 'c', text: 'No source context' },
         { id: 'd', text: 'No stopping condition' },
       ],

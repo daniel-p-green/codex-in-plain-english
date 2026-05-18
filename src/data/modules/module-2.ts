@@ -6,7 +6,7 @@ export const module2: ModuleData = {
   number: 2,
   title: 'What Codex Actually Does',
   subtitle:
-    'Break down Codex as an execution agent: planning, selecting tools, writing instructions, and retrying when things fail in supported environments.',
+    'See Codex as a work partner that can plan steps, use tools, try the work, and report back when it needs your judgment.',
   releaseDate: '2026-05-17',
   depthZone: 'Core Course',
   depthMeters: 30,
@@ -14,16 +14,16 @@ export const module2: ModuleData = {
   sections: [
     {
       id: 'section-2-1',
-      title: '2.1 - Codex Is An Operator, Not A Lesson Plan',
+      title: '2.1 - Codex Is A Doer, Not Just A Tutor',
       content: [
         {
           type: 'paragraph',
-          text: 'Codex is best understood as an operator that uses code to complete tasks. It is not just autocomplete and not only for software engineers.',
+          text: 'Codex is best understood as a helper that can do work, not just explain work. It may use code behind the scenes, but you do not need to think like a software engineer to give it a clear job.',
         },
         {
           type: 'boldText',
           label: 'Practical framing:',
-          text: 'You assign work; Codex can handle much of the technical execution path when scope, permissions, and environment are set correctly.',
+          text: 'You assign the job, set the boundaries, and review the result. Codex handles many of the steps in between.',
         },
       ],
     },
@@ -36,18 +36,18 @@ export const module2: ModuleData = {
           steps: [
             {
               number: 1,
-              title: 'Interpret request',
-              description: 'Parse your goal and infer missing operational details.',
+              title: 'Understand the ask',
+              description: 'Read your goal and identify what information is missing.',
             },
             {
               number: 2,
-              title: 'Plan subtasks',
-              description: 'Split work into ordered actions with dependencies.',
+              title: 'Break it into steps',
+              description: 'Turn the request into a practical sequence of actions.',
             },
             {
               number: 3,
-              title: 'Pick mechanisms',
-              description: 'Choose scripts, CLI tools, libraries, APIs, or file operations.',
+              title: 'Choose how to do it',
+              description: 'Use files, apps, browser pages, or behind-the-scenes tools as needed.',
             },
             {
               number: 4,
@@ -84,7 +84,7 @@ export const module2: ModuleData = {
           type: 'callout',
           variant: 'warning',
           title: 'Dex says',
-          text: 'Ambiguous prompts create ambiguous execution. Precise outputs are the fastest path to good automation.',
+          text: 'A fuzzy request creates fuzzy work. A clear output gives Codex something concrete to aim for.',
         },
       ],
     },
@@ -95,7 +95,7 @@ export const module2: ModuleData = {
         {
           type: 'unorderedList',
           items: [
-            'Deciding what "good" looks like before execution.',
+            'Deciding what "good" looks like before Codex starts.',
             'Confirming environment setup and permissions before running sensitive actions.',
             'Reviewing edge cases and exceptions in outputs.',
             'Approving operations that can impact sensitive data.',
@@ -112,7 +112,7 @@ export const module2: ModuleData = {
           type: 'callout',
           variant: 'info',
           title: 'Checkpoint',
-          text: 'Codex can take on technical labor, but you still own intent, constraints, permissions, and final judgment.',
+          text: 'Codex can take on many work steps, but you still own intent, boundaries, permissions, and final judgment.',
         },
       ],
     },
@@ -123,30 +123,30 @@ export const module2: ModuleData = {
       question: 'Which description best matches Codex in this course?',
       options: [
         { id: 'a', text: 'A browser extension only for writing code snippets' },
-        { id: 'b', text: 'An operator that can plan and execute technical steps from plain-language goals' },
+        { id: 'b', text: 'A helper that can plan steps and carry out work from plain-language goals' },
         { id: 'c', text: 'A replacement for all human review' },
-        { id: 'd', text: 'A static knowledge base of API docs' },
+        { id: 'd', text: 'A static technical manual' },
       ],
       correctAnswer: 'b',
       explanation:
-        'The course frames Codex as a work-execution agent, not just code suggestion tooling.',
+        'The course frames Codex as a helper that can carry out work, not just suggest code.',
     },
     {
       id: 'q2-2',
       question: 'What makes a delegation request stronger?',
       options: [
         { id: 'a', text: 'Adding more adjectives' },
-        { id: 'b', text: 'Hiding constraints so Codex can improvise' },
+        { id: 'b', text: 'Hiding boundaries so Codex can improvise' },
         { id: 'c', text: 'Specifying outputs, boundaries, and success checks' },
         { id: 'd', text: 'Using advanced jargon only' },
       ],
       correctAnswer: 'c',
       explanation:
-        'Clear outputs and constraints reduce guesswork and improve execution reliability.',
+        'Clear outputs and boundaries reduce guesswork and make the work easier to trust.',
     },
     {
       id: 'q2-3',
-      question: 'Which responsibility remains with the human operator?',
+      question: 'Which responsibility remains with the human?',
       options: [
         { id: 'a', text: 'Never reviewing output' },
         { id: 'b', text: 'Defining quality and approving sensitive actions' },
@@ -155,7 +155,7 @@ export const module2: ModuleData = {
       ],
       correctAnswer: 'b',
       explanation:
-        'Delegation shifts execution, not accountability. Humans still decide standards and approvals.',
+        'Delegation shifts the doing, not the accountability. Humans still decide standards and approvals.',
     },
   ],
   sourceRefs: [SOURCE_GABRIEL_X, SOURCE_OPENAI_CODEX_DOCS],

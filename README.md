@@ -1,8 +1,8 @@
-# Codex In Plain English
+# Codex in Plain English
 
-Interactive course for non-coders to learn how to delegate digital work with Codex across the current app, browser, mobile, Goal, Heartbeat, Computer Use, and Skills workflows.
+Interactive course for non-coders to learn how to delegate digital work with Codex across the current app, browser, mobile, Goals, Heartbeats, Computer Use, and Skills.
 
-This is a living course. The original 8-module foundation stays intact and is marked as updated when refreshed. New Codex capabilities become expansion modules when they change how normal people delegate, review, or repeat digital work.
+This is a living course. The original 8-module foundation stays intact, and newer Codex capabilities become expansion modules when they change how normal people delegate, review, or repeat digital work.
 
 ## Attribution
 
@@ -79,10 +79,10 @@ Output files are written to `out/`.
 
 1. From Clicking To Delegating
 2. What Codex Actually Does
-3. Two Execution Modes: Code vs UI
+3. Two Ways Codex Works: Files Or Screens
 4. First Delegation Playbook for Non-Coders
 5. Skills 101: Reusable Prompting As Workflow
-6. Progressive Disclosure And Skill Structure
+6. Keeping Skill Instructions Focused
 7. Team Practices: Consistency And Scale
 8. Build Or Adopt Your First Skill
 

@@ -1,7 +1,7 @@
 # Living Course Roadmap
 
 Date: 2026-05-17
-Project: Codex In Plain English
+Project: Codex in Plain English
 
 ## Position
 
@@ -13,13 +13,13 @@ The course should not become developer documentation. It should translate curren
 
 ### Core Course
 
-Modules 1-8 remain the original foundation. They are marked `Updated May 17` when source attribution, terminology, or current-product context changes.
+Modules 1-8 remain the original foundation. When they are refreshed, note the change in the course-level update note instead of adding crowded labels to every module.
 
 ### Expanded Codex 2026
 
 Modules 9-14 explain what changed since the original course:
 
-- Codex as a broader work surface.
+- Codex as a broader place for work.
 - In-app browser, Chrome, and Computer Use.
 - Mobile remote control and steering.
 - Durable threads, memory, and work notes.
@@ -28,13 +28,13 @@ Modules 9-14 explain what changed since the original course:
 
 ## Update Rules
 
-Add a new module when a Codex feature changes the learner operating model.
+Add a new module when a Codex feature changes how learners delegate, review, or repeat work.
 
 Update an existing module when a feature clarifies or extends a concept already taught there.
 
 Add a source note when a new article, official doc, or practitioner example informs the course.
 
-Mark learner-facing modules as `New` or `Updated` so returning learners can jump directly to what changed.
+Keep one clear course-level update note so returning learners can see what changed without crowding the module list.
 
 ## Source Rules
 

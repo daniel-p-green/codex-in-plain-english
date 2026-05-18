@@ -19,7 +19,7 @@ export default function LandingPage() {
       title: 'From Clicking To Delegating',
       subtitle: 'Core Course',
       href: `/module/${moduleOne.number}`,
-      copy: 'Start with the original plain-English foundation: outcomes, constraints, and checks.',
+      copy: 'Start with the original plain-English foundation: say what you want, set boundaries, and check the result.',
       variant: 'primary',
     },
     {
@@ -27,7 +27,7 @@ export default function LandingPage() {
       title: 'Codex As A Work Super App',
       subtitle: 'Expanded Codex 2026',
       href: `/module/${moduleNine.number}`,
-      copy: 'Jump to the new expansion track for current Codex surfaces and long-running workflows.',
+      copy: 'Jump to the new expansion track for the places Codex can now work and keep going.',
       variant: 'secondary',
     },
   ] as const;
@@ -36,21 +36,21 @@ export default function LandingPage() {
     {
       id: 'plan',
       title: 'Review the core',
-      copy: `The first ${CORE_MODULE_COUNT} modules preserve the original course path and now carry refreshed source attribution.`,
+      copy: `The first ${CORE_MODULE_COUNT} modules preserve the original course path and keep the plain-English foundation intact.`,
       cta: `Start Module 1 (${moduleOne.estimatedMinutes} min)`,
       href: `/module/${moduleOne.number}`,
     },
     {
       id: 'build',
-      title: 'Use visual surfaces',
-      copy: 'Learn when to use the in-app browser, Chrome, or Computer Use for real reviewable work.',
+      title: 'Use visual workspaces',
+      copy: 'Learn when Codex should look at a page, use Chrome, or operate a desktop app.',
       cta: 'Open Module 10',
       href: `/module/${moduleTen.number}`,
     },
     {
       id: 'deploy',
       title: 'Run the loop',
-      copy: 'Learn when to use Goals, Heartbeats, and Skills for work that needs to continue.',
+      copy: 'Learn when to use Goals, Heartbeats, and Skills for work that needs to keep moving.',
       cta: 'Open Module 13',
       href: `/module/${moduleThirteen.number}`,
     },
@@ -60,12 +60,12 @@ export default function LandingPage() {
     <PageContainer className="landing-page">
       <section className="landing-hero">
         <h1>
-          <span className="hero-title-main">Codex In Plain English:</span>{' '}
+          <span className="hero-title-main">Codex in Plain English:</span>{' '}
           <span className="hero-title-suffix">The Course</span>
         </h1>
         <p>Learn to delegate real digital work with confidence, one practical module at a time.</p>
         <p className="landing-hero-note">
-          A living course updated May 17, 2026 for Computer Use, mobile steering, Goals, Heartbeats, Skills, and reviewable artifacts.
+          A living course updated May 17, 2026 for Computer Use, mobile steering, Goals, Heartbeats, Skills, and outputs you can review.
         </p>
       </section>
 
@@ -74,7 +74,7 @@ export default function LandingPage() {
         <ol>
           <li>
             <strong>Start Module 1 ({moduleOne.estimatedMinutes} min)</strong>
-            <span>Get the core model first: outcome, constraints, and checks.</span>
+            <span>Get the core pattern first: say the outcome, set boundaries, and check the result.</span>
           </li>
           <li>
             <strong>Take Optional Quiz</strong>

@@ -2,7 +2,7 @@
 
 Date: 2026-05-17
 Repository: codex-in-plain-english
-Audience: non-developers and AI-curious operators
+Audience: non-developers and AI-curious learners
 
 ## Framing
 
@@ -23,7 +23,7 @@ Use this hierarchy when updating content:
 1. Official OpenAI Codex docs for current product behavior, safety model, feature names, and workflow boundaries.
 2. The local app behavior and repository tests for what this course actually ships.
 3. Gabriel Chua for the original plain-English delegation framing.
-4. Jason Liu for practitioner framing around durable threads, memory, artifacts, heartbeats, and Codex as a work surface.
+4. Jason Liu for practitioner framing around durable threads, memory, reviewable outputs, heartbeats, and Codex as a place where work can live.
 5. Chris Hayduk for practitioner framing around goals, measurable stopping conditions, tight feedback loops, and Markdown tracking.
 
 ## Goals I Would Set
@@ -40,20 +40,20 @@ Done when:
 
 ### Goal 2: Expand The Mental Model Beyond "Coding Help"
 
-Reframe Codex as an operating surface for work, not only a coding assistant.
+Reframe Codex as a place where work can happen, not only a coding assistant.
 
 Done when the course teaches these buckets:
 
 - One-off task: ask Codex to do the next thing.
-- Durable thread: keep context for an ongoing workstream.
+- Durable thread: keep context for one ongoing piece of work.
 - Goal: keep working until a verifiable end state is true.
 - Heartbeat/thread automation: check back on a schedule in the same thread.
 - Skill: package a repeatable workflow.
-- Artifact surface: review Markdown, files, browser previews, PDFs, slides, spreadsheets, or app changes.
+- Review place: inspect Markdown, files, browser previews, PDFs, slides, spreadsheets, or app changes.
 
 ### Goal 3: Add A "Where Should This Work Live?" Lesson
 
-Teach learners how to choose the right Codex surface without needing to know internal architecture.
+Teach learners how to choose the right place for Codex to work without needing internal architecture.
 
 Done when the course includes a plain-English chooser:
 
@@ -65,7 +65,7 @@ Done when the course includes a plain-English chooser:
 | Research, planning, or connector-heavy work without a repo | Chat |
 | Review a local webpage or static file | In-app browser |
 | Work inside signed-in browser state | Chrome extension |
-| Use a desktop app or GUI-only workflow | Computer Use |
+| Use a desktop app or screen-only workflow | Computer Use |
 
 ### Goal 4: Upgrade Prompting Into A Work Contract
 
@@ -99,7 +99,7 @@ Done when the course explains:
 - Threads hold working context.
 - Compaction lets long threads continue, but explicit files keep important decisions inspectable.
 - Memories help with stable preferences and recurring patterns, but checked-in docs and `AGENTS.md` remain the source of required rules.
-- Artifacts make work reviewable.
+- Reviewable outputs make work easier to inspect.
 - Heartbeats make follow-up loops recurring.
 
 ### Goal 7: Make Review And Safety First-Class
@@ -129,16 +129,16 @@ Done when:
 
 The better long-term shape is a living course, not a one-time replacement of the original material.
 
-Keep the original 8-module foundation intact because it was already well received. Mark those modules as updated when source attribution or current-product context changes. Add new modules when Codex gains capabilities that change how normal people delegate, review, or repeat digital work.
+Keep the original 8-module foundation intact because it was already well received. Add new modules when Codex gains capabilities that change how normal people delegate, review, or repeat digital work. Use one course-level update note for returning learners instead of crowding every module card.
 
 Current shape as of May 17, 2026:
 
 1. From Clicking To Delegating
 2. What Codex Actually Does
-3. Two Execution Modes: Code vs UI
+3. Two Ways Codex Works: Files Or Screens
 4. First Delegation Playbook for Non-Coders
 5. Skills 101: Reusable Prompting As Workflow
-6. Progressive Disclosure And Skill Structure
+6. Keeping Skill Instructions Focused
 7. Team Practices: Consistency And Scale
 8. Build Or Adopt Your First Skill
 9. Codex As A Work Super App
@@ -153,7 +153,7 @@ Current shape as of May 17, 2026:
 Use this as the first concrete `/goal` once content editing begins:
 
 ```text
-/goal Refresh the course source model and learner-facing outline so the app no longer frames the course as only Gabriel-derived, while preserving the original 8-module foundation and adding clearly labeled expansion modules for current Codex behavior. Done when README attribution, landing attribution, source notes, New/Updated module labels, and a refreshed module map are all present in Markdown or app UI, and npm run lint plus npm run build pass.
+/goal Refresh the course source model and learner-facing outline so the app no longer frames the course as only Gabriel-derived, while preserving the original 8-module foundation and adding clearly labeled expansion modules for current Codex behavior. Done when README attribution, landing attribution, source notes, a course-level update note, and a refreshed module map are all present in Markdown or app UI, and npm run lint plus npm run build pass.
 ```
 
 ## Non-Goals

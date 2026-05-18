@@ -6,7 +6,7 @@ export const module5: ModuleData = {
   number: 5,
   title: 'Skills 101: Reusable Prompting As Workflow',
   subtitle:
-    'Understand skills as packaged, reusable workflows instead of scattered prompts across chat history and notes.',
+    'Understand skills as reusable instructions for work you want Codex to do the same way again.',
   releaseDate: '2026-05-17',
   depthZone: 'Core Course',
   depthMeters: 120,
@@ -18,13 +18,13 @@ export const module5: ModuleData = {
       content: [
         {
           type: 'paragraph',
-          text: 'Teams often accumulate multiple versions of the same prompt. Drift appears, quality diverges, and no one knows which version is canonical.',
+          text: 'People often save many versions of the same prompt. Over time, no one knows which one is the good version.',
         },
         {
           type: 'callout',
           variant: 'warning',
           title: 'Dex says',
-          text: 'If you tweak the same instruction repeatedly, you probably need a skill, not another saved chat.',
+          text: 'If you keep rewriting the same instruction, you probably need a skill, not another saved chat.',
         },
       ],
     },
@@ -34,14 +34,14 @@ export const module5: ModuleData = {
       content: [
         {
           type: 'paragraph',
-          text: 'A skill is reusable prompting packaged in a folder, usually with a `SKILL.md` plus optional references, examples, and scripts.',
+          text: 'A skill is a reusable work recipe. It usually lives in a folder with one main instruction file, plus optional examples, references, or helper scripts.',
         },
         {
           type: 'unorderedList',
           items: [
-            'Instruction document (what to do)',
-            'Supporting references (how to do it well)',
-            'Optional tooling/scripts (how to execute reliably)',
+            'Main instructions: what to do.',
+            'Examples or references: what good looks like.',
+            'Optional helpers: repeatable steps Codex can run.',
           ],
         },
       ],
@@ -55,9 +55,9 @@ export const module5: ModuleData = {
           headers: ['Aspect', 'One-off Prompt', 'Skill'],
           rows: [
             { cells: ['Reuse', 'Manual copy/paste', 'Packaged and repeatable'] },
-            { cells: ['Versioning', 'Ad hoc', 'Structured updates in files'] },
+            { cells: ['Updating', 'Ad hoc', 'Clear changes in files'] },
             { cells: ['Team consistency', 'Depends on each person', 'Shared process for everyone'] },
-            { cells: ['Tooling access', 'Often omitted', 'Can include scripts and references'] },
+            { cells: ['Extra help', 'Often omitted', 'Can include examples, references, or helper scripts'] },
           ],
         },
       ],
@@ -71,7 +71,7 @@ export const module5: ModuleData = {
           items: [
             'If you repeat a process more than a few times, convert it into a skill.',
             'If multiple people need consistent output, convert it into a skill.',
-            'If quality depends on hidden know-how, encode that know-how in a skill.',
+            'If quality depends on hidden know-how, write that know-how into a skill.',
           ],
         },
       ],
@@ -95,13 +95,13 @@ export const module5: ModuleData = {
       question: 'What is the main problem skills solve?',
       options: [
         { id: 'a', text: 'Lack of model intelligence' },
-        { id: 'b', text: 'Prompt drift and inconsistent workflow execution' },
+        { id: 'b', text: 'People getting different results from copied prompts' },
         { id: 'c', text: 'Need for faster internet' },
         { id: 'd', text: 'Missing UI themes' },
       ],
       correctAnswer: 'b',
       explanation:
-        'Skills formalize repeatable instructions so teams avoid fragmented prompt versions.',
+        'Skills turn repeatable instructions into one shared recipe.',
     },
     {
       id: 'q5-2',
@@ -114,7 +114,7 @@ export const module5: ModuleData = {
       ],
       correctAnswer: 'b',
       explanation:
-        'A skill is structured reusable prompting plus supporting assets.',
+        'A skill is a reusable work recipe with instructions and optional supporting material.',
     },
     {
       id: 'q5-3',

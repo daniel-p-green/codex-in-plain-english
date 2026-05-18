@@ -27,7 +27,7 @@ async function getSectionsReadCount(page: Page, moduleId: string) {
 test('landing page shows attribution and source links', async ({ page }) => {
   await page.goto('/#/');
 
-  await expect(page.getByRole('heading', { level: 1, name: 'Codex In Plain English: The Course' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: 'Codex in Plain English: The Course' })).toBeVisible();
   await expect(page.locator('.landing-hero .hero-title-suffix')).toHaveText('The Course');
   await expect(page.getByText(/A living course updated May 17, 2026/)).toBeVisible();
   await expect(page.getByRole('heading', { level: 2, name: 'How this course works' })).toBeVisible();
@@ -299,7 +299,7 @@ test('quiz remains optional but functional', async ({ page }) => {
   await page.goto('/#/module/1?focus=quiz');
 
   await answerQuestion(page, 'They are repetitive and error-prone at scale', false);
-  await answerQuestion(page, 'You define end state and constraints, then review output', false);
+  await answerQuestion(page, 'You define the end state and boundaries, then review the result', false);
   await answerQuestion(page, 'Automation was always possible; access was the barrier', true);
 
   await expect(page.getByRole('heading', { level: 2, name: 'Quiz Complete!' })).toBeVisible();

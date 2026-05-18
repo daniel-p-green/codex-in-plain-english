@@ -15,13 +15,13 @@ export const SOURCE_OPENAI_SKILLS_DOC: SourceRef = {
 export const SOURCE_OPENAI_CODEX_DOCS: SourceRef = {
   label: 'OpenAI Docs: Codex',
   url: 'https://developers.openai.com/codex',
-  note: 'Official source for current Codex product surfaces, safety model, and workflow concepts.',
+  note: 'Official source for current Codex features, safety model, and workflow concepts.',
 };
 
 export const SOURCE_JASON_LIU_CODEX_MAXXING: SourceRef = {
   label: 'Jason Liu: "Codex-maxxing"',
   url: 'https://jxnl.co/writing/2026/05/10/codex-maxxing/',
-  note: 'Practitioner framing for durable threads, memory, artifacts, heartbeats, and Codex as a place work can live.',
+  note: 'Practitioner framing for durable threads, memory, reviewable outputs, heartbeats, and Codex as a place work can live.',
 };
 
 export const SOURCE_CHRIS_HAYDUK_GOALS: SourceRef = {

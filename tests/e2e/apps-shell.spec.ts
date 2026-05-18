@@ -16,7 +16,7 @@ test('shared shell appears on dashboard and module pages', async ({ page }) => {
   await page.goto('/#/dashboard');
 
   await expect(page.getByRole('navigation', { name: 'Course sections' })).toBeVisible();
-  await expect(page.getByRole('link', { name: 'Codex In Plain English' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Codex in Plain English' })).toBeVisible();
   await expect(page.getByRole('link', { name: /Continue Course/i })).toBeVisible();
   await expect(page.getByText('OpenAI Developers')).toHaveCount(0);
 
@@ -40,7 +40,7 @@ test('mobile menu opens course drawer navigation', async ({ page }) => {
   await expect(openMenuButton).toBeFocused();
 });
 
-test('mobile hero keeps "Codex In Plain English" on one line', async ({ page }) => {
+test('mobile hero keeps "Codex in Plain English" on one line', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/#/');
 

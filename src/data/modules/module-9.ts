@@ -11,7 +11,7 @@ export const module9: ModuleData = {
   number: 9,
   title: 'Codex As A Work Super App',
   subtitle:
-    'Update the mental model: Codex is becoming a place where different kinds of digital work can live, continue, and be reviewed.',
+    'See Codex as a place where more kinds of digital work can live, continue, and be reviewed.',
   releaseDate: '2026-05-17',
   depthZone: 'Expanded Codex 2026',
   depthMeters: 240,
@@ -23,11 +23,11 @@ export const module9: ModuleData = {
       content: [
         {
           type: 'paragraph',
-          text: 'The original course worked because it explained Codex as delegation in plain English. That foundation still matters. What changed is the size of the work surface around it.',
+          text: 'The original course worked because it explained Codex as delegation in plain English. That foundation still matters. What changed is how many places Codex can now help with the work.',
         },
         {
           type: 'paragraph',
-          text: 'Codex is no longer only a coding helper or a prompt box. It is becoming a work app: threads, files, previews, browser state, connectors, automations, skills, goals, and review all meet in one place.',
+          text: 'Codex is no longer only a coding helper or a prompt box. It is becoming a work app where conversations, files, previews, connected tools, scheduled checks, skills, goals, and review can meet in one place.',
         },
       ],
     },
@@ -39,28 +39,28 @@ export const module9: ModuleData = {
           type: 'table',
           headers: ['Layer', 'What It Lets You Do'],
           rows: [
-            ['Thread', 'Keep one workstream together.'],
-            ['Files and artifacts', 'Produce things you can inspect, edit, and reuse.'],
-            ['Browser and Computer Use', 'Let Codex operate visual surfaces when files are not enough.'],
-            ['Connectors', 'Bring work from inboxes, calendars, drives, and team tools into the loop.'],
+            ['Thread', 'Keep one piece of work together.'],
+            ['Files and outputs', 'Produce things you can inspect, edit, and reuse.'],
+            ['Browser and Computer Use', 'Let Codex work with pages and apps when files are not enough.'],
+            ['Connected tools', 'Bring work from inboxes, calendars, drives, and team tools into the loop.'],
             ['Goals and Heartbeats', 'Let work continue until done or check back later.'],
-            ['Skills', 'Package a workflow that proved useful.'],
+            ['Skills', 'Save a workflow that proved useful.'],
           ],
         },
       ],
     },
     {
       id: 'section-9-3',
-      title: '9.3 - Local, Worktree, Cloud, And Chat',
+      title: '9.3 - Where Should The Work Happen?',
       content: [
         {
           type: 'comparison',
-          headers: ['Work Location', 'Use It When', 'Plain-English Meaning'],
+          headers: ['Place', 'Use It When', 'Plain-English Meaning'],
           rows: [
-            { cells: ['Local', 'Codex needs your machine, files, tools, or credentials.', 'Work here.'] },
-            { cells: ['Worktree', 'Codex should experiment without touching the main checkout.', 'Try safely beside the work.'] },
-            { cells: ['Cloud', 'A GitHub-backed task can run remotely.', 'Let Codex work away from your laptop.'] },
-            { cells: ['Chat', 'The task is planning, research, or connector-heavy work.', 'Think and coordinate before files matter.'] },
+            { cells: ['Local', 'Codex needs your machine, files, tools, or sign-in state.', 'Work here.'] },
+            { cells: ['Worktree', 'Codex should try changes without disturbing the main copy.', 'Try safely beside the work.'] },
+            { cells: ['Cloud', 'The task can run away from your laptop.', 'Let Codex keep working remotely.'] },
+            { cells: ['Chat', 'The task is planning, research, or coordination.', 'Think before files matter.'] },
           ],
         },
       ],
@@ -71,13 +71,13 @@ export const module9: ModuleData = {
       content: [
         {
           type: 'paragraph',
-          text: 'The bigger Codex gets, the more important the plain-English operating pattern becomes: name the outcome, show the surface, set boundaries, define proof, then review the artifact.',
+          text: 'The bigger Codex gets, the more important the plain-English pattern becomes: name the outcome, show where the work is, set boundaries, define proof, then review the result.',
         },
         {
           type: 'callout',
           variant: 'warning',
           title: 'Keep the frame',
-          text: 'Do not chase features as trivia. Ask what work they let a normal person delegate, review, and repeat.',
+          text: 'Do not memorize features as trivia. Ask what they help a normal person delegate, review, and repeat.',
         },
       ],
     },
@@ -100,13 +100,13 @@ export const module9: ModuleData = {
       question: 'Why does this course now need expansion modules?',
       options: [
         { id: 'a', text: 'The original delegation framing stopped being useful' },
-        { id: 'b', text: 'Codex now has more work surfaces and longer-running workflows to explain' },
-        { id: 'c', text: 'The course should become API documentation' },
+        { id: 'b', text: 'Codex now has more places to work and longer-running workflows to explain' },
+        { id: 'c', text: 'The course should become developer documentation' },
         { id: 'd', text: 'Returning learners should be forced to restart' },
       ],
       correctAnswer: 'b',
       explanation:
-        'The original frame still works, but Codex now includes more surfaces and operating loops that deserve separate modules.',
+        'The original frame still works, but Codex now includes more places to work and longer-running loops that deserve separate modules.',
     },
     {
       id: 'q9-2',
@@ -119,11 +119,11 @@ export const module9: ModuleData = {
       ],
       correctAnswer: 'a',
       explanation:
-        'The course uses "super app" to describe Codex as a broader work surface, not a reason to skip review.',
+        'The course uses "super app" to describe Codex as a broader place for work, not a reason to skip review.',
     },
     {
       id: 'q9-3',
-      question: 'Which work location is best for experimenting without disturbing the main checkout?',
+      question: 'Which work location is best for trying changes without disturbing the main copy?',
       options: [
         { id: 'a', text: 'Worktree' },
         { id: 'b', text: 'A random chat thread' },
@@ -132,7 +132,7 @@ export const module9: ModuleData = {
       ],
       correctAnswer: 'a',
       explanation:
-        'A worktree gives Codex a separate place to try changes while preserving the main working copy.',
+        'A worktree gives Codex a separate place to try changes while preserving the main copy.',
     },
   ],
   sourceRefs: [SOURCE_GABRIEL_X, SOURCE_OPENAI_CODEX_DOCS, SOURCE_OPENAI_SKILLS_DOC, SOURCE_JASON_LIU_CODEX_MAXXING],

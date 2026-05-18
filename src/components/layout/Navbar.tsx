@@ -13,7 +13,7 @@ export default function Navbar() {
         <span className="brand-icon" aria-hidden="true">
           OA
         </span>
-        <span>Codex In Plain English</span>
+        <span>Codex in Plain English</span>
       </Link>
 
       <div className="navbar-center" aria-label="primary">

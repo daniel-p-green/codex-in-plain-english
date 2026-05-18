@@ -4,9 +4,9 @@ import { SOURCE_GABRIEL_X, SOURCE_OPENAI_SKILLS_DOC } from '../attribution';
 export const module6: ModuleData = {
   id: 'module-6',
   number: 6,
-  title: 'Progressive Disclosure And Skill Structure',
+  title: 'Keeping Skill Instructions Focused',
   subtitle:
-    'Learn how agents discover and open only relevant skill instructions, keeping context focused and execution efficient.',
+    'Learn why a good skill starts simple, then gives Codex more detail only when that detail is useful.',
   releaseDate: '2026-05-17',
   depthZone: 'Core Course',
   depthMeters: 150,
@@ -14,11 +14,11 @@ export const module6: ModuleData = {
   sections: [
     {
       id: 'section-6-1',
-      title: '6.1 - Progressive Disclosure In Practice',
+      title: '6.1 - Start Small, Open Details Later',
       content: [
         {
           type: 'paragraph',
-          text: 'Agents do not need every instruction loaded up front. They first scan short descriptions, then open detailed files only when a skill is relevant.',
+          text: 'Codex does not need every instruction at once. It can start with a short description, then open the detailed guidance only when the task calls for it.',
         },
       ],
     },
@@ -34,22 +34,22 @@ export const module6: ModuleData = {
           type: 'callout',
           variant: 'tip',
           title: 'Dex says',
-          text: 'Overloaded context causes fuzzy execution. Focused context improves action quality.',
+          text: 'Too much information at once can blur the job. Focused instructions help Codex act more clearly.',
         },
       ],
     },
     {
       id: 'section-6-3',
-      title: '6.3 - Folder Structure As Context',
+      title: '6.3 - Why The Folder Matters',
       content: [
         {
           type: 'table',
-          headers: ['Folder Element', 'Meaning'],
+          headers: ['Folder Part', 'Plain-English Meaning'],
           rows: [
-            ['`SKILL.md`', 'Primary instructions and workflow boundaries'],
-            ['`references/`', 'Detailed supporting guidance and edge-case handling'],
-            ['`scripts/`', 'Executable helpers for repeatable technical steps'],
-            ['`assets/`', 'Templates/examples to reduce reinvention'],
+            ['`SKILL.md`', 'The main instructions and boundaries.'],
+            ['`references/`', 'Extra guidance Codex can open when needed.'],
+            ['`scripts/`', 'Helper steps for repeatable work.'],
+            ['`assets/`', 'Templates and examples so Codex does not start from scratch.'],
           ],
         },
       ],
@@ -61,10 +61,10 @@ export const module6: ModuleData = {
         {
           type: 'unorderedList',
           items: [
-            'One-line description clearly states trigger conditions.',
+            'One-line description clearly says when to use the skill.',
             'Instructions are sequenced and testable.',
-            'References are specific, not bloated.',
-            'Scripts are reusable and documented.',
+            'References are specific, not oversized.',
+            'Helper steps are reusable and documented.',
             'Expected outputs are explicit.',
           ],
         },
@@ -78,7 +78,7 @@ export const module6: ModuleData = {
           type: 'callout',
           variant: 'info',
           title: 'Checkpoint',
-          text: 'Good skill structure lowers cognitive load for both humans and models. Organized folders are part of prompt quality.',
+          text: 'Good skill structure makes the work easier for people and Codex. Organized folders are part of clear instruction.',
         },
       ],
     },
@@ -86,29 +86,29 @@ export const module6: ModuleData = {
   quiz: [
     {
       id: 'q6-1',
-      question: 'What is progressive disclosure?',
+      question: 'What does "start small, open details later" mean?',
       options: [
         { id: 'a', text: 'Loading every reference immediately' },
-        { id: 'b', text: 'Opening detailed instructions only when relevant' },
+        { id: 'b', text: 'Opening detailed instructions only when they are relevant' },
         { id: 'c', text: 'Hiding all instructions from the model' },
         { id: 'd', text: 'Removing documentation entirely' },
       ],
       correctAnswer: 'b',
       explanation:
-        'Progressive disclosure keeps context lean by loading detailed guidance only when needed.',
+        'This keeps the task focused by loading detailed guidance only when needed.',
     },
     {
       id: 'q6-2',
       question: 'Why does folder structure matter in skills?',
       options: [
         { id: 'a', text: 'It has no impact' },
-        { id: 'b', text: 'It helps communicate usage intent and keeps workflows modular' },
+        { id: 'b', text: 'It helps Codex know what to use and when' },
         { id: 'c', text: 'It only helps with git merge speed' },
         { id: 'd', text: 'It replaces all prompt instructions' },
       ],
       correctAnswer: 'b',
       explanation:
-        'Structure itself carries context and improves discoverability and reuse.',
+        'Structure gives Codex clues about how to use the skill and makes reuse easier.',
     },
     {
       id: 'q6-3',
@@ -116,7 +116,7 @@ export const module6: ModuleData = {
       options: [
         { id: 'a', text: 'Only a title, no workflow steps' },
         { id: 'b', text: 'No references to keep files short' },
-        { id: 'c', text: 'Clear trigger description and explicit outputs' },
+        { id: 'c', text: 'Clear use description and explicit outputs' },
         { id: 'd', text: 'Unrelated notes and random snippets' },
       ],
       correctAnswer: 'c',
