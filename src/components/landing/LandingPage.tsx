@@ -64,9 +64,7 @@ export default function LandingPage() {
           <span className="hero-title-suffix">The Course</span>
         </h1>
         <p>Learn to delegate real digital work with confidence, one practical module at a time.</p>
-        <p className="landing-hero-note">
-          Updated May 17, 2026 for Computer Use, mobile steering, Goals, Heartbeats, Skills, and outputs you can review.
-        </p>
+        <p className="landing-hero-note">Updated May 17, 2026.</p>
       </section>
 
       <section className="course-clarity" aria-labelledby="course-clarity-title">

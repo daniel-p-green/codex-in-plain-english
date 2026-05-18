@@ -29,7 +29,7 @@ test('landing page shows attribution and source links', async ({ page }) => {
 
   await expect(page.getByRole('heading', { level: 1, name: 'Codex in Plain English: The Course' })).toBeVisible();
   await expect(page.locator('.landing-hero .hero-title-suffix')).toHaveText('The Course');
-  await expect(page.locator('.landing-hero-note')).toHaveText(/Updated May 17, 2026/);
+  await expect(page.locator('.landing-hero-note')).toHaveText('Updated May 17, 2026.');
   await expect(page.getByRole('heading', { level: 2, name: 'How this course works' })).toBeVisible();
 
   const clarityPanel = page.locator('.course-clarity');
