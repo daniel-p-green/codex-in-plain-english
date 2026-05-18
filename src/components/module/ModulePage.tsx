@@ -266,7 +266,7 @@ export default function ModulePage() {
           </Link>
         ) : (
           <Link to="/completion" className="btn btn-success btn-lg">
-            View Course Summary
+            View Progress
           </Link>
         )}
       </nav>

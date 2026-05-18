@@ -56,7 +56,7 @@ export default function AppShell() {
     if (allComplete) {
       return {
         href: '/completion',
-        label: 'View Completion',
+        label: 'View Progress',
       };
     }
 

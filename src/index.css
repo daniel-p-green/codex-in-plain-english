@@ -402,24 +402,26 @@ button {
 }
 
 .left-sidebar-module-label {
-  display: block;
+  display: grid;
+  gap: 2px;
   line-height: 1.24;
 }
 
 .left-sidebar-module-number {
   color: var(--text-900);
-  display: inline;
-  font-size: 0.7rem;
+  display: block;
+  font-size: 0.68rem;
   font-weight: 800;
-  line-height: inherit;
-  margin-right: 4px;
+  line-height: 1.05;
 }
 
 .left-sidebar-module-title {
   color: inherit;
-  display: inline;
-  font-size: 0.9rem;
-  line-height: inherit;
+  display: block;
+  max-width: 22ch;
+  font-size: 0.88rem;
+  line-height: 1.18;
+  text-wrap: balance;
 }
 
 .left-sidebar-meta {
@@ -1030,6 +1032,21 @@ button {
 .dashboard-completion-link {
   text-align: center;
   margin-bottom: var(--space-8);
+}
+
+.badge-section-header {
+  display: grid;
+  gap: var(--space-1);
+  margin-bottom: var(--space-4);
+}
+
+.badge-section-header .section-title {
+  margin-bottom: 0;
+}
+
+.badge-section-header p {
+  color: var(--text-700);
+  font-size: 0.95rem;
 }
 
 .badge-grid {
@@ -2069,24 +2086,26 @@ button {
 }
 
 .mobile-drawer-module-label {
-  display: block;
+  display: grid;
+  gap: 2px;
   line-height: 1.24;
 }
 
 .mobile-drawer-module-number {
   color: var(--text-900);
-  display: inline;
-  font-size: 0.7rem;
+  display: block;
+  font-size: 0.68rem;
   font-weight: 800;
-  line-height: inherit;
-  margin-right: 4px;
+  line-height: 1.05;
 }
 
 .mobile-drawer-module-title {
   color: inherit;
-  display: inline;
+  display: block;
+  max-width: 24ch;
   font-size: 0.9rem;
-  line-height: inherit;
+  line-height: 1.2;
+  text-wrap: balance;
 }
 
 .mobile-drawer-meta {

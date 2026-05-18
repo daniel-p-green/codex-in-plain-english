@@ -54,16 +54,16 @@ export default function CompletionPage() {
       <div className="completion-mascot">Dex 🦖</div>
       {allComplete ? (
         <>
-          <h1>You Completed The Course</h1>
+          <h1>Course Complete</h1>
           <p className="completion-intro">
             You now have a practical delegation mindset and a repeatable path to skill-based workflows.
           </p>
         </>
       ) : (
         <>
-          <h1>Course In Progress</h1>
+          <h1>Progress</h1>
           <p className="completion-intro">
-            You are building strong delegation habits. Finish all sections to unlock full course completion.
+            You are building strong delegation habits. Keep going to unlock the course takeaways and next steps.
           </p>
           <p className="completion-xp">
             Modules completed: {completedModules}/{allModules.length}
@@ -72,29 +72,31 @@ export default function CompletionPage() {
       )}
       <p className="completion-xp">Total XP: {progress.xp}</p>
 
-      <div className="completion-summary">
-        <h2 className="section-title">What You Learned</h2>
-        <div className="content-table-wrapper">
-          <table className="content-table">
-            <thead>
-              <tr>
-                <th>Module</th>
-                <th>Key Takeaway</th>
-              </tr>
-            </thead>
-            <tbody>
-              {COURSE_SUMMARY.map((item, i) => (
-                <tr key={i}>
-                  <td data-label="Module">
-                    <strong>{item.module}</strong>
-                  </td>
-                  <td data-label="Key Takeaway">{item.takeaway}</td>
+      {allComplete && (
+        <div className="completion-summary">
+          <h2 className="section-title">Key Takeaways</h2>
+          <div className="content-table-wrapper">
+            <table className="content-table">
+              <thead>
+                <tr>
+                  <th>Module</th>
+                  <th>Key Takeaway</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {COURSE_SUMMARY.map((item, i) => (
+                  <tr key={i}>
+                    <td data-label="Module">
+                      <strong>{item.module}</strong>
+                    </td>
+                    <td data-label="Key Takeaway">{item.takeaway}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
+      )}
 
       {earnedBadges.length > 0 && (
         <div className="completion-badges">
@@ -111,14 +113,16 @@ export default function CompletionPage() {
         </div>
       )}
 
-      <div className="completion-next">
-        <h2 className="section-title">What To Do Next</h2>
-        <ol className="content-list">
-          {NEXT_STEPS.map((step, i) => (
-            <li key={i}>{step}</li>
-          ))}
-        </ol>
-      </div>
+      {allComplete && (
+        <div className="completion-next">
+          <h2 className="section-title">What To Do Next</h2>
+          <ol className="content-list">
+            {NEXT_STEPS.map((step, i) => (
+              <li key={i}>{step}</li>
+            ))}
+          </ol>
+        </div>
+      )}
 
       <div className="completion-actions">
         {continueTarget && (

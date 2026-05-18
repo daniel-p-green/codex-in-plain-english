@@ -70,7 +70,7 @@ Output files are written to `out/`.
 - Open module access (start anywhere in the 14-module journey)
 - Section-based completion with optional quizzes for mastery
 - Course-level refresh note for returning learners
-- XP, streaks, badges, and completion flow
+- XP, streaks, badges, and progress flow
 - Local progress persistence (`localStorage`)
 
 ### Module List

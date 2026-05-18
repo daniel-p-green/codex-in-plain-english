@@ -25,11 +25,12 @@ export default function LeftSidebar({ groups, pathname }: LeftSidebarProps) {
     );
   };
 
-  const renderLinkMeta = (item: NavGroup['items'][number]) => (
-    <span className="left-sidebar-meta">
-      {item.completed && <span className="left-sidebar-status">Done</span>}
-    </span>
-  );
+  const renderLinkMeta = (item: NavGroup['items'][number]) =>
+    item.completed ? (
+      <span className="left-sidebar-meta">
+        <span className="left-sidebar-status">Done</span>
+      </span>
+    ) : null;
 
   return (
     <aside className="left-sidebar" aria-label="Course sections">

@@ -150,9 +150,11 @@ test('continue course sends fully completed learners to completion', async ({ pa
 test('completion page shows in-progress state for fresh users', async ({ page }) => {
   await page.goto('/#/completion');
 
-  await expect(page.getByRole('heading', { level: 1, name: 'Course In Progress' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: 'Progress' })).toBeVisible();
   await expect(page.getByText(`Modules completed: 0/${TOTAL_MODULES}`)).toBeVisible();
-  await expect(page.getByRole('heading', { level: 1, name: 'You Completed The Course' })).toHaveCount(0);
+  await expect(page.getByRole('heading', { level: 2, name: 'Key Takeaways' })).toHaveCount(0);
+  await expect(page.getByRole('heading', { level: 2, name: 'What To Do Next' })).toHaveCount(0);
+  await expect(page.getByRole('heading', { level: 1, name: 'Course Complete' })).toHaveCount(0);
 });
 
 test('completion page switches to completed state after all sections are viewed', async ({ page }) => {
@@ -191,7 +193,9 @@ test('completion page switches to completed state after all sections are viewed'
   });
 
   await page.goto('/#/completion');
-  await expect(page.getByRole('heading', { level: 1, name: 'You Completed The Course' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: 'Course Complete' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 2, name: 'Key Takeaways' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 2, name: 'What To Do Next' })).toBeVisible();
 });
 
 test('tip sections show Dex mascot emoji', async ({ page }) => {

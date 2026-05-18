@@ -64,7 +64,7 @@ const SIDEBAR_NAV_ITEMS: NavTemplate[] = [
   ...MODULE_NAV_ITEMS,
   {
     id: 'completion',
-    label: 'Completion Summary',
+    label: 'Progress',
     href: '/completion',
     group: 'Finish',
   },
@@ -93,7 +93,7 @@ const TOP_NAV_ITEMS: TopNavTemplate[] = [
   },
   {
     id: 'completion',
-    label: 'Completion',
+    label: 'Progress',
     href: '/completion',
   },
 ];

@@ -94,12 +94,15 @@ export default function DashboardPage() {
       {completedModules === allModules.length && (
         <div className="dashboard-completion-link">
           <Link to="/completion" className="btn btn-success btn-lg">
-            View Completion Summary
+            View Progress
           </Link>
         </div>
       )}
 
-      <h2 className="section-title">Badges</h2>
+      <div className="badge-section-header">
+        <h2 className="section-title">Badge Cabinet</h2>
+        <p>Small wins for every new delegation move you unlock.</p>
+      </div>
       <div className="badge-grid">
         {BADGES.map(badge => {
           const earned = hasBadge(badge.id);

@@ -32,11 +32,12 @@ export default function MobileDrawer({ open, groups, pathname, onClose }: Mobile
     );
   };
 
-  const renderLinkMeta = (item: NavGroup['items'][number]) => (
-    <span className="mobile-drawer-meta">
-      {item.completed && <span className="mobile-drawer-done">Done</span>}
-    </span>
-  );
+  const renderLinkMeta = (item: NavGroup['items'][number]) =>
+    item.completed ? (
+      <span className="mobile-drawer-meta">
+        <span className="mobile-drawer-done">Done</span>
+      </span>
+    ) : null;
 
   useEffect(() => {
     if (!open) {
