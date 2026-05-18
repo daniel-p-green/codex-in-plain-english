@@ -1,6 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
 
 const STORAGE_KEY = 'codex-in-plain-english-progress-v1';
+const TOTAL_MODULES = 14;
 
 async function answerQuestion(page: Page, answerText: string, isLast: boolean) {
   await page.locator('.quiz-option', { hasText: answerText }).first().click();
@@ -28,21 +29,25 @@ test('landing page shows attribution and source links', async ({ page }) => {
 
   await expect(page.getByRole('heading', { level: 1, name: 'Codex In Plain English: The Course' })).toBeVisible();
   await expect(page.locator('.landing-hero .hero-title-suffix')).toHaveText('The Course');
-  await expect(page.getByText('Guided modules with optional quizzes, not a live coding sandbox.')).toBeVisible();
+  await expect(page.getByText(/A living course updated May 17, 2026/)).toBeVisible();
   await expect(page.getByRole('heading', { level: 2, name: 'How this course works' })).toBeVisible();
 
   const clarityPanel = page.locator('.course-clarity');
-  await expect(clarityPanel.getByText('Start Module 1 (15 min)', { exact: true })).toBeVisible();
+  await expect(clarityPanel.getByText('Start Module 1 (18 min)', { exact: true })).toBeVisible();
   await expect(clarityPanel.getByText('Take Optional Quiz', { exact: true })).toBeVisible();
   await expect(clarityPanel.getByText('Track Progress', { exact: true })).toBeVisible();
 
-  await expect(page.getByText('Start Module 1 (15 min) →')).toBeVisible();
-  await expect(page.getByText('Take Optional Quiz →')).toBeVisible();
-  await expect(page.getByText('Track Progress →')).toBeVisible();
+  await expect(page.getByText('Start Module 1 (18 min) →')).toBeVisible();
+  await expect(page.getByText('Open Module 10 →')).toBeVisible();
+  await expect(page.getByText('Open Module 13 →')).toBeVisible();
+  await expect(page.getByText('New May 17').first()).toBeVisible();
 
   await expect(page.getByRole('heading', { level: 2, name: 'Attribution' })).toBeVisible();
   await expect(page.getByRole('link', { name: /Gabriel Chua thread/i })).toBeVisible();
+  await expect(page.getByRole('link', { name: /OpenAI Docs: Codex$/i })).toBeVisible();
   await expect(page.getByRole('link', { name: /OpenAI Docs: Codex Skills/i })).toBeVisible();
+  await expect(page.getByRole('link', { name: /Jason Liu/i })).toBeVisible();
+  await expect(page.getByRole('link', { name: /Chris Hayduk/i })).toBeVisible();
 
   const attributionPlacement = await page.evaluate(() => {
     const sections = Array.from(document.querySelectorAll('.landing-page > section'));
@@ -69,17 +74,19 @@ test('landing page shows attribution and source links', async ({ page }) => {
 });
 
 test('all modules are directly accessible for fresh users', async ({ page }) => {
-  await page.goto('/#/module/8');
-  await expect(page).toHaveURL(/#\/module\/8$/);
-  await expect(page.getByRole('heading', { level: 1, name: 'Build Or Adopt Your First Skill' })).toBeVisible();
+  await page.goto('/#/module/14');
+  await expect(page).toHaveURL(/#\/module\/14$/);
+  await expect(page.getByRole('heading', { level: 1, name: 'Review, Safety, And The Living Course' })).toBeVisible();
+  await expect(page.getByText('New May 17').first()).toBeVisible();
 });
 
 test('glossary page is accessible with plain-English definitions', async ({ page }) => {
   await page.goto('/#/glossary');
 
   await expect(page.getByRole('heading', { level: 1, name: 'Plain-English Glossary' })).toBeVisible();
-  await expect(page.getByRole('heading', { level: 2, name: 'API' })).toBeVisible();
-  await expect(page.getByText('A way one app or service talks to another with structured requests.')).toBeVisible();
+  await expect(page.getByRole('heading', { level: 2, name: 'Artifact' })).toBeVisible();
+  await expect(page.getByText('A reviewable output Codex creates or changes, such as a file, draft, spreadsheet, slide deck, screenshot, or webpage.')).toBeVisible();
+  await expect(page.getByRole('heading', { level: 2, name: 'Computer Use' })).toBeVisible();
   await expect(page.getByRole('heading', { level: 2, name: 'Sandbox' })).toBeVisible();
 });
 
@@ -92,8 +99,9 @@ test('continue course sends fresh learners to module 1', async ({ page }) => {
 test('continue course sends fully completed learners to completion', async ({ page }) => {
   await page.addInitScript(() => {
     const now = new Date().toISOString();
+    const totalModules = 14;
     const modules = Object.fromEntries(
-      Array.from({ length: 8 }, (_, idx) => {
+      Array.from({ length: totalModules }, (_, idx) => {
         const moduleNumber = idx + 1;
         const sectionIds = Array.from({ length: 5 }, (_, sectionIdx) => `section-${moduleNumber}-${sectionIdx + 1}`);
 
@@ -142,25 +150,25 @@ test('completion page shows in-progress state for fresh users', async ({ page })
   await page.goto('/#/completion');
 
   await expect(page.getByRole('heading', { level: 1, name: 'Course In Progress' })).toBeVisible();
-  await expect(page.getByText('Modules completed: 0/8')).toBeVisible();
+  await expect(page.getByText(`Modules completed: 0/${TOTAL_MODULES}`)).toBeVisible();
   await expect(page.getByRole('heading', { level: 1, name: 'You Completed The Course' })).toHaveCount(0);
 });
 
 test('completion page switches to completed state after all sections are viewed', async ({ page }) => {
-  await page.goto('/#/module/8');
+  await page.goto('/#/module/14');
 
-  const sectionIds = ['section-8-1', 'section-8-2', 'section-8-3', 'section-8-4', 'section-8-5'];
+  const sectionIds = ['section-14-1', 'section-14-2', 'section-14-3', 'section-14-4', 'section-14-5'];
   for (const sectionId of sectionIds) {
     await page.locator(`#${sectionId}`).scrollIntoViewIfNeeded();
   }
 
-  await expect.poll(() => getSectionsReadCount(page, 'module-8')).toBe(5);
+  await expect.poll(() => getSectionsReadCount(page, 'module-14')).toBe(5);
 
   await page.evaluate(() => {
     const raw = localStorage.getItem('codex-in-plain-english-progress-v1');
     if (!raw) return;
     const parsed = JSON.parse(raw);
-    for (let moduleNumber = 1; moduleNumber <= 7; moduleNumber++) {
+    for (let moduleNumber = 1; moduleNumber <= 13; moduleNumber++) {
       const sectionIds = Array.from({ length: 5 }, (_, idx) => `section-${moduleNumber}-${idx + 1}`);
       parsed.modules[`module-${moduleNumber}`] = {
         started: true,
@@ -194,7 +202,7 @@ test('module progression does not require passing quizzes', async ({ page }) => 
   await page.goto('/#/module/1');
   await expect(page.getByRole('heading', { level: 1, name: 'From Clicking To Delegating' })).toBeVisible();
 
-  await page.getByRole('link', { name: /Module 2: What Codex Actually Does/i }).click();
+  await page.getByRole('main').getByRole('link', { name: /Module 2: What Codex Actually Does/i }).click();
   await expect(page).toHaveURL(/#\/module\/2$/);
   await expect(page.getByRole('heading', { level: 1, name: 'What Codex Actually Does' })).toBeVisible();
 });

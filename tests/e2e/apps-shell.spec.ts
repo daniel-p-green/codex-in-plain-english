@@ -32,7 +32,8 @@ test('mobile menu opens course drawer navigation', async ({ page }) => {
   await openMenuButton.click();
   const drawer = page.getByRole('dialog', { name: 'Course navigation' });
   await expect(drawer).toBeVisible();
-  await expect(drawer.getByRole('link', { name: 'From Clicking To Delegating' })).toBeVisible();
+  await expect(drawer.getByRole('link', { name: /Module 1: From Clicking To Delegating/ })).toBeVisible();
+  await expect(drawer.getByText('Updated May 17').first()).toBeVisible();
 
   await page.keyboard.press('Escape');
   await expect(drawer).not.toBeVisible();

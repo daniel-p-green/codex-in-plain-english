@@ -3,6 +3,8 @@ export interface NavItem {
   label: string;
   href: string;
   group: string;
+  releaseStatus?: 'updated' | 'new';
+  releaseLabel?: string;
   locked?: boolean;
   completed?: boolean;
 }

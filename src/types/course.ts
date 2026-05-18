@@ -9,6 +9,9 @@ export interface ModuleData {
   number: number;
   title: string;
   subtitle: string;
+  releaseStatus?: 'updated' | 'new';
+  releaseLabel?: string;
+  releaseDate?: string;
   depthZone: string;
   depthMeters: number;
   estimatedMinutes: number;

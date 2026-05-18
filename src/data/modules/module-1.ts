@@ -1,5 +1,5 @@
 import type { ModuleData } from '../../types/course';
-import { SOURCE_GABRIEL_X } from '../attribution';
+import { SOURCE_GABRIEL_X, SOURCE_OPENAI_CODEX_DOCS } from '../attribution';
 
 export const module1: ModuleData = {
   id: 'module-1',
@@ -7,7 +7,10 @@ export const module1: ModuleData = {
   title: 'From Clicking To Delegating',
   subtitle:
     'Understand why so much digital work feels busy and how outcome-based delegation changes the game for non-coders.',
-  depthZone: 'Starter Layer',
+  releaseStatus: 'updated',
+  releaseLabel: 'Updated May 17',
+  releaseDate: '2026-05-17',
+  depthZone: 'Core Course',
   depthMeters: 10,
   estimatedMinutes: 18,
   sections: [
@@ -177,5 +180,5 @@ export const module1: ModuleData = {
         'The core shift is accessibility: AI agents make automation reachable without direct scripting expertise.',
     },
   ],
-  sourceRefs: [SOURCE_GABRIEL_X],
+  sourceRefs: [SOURCE_GABRIEL_X, SOURCE_OPENAI_CODEX_DOCS],
 };

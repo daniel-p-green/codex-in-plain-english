@@ -15,6 +15,15 @@ export default function MobileDrawer({ open, groups, pathname, onClose }: Mobile
   const panelRef = useRef<HTMLElement | null>(null);
   const lastFocusedRef = useRef<HTMLElement | null>(null);
 
+  const renderLinkMeta = (item: NavGroup['items'][number]) => (
+    <span className="mobile-drawer-meta">
+      {item.releaseLabel && item.releaseStatus && (
+        <span className={`mobile-drawer-release ${item.releaseStatus}`}>{item.releaseLabel}</span>
+      )}
+      {item.completed && <span className="mobile-drawer-done">Done</span>}
+    </span>
+  );
+
   useEffect(() => {
     if (!open) {
       return undefined;
@@ -125,9 +134,11 @@ export default function MobileDrawer({ open, groups, pathname, onClose }: Mobile
                     <li key={item.id}>
                       {item.locked ? (
                         <span className="mobile-drawer-link locked" aria-disabled="true">
-                          {item.label}
-                          <span className="mobile-drawer-lock" aria-hidden="true">
-                            Locked
+                          <span className="mobile-drawer-label">{item.label}</span>
+                          <span className="mobile-drawer-meta">
+                            <span className="mobile-drawer-lock" aria-hidden="true">
+                              Locked
+                            </span>
                           </span>
                         </span>
                       ) : (
@@ -136,8 +147,8 @@ export default function MobileDrawer({ open, groups, pathname, onClose }: Mobile
                           to={item.href}
                           onClick={onClose}
                         >
-                          {item.label}
-                          {item.completed && <span className="mobile-drawer-done">Done</span>}
+                          <span className="mobile-drawer-label">{item.label}</span>
+                          {renderLinkMeta(item)}
                         </Link>
                       )}
                     </li>

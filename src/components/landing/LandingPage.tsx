@@ -1,32 +1,33 @@
 import { Link } from 'react-router-dom';
-import { allModules } from '../../data/modules';
+import { allModules, CORE_MODULE_COUNT, COURSE_TOTAL_MODULES } from '../../data/modules';
 import {
   COURSE_ATTRIBUTION_COPY,
+  COURSE_ATTRIBUTION_SOURCES,
   COURSE_ATTRIBUTION_TITLE,
-  SOURCE_GABRIEL_X,
-  SOURCE_OPENAI_SKILLS_DOC,
 } from '../../data/attribution';
 import PageContainer from '../layout/PageContainer';
 
 export default function LandingPage() {
   const moduleOne = allModules[0];
-  const moduleFive = allModules[4];
+  const moduleNine = allModules[8];
+  const moduleTen = allModules[9];
+  const moduleThirteen = allModules[12];
 
   const starterCards = [
     {
       id: 'left-primary',
       title: 'From Clicking To Delegating',
-      subtitle: 'Quickstart',
+      subtitle: moduleOne.releaseLabel ?? 'Core Course',
       href: `/module/${moduleOne.number}`,
-      copy: 'Start with the non-coders path: describe outcomes, review outputs, and iterate.',
+      copy: 'Start with the original plain-English foundation: outcomes, constraints, and checks.',
       variant: 'primary',
     },
     {
       id: 'right-secondary',
-      title: 'Skills 101',
-      subtitle: 'Next track',
-      href: `/module/${moduleFive.number}`,
-      copy: 'Shift from one-off prompts to repeatable workflow modules.',
+      title: 'Codex As A Work Super App',
+      subtitle: moduleNine.releaseLabel ?? 'New',
+      href: `/module/${moduleNine.number}`,
+      copy: 'Jump to the new expansion track for current Codex surfaces and long-running workflows.',
       variant: 'secondary',
     },
   ] as const;
@@ -34,24 +35,24 @@ export default function LandingPage() {
   const createCards = [
     {
       id: 'plan',
-      title: 'Research use cases',
-      copy: 'Identify repetitive digital tasks and define the outcome before implementation.',
-      cta: 'Start Module 1 (15 min)',
+      title: 'Review the core',
+      copy: `The first ${CORE_MODULE_COUNT} modules preserve the original course path and now carry refreshed source attribution.`,
+      cta: `Start Module 1 (${moduleOne.estimatedMinutes} min)`,
       href: `/module/${moduleOne.number}`,
     },
     {
       id: 'build',
-      title: 'Build your delegation flow',
-      copy: 'Jump to the knowledge check when you want optional mastery feedback.',
-      cta: 'Take Optional Quiz',
-      href: `/module/${moduleOne.number}?focus=quiz`,
+      title: 'Use visual surfaces',
+      copy: 'Learn when to use the in-app browser, Chrome, or Computer Use for real reviewable work.',
+      cta: 'Open Module 10',
+      href: `/module/${moduleTen.number}`,
     },
     {
       id: 'deploy',
-      title: 'Deploy your workflow',
-      copy: 'Track progress across all modules and finish with a reusable operating playbook.',
-      cta: 'Track Progress',
-      href: '/dashboard',
+      title: 'Run the loop',
+      copy: 'Learn when to use Goals, Heartbeats, and Skills for work that needs to continue.',
+      cta: 'Open Module 13',
+      href: `/module/${moduleThirteen.number}`,
     },
   ] as const;
 
@@ -62,15 +63,17 @@ export default function LandingPage() {
           <span className="hero-title-main">Codex In Plain English:</span>{' '}
           <span className="hero-title-suffix">The Course</span>
         </h1>
-        <p>Learn to delegate digital work with confidence, one practical module at a time.</p>
-        <p className="landing-hero-note">Guided modules with optional quizzes, not a live coding sandbox.</p>
+        <p>Learn to delegate real digital work with confidence, one practical module at a time.</p>
+        <p className="landing-hero-note">
+          A living course updated May 17, 2026 for Computer Use, mobile steering, Goals, Heartbeats, Skills, and reviewable artifacts.
+        </p>
       </section>
 
       <section className="course-clarity" aria-labelledby="course-clarity-title">
         <h2 id="course-clarity-title">How this course works</h2>
         <ol>
           <li>
-            <strong>Start Module 1 (15 min)</strong>
+            <strong>Start Module 1 ({moduleOne.estimatedMinutes} min)</strong>
             <span>Get the core model first: outcome, constraints, and checks.</span>
           </li>
           <li>
@@ -79,7 +82,7 @@ export default function LandingPage() {
           </li>
           <li>
             <strong>Track Progress</strong>
-            <span>Use section progress, XP, and streaks to keep momentum through all 8 modules.</span>
+            <span>Use New and Updated labels to jump to what changed across the current {COURSE_TOTAL_MODULES}-module course.</span>
           </li>
         </ol>
         <p className="course-clarity-glossary-link">
@@ -118,7 +121,7 @@ export default function LandingPage() {
 
       <section className="landing-dashboard-link">
         <p>
-          Continue through all 8 modules in the <Link to="/dashboard">Course Dashboard</Link>.
+          Continue through all {COURSE_TOTAL_MODULES} modules in the <Link to="/dashboard">Course Dashboard</Link>.
         </p>
       </section>
 
@@ -131,12 +134,11 @@ export default function LandingPage() {
           <p>{COURSE_ATTRIBUTION_COPY}</p>
         </div>
         <div className="attribution-banner-links">
-          <a href={SOURCE_GABRIEL_X.url} target="_blank" rel="noreferrer noopener">
-            Gabriel Chua thread
-          </a>
-          <a href={SOURCE_OPENAI_SKILLS_DOC.url} target="_blank" rel="noreferrer noopener">
-            OpenAI Docs: Codex Skills
-          </a>
+          {COURSE_ATTRIBUTION_SOURCES.map(source => (
+            <a key={source.url} href={source.url} target="_blank" rel="noreferrer noopener">
+              {source.label}
+            </a>
+          ))}
         </div>
       </section>
     </PageContainer>

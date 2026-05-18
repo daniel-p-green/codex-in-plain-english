@@ -1,5 +1,5 @@
 import type { ModuleData } from '../../types/course';
-import { SOURCE_GABRIEL_X } from '../attribution';
+import { SOURCE_GABRIEL_X, SOURCE_OPENAI_CODEX_DOCS } from '../attribution';
 
 export const module4: ModuleData = {
   id: 'module-4',
@@ -7,7 +7,10 @@ export const module4: ModuleData = {
   title: 'First Delegation Playbook for Non-Coders',
   subtitle:
     'Use a repeatable brief template to delegate file, document, and report tasks with confidence.',
-  depthZone: 'Execution Layer',
+  releaseStatus: 'updated',
+  releaseLabel: 'Updated May 17',
+  releaseDate: '2026-05-17',
+  depthZone: 'Core Course',
   depthMeters: 90,
   estimatedMinutes: 18,
   sections: [
@@ -128,5 +131,5 @@ export const module4: ModuleData = {
         'Low-risk workflows are the safest way to build delegation muscle and refine prompts.',
     },
   ],
-  sourceRefs: [SOURCE_GABRIEL_X],
+  sourceRefs: [SOURCE_GABRIEL_X, SOURCE_OPENAI_CODEX_DOCS],
 };

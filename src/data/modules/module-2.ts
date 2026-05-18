@@ -1,5 +1,5 @@
 import type { ModuleData } from '../../types/course';
-import { SOURCE_GABRIEL_X } from '../attribution';
+import { SOURCE_GABRIEL_X, SOURCE_OPENAI_CODEX_DOCS } from '../attribution';
 
 export const module2: ModuleData = {
   id: 'module-2',
@@ -7,7 +7,10 @@ export const module2: ModuleData = {
   title: 'What Codex Actually Does',
   subtitle:
     'Break down Codex as an execution agent: planning, selecting tools, writing instructions, and retrying when things fail in supported environments.',
-  depthZone: 'Starter Layer',
+  releaseStatus: 'updated',
+  releaseLabel: 'Updated May 17',
+  releaseDate: '2026-05-17',
+  depthZone: 'Core Course',
   depthMeters: 30,
   estimatedMinutes: 20,
   sections: [
@@ -157,5 +160,5 @@ export const module2: ModuleData = {
         'Delegation shifts execution, not accountability. Humans still decide standards and approvals.',
     },
   ],
-  sourceRefs: [SOURCE_GABRIEL_X],
+  sourceRefs: [SOURCE_GABRIEL_X, SOURCE_OPENAI_CODEX_DOCS],
 };

@@ -14,6 +14,12 @@ const MODULE_BADGE_MAP: Record<string, string> = {
   'module-6': 'context-curator',
   'module-7': 'team-scaler',
   'module-8': 'workflow-author',
+  'module-9': 'super-app-mapper',
+  'module-10': 'visual-operator',
+  'module-11': 'mobile-steerer',
+  'module-12': 'memory-keeper',
+  'module-13': 'loop-runner',
+  'module-14': 'living-course-steward',
 };
 const MODULE_BADGE_IDS = new Set(Object.values(MODULE_BADGE_MAP));
 

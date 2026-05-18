@@ -397,6 +397,42 @@ button {
   line-height: 1.35;
 }
 
+.left-sidebar-label {
+  min-width: 0;
+}
+
+.left-sidebar-meta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.left-sidebar-release {
+  font-size: 0.62rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-soft);
+  color: var(--text-700);
+  background: var(--surface-100);
+  padding: 2px 7px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+
+.left-sidebar-release.new {
+  border-color: color-mix(in srgb, var(--green-300) 48%, transparent);
+  color: var(--green-300);
+  background: color-mix(in srgb, var(--green-300) 10%, transparent);
+}
+
+.left-sidebar-release.updated {
+  border-color: color-mix(in srgb, var(--blue-200) 48%, transparent);
+  color: var(--blue-100);
+  background: color-mix(in srgb, var(--blue-200) 12%, transparent);
+}
+
 .left-sidebar-link:hover {
   color: var(--text-900);
   background: var(--surface-100);
@@ -855,6 +891,15 @@ button {
   position: relative;
 }
 
+.module-card-meta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+  padding-right: 58px;
+}
+
 .module-card:hover {
   border-color: var(--border-strong);
   background: var(--surface-100);
@@ -877,7 +922,31 @@ button {
   font-size: 0.74rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: var(--space-3);
+}
+
+.module-card-release {
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-pill);
+  color: var(--text-700);
+  background: var(--surface-100);
+  padding: 3px 8px;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.module-card-release.new {
+  border-color: color-mix(in srgb, var(--green-300) 48%, transparent);
+  color: var(--green-300);
+  background: color-mix(in srgb, var(--green-300) 10%, transparent);
+}
+
+.module-card-release.updated {
+  border-color: color-mix(in srgb, var(--blue-200) 48%, transparent);
+  color: var(--blue-100);
+  background: color-mix(in srgb, var(--blue-200) 12%, transparent);
 }
 
 .module-card h3 {
@@ -1022,6 +1091,24 @@ button {
 
 .module-complete-chip {
   color: var(--green-300);
+}
+
+.module-release-chip {
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-pill);
+  padding: 3px 10px;
+}
+
+.module-release-chip.new {
+  border-color: color-mix(in srgb, var(--green-300) 48%, transparent);
+  color: var(--green-300);
+  background: color-mix(in srgb, var(--green-300) 10%, transparent);
+}
+
+.module-release-chip.updated {
+  border-color: color-mix(in srgb, var(--blue-200) 48%, transparent);
+  color: var(--blue-100);
+  background: color-mix(in srgb, var(--blue-200) 12%, transparent);
 }
 
 .module-header p {
@@ -1948,11 +2035,44 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: var(--space-3);
   border-radius: var(--radius-sm);
   border: 1px solid transparent;
   padding: 9px 10px;
   color: var(--text-700);
   font-size: 0.92rem;
+}
+
+.mobile-drawer-label {
+  min-width: 0;
+}
+
+.mobile-drawer-meta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.mobile-drawer-release {
+  font-size: 0.64rem;
+  font-family: var(--font-mono);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-soft);
+  color: var(--text-700);
+  padding: 2px 7px;
+}
+
+.mobile-drawer-release.new {
+  border-color: color-mix(in srgb, var(--green-300) 42%, transparent);
+  color: var(--green-300);
+}
+
+.mobile-drawer-release.updated {
+  border-color: color-mix(in srgb, var(--blue-200) 42%, transparent);
+  color: var(--blue-100);
 }
 
 .mobile-drawer-link:hover {

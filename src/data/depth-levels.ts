@@ -7,6 +7,8 @@ export const DEPTH_LEVELS: DepthLevel[] = [
   { level: 4, title: 'System Operator', xpRequired: 300 },
   { level: 5, title: 'Automation Strategist', xpRequired: 500 },
   { level: 6, title: 'Delegation Architect', xpRequired: 750 },
+  { level: 7, title: 'Codex Operator', xpRequired: 1000 },
+  { level: 8, title: 'Living Workflow Steward', xpRequired: 1300 },
 ];
 
 export function getDepthLevel(xp: number): DepthLevel {

@@ -8,6 +8,15 @@ interface LeftSidebarProps {
 }
 
 export default function LeftSidebar({ groups, pathname }: LeftSidebarProps) {
+  const renderLinkMeta = (item: NavGroup['items'][number]) => (
+    <span className="left-sidebar-meta">
+      {item.releaseLabel && item.releaseStatus && (
+        <span className={`left-sidebar-release ${item.releaseStatus}`}>{item.releaseLabel}</span>
+      )}
+      {item.completed && <span className="left-sidebar-status">Done</span>}
+    </span>
+  );
+
   return (
     <aside className="left-sidebar" aria-label="Course sections">
       <div className="left-sidebar-search" aria-label="Course map overview">
@@ -29,9 +38,11 @@ export default function LeftSidebar({ groups, pathname }: LeftSidebarProps) {
                   return (
                     <li key={item.id}>
                       <span className="left-sidebar-link locked" aria-disabled="true">
-                        {item.label}
-                        <span className="left-sidebar-lock" aria-hidden="true">
-                          Locked
+                        <span className="left-sidebar-label">{item.label}</span>
+                        <span className="left-sidebar-meta">
+                          <span className="left-sidebar-lock" aria-hidden="true">
+                            Locked
+                          </span>
                         </span>
                       </span>
                     </li>
@@ -41,8 +52,8 @@ export default function LeftSidebar({ groups, pathname }: LeftSidebarProps) {
                 return (
                   <li key={item.id}>
                     <Link className={`left-sidebar-link ${active ? 'active' : ''}`} to={item.href}>
-                      {item.label}
-                      {item.completed && <span className="left-sidebar-status">Done</span>}
+                      <span className="left-sidebar-label">{item.label}</span>
+                      {renderLinkMeta(item)}
                     </Link>
                   </li>
                 );

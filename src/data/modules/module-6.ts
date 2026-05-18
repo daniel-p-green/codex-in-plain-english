@@ -7,7 +7,10 @@ export const module6: ModuleData = {
   title: 'Progressive Disclosure And Skill Structure',
   subtitle:
     'Learn how agents discover and open only relevant skill instructions, keeping context focused and execution efficient.',
-  depthZone: 'Skills Layer',
+  releaseStatus: 'updated',
+  releaseLabel: 'Updated May 17',
+  releaseDate: '2026-05-17',
+  depthZone: 'Core Course',
   depthMeters: 150,
   estimatedMinutes: 18,
   sections: [

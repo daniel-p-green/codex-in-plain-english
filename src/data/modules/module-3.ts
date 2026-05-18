@@ -1,5 +1,5 @@
 import type { ModuleData } from '../../types/course';
-import { SOURCE_GABRIEL_X } from '../attribution';
+import { SOURCE_GABRIEL_X, SOURCE_OPENAI_CODEX_DOCS } from '../attribution';
 
 export const module3: ModuleData = {
   id: 'module-3',
@@ -7,7 +7,10 @@ export const module3: ModuleData = {
   title: 'Two Execution Modes: Code vs UI',
   subtitle:
     'Learn when AI should use scripts and APIs versus directly operating interfaces like a human.',
-  depthZone: 'Execution Layer',
+  releaseStatus: 'updated',
+  releaseLabel: 'Updated May 17',
+  releaseDate: '2026-05-17',
+  depthZone: 'Core Course',
   depthMeters: 60,
   estimatedMinutes: 16,
   sections: [
@@ -144,5 +147,5 @@ export const module3: ModuleData = {
         'Stable data formats and validation checkpoints are key to dependable automation.',
     },
   ],
-  sourceRefs: [SOURCE_GABRIEL_X],
+  sourceRefs: [SOURCE_GABRIEL_X, SOURCE_OPENAI_CODEX_DOCS],
 };

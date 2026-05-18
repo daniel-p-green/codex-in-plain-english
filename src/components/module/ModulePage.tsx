@@ -136,6 +136,9 @@ export default function ModulePage() {
           <span>~{moduleData.estimatedMinutes} min</span>
           <span>{moduleData.sourceRefs.length} sources linked</span>
           <span>{progress.xp} XP</span>
+          {moduleData.releaseLabel && moduleData.releaseStatus && (
+            <span className={`module-release-chip ${moduleData.releaseStatus}`}>{moduleData.releaseLabel}</span>
+          )}
           {isModuleComplete(moduleId) && <span className="module-complete-chip">Complete</span>}
         </div>
         <h1>{moduleData.title}</h1>
@@ -150,9 +153,9 @@ export default function ModulePage() {
         <article className="module-orientation-item">
           <h2>Who it is for</h2>
           <p>
-            {moduleData.number <= 4
-              ? 'Non-coders building reliable delegation habits.'
-              : 'Technical depth (optional) for repeatable systems and team workflows.'}
+            {moduleData.number <= 8
+              ? 'Non-coders building the original plain-English delegation foundation.'
+              : 'Returning learners tracking what changed as Codex grows into a broader work app.'}
           </p>
         </article>
         <article className="module-orientation-item">
@@ -239,7 +242,7 @@ export default function ModulePage() {
 
       <section id="sources-section" className="source-panel">
         <h3>Source Attribution</h3>
-        <p>This module adapts ideas from Gabriel Chua&apos;s writing. Source links are provided directly below.</p>
+        <p>This module draws from the public source links below and keeps the explanation in plain English.</p>
         <ul>
           {moduleData.sourceRefs.map((source, idx) => (
             <li key={`${source.url}-${idx}`}>

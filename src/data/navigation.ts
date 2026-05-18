@@ -7,6 +7,8 @@ interface NavTemplate {
   href: string;
   group: string;
   moduleId?: string;
+  releaseStatus?: 'updated' | 'new';
+  releaseLabel?: string;
   aliases?: string[];
 }
 
@@ -18,22 +20,30 @@ interface TopNavTemplate {
 }
 
 const MODULE_GROUPS: Record<number, string> = {
-  1: 'Foundations',
-  2: 'Foundations',
-  3: 'Practice',
-  4: 'Practice',
-  5: 'Skills',
-  6: 'Skills',
-  7: 'Capstone',
-  8: 'Capstone',
+  1: 'Core Course',
+  2: 'Core Course',
+  3: 'Core Course',
+  4: 'Core Course',
+  5: 'Core Course',
+  6: 'Core Course',
+  7: 'Core Course',
+  8: 'Core Course',
+  9: 'Expanded Codex 2026',
+  10: 'Expanded Codex 2026',
+  11: 'Expanded Codex 2026',
+  12: 'Expanded Codex 2026',
+  13: 'Expanded Codex 2026',
+  14: 'Expanded Codex 2026',
 };
 
 const MODULE_NAV_ITEMS: NavTemplate[] = allModules.map(moduleData => ({
   id: moduleData.id,
-  label: moduleData.title,
+  label: `Module ${moduleData.number}: ${moduleData.title}`,
   href: `/module/${moduleData.number}`,
   group: MODULE_GROUPS[moduleData.number] ?? 'Practice',
   moduleId: moduleData.id,
+  releaseStatus: moduleData.releaseStatus,
+  releaseLabel: moduleData.releaseLabel,
 }));
 
 const SIDEBAR_NAV_ITEMS: NavTemplate[] = [
@@ -41,26 +51,26 @@ const SIDEBAR_NAV_ITEMS: NavTemplate[] = [
     id: 'course-overview',
     label: 'Course Overview',
     href: '/',
-    group: 'Foundations',
+    group: 'Start Here',
   },
   {
     id: 'progress-dashboard',
     label: 'Progress Dashboard',
     href: '/dashboard',
-    group: 'Foundations',
+    group: 'Start Here',
   },
   {
     id: 'glossary',
     label: 'Plain-English Glossary',
     href: '/glossary',
-    group: 'Foundations',
+    group: 'Start Here',
   },
   ...MODULE_NAV_ITEMS,
   {
     id: 'completion',
     label: 'Completion Summary',
     href: '/completion',
-    group: 'Capstone',
+    group: 'Finish',
   },
 ];
 
@@ -92,7 +102,7 @@ const TOP_NAV_ITEMS: TopNavTemplate[] = [
   },
 ];
 
-export const SIDEBAR_GROUP_ORDER = ['Foundations', 'Practice', 'Skills', 'Capstone'] as const;
+export const SIDEBAR_GROUP_ORDER = ['Start Here', 'Core Course', 'Expanded Codex 2026', 'Finish'] as const;
 
 export interface BuildCourseNavParams {
   pathname: string;
@@ -109,6 +119,8 @@ function resolveNavItem(template: NavTemplate, params: BuildCourseNavParams): Na
     label: template.label,
     href: template.href,
     group: template.group,
+    releaseStatus: template.releaseStatus,
+    releaseLabel: template.releaseLabel,
     locked: false,
     completed: template.moduleId ? params.isModuleComplete(template.moduleId) : false,
   };
