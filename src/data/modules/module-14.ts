@@ -10,7 +10,7 @@ import {
 export const module14: ModuleData = {
   id: 'module-14',
   number: 14,
-  title: 'Review, Safety, And The Living Course',
+  title: 'Review, Safety, and the Living Course',
   subtitle:
     'Close the expanded course with the habits that keep Codex useful as it grows: proof, approvals, source notes, and clear updates.',
   releaseDate: '2026-05-17',

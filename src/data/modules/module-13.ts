@@ -8,7 +8,7 @@ import {
 export const module13: ModuleData = {
   id: 'module-13',
   number: 13,
-  title: 'Goals, Heartbeats, And Long-Running Loops',
+  title: 'Goals, Heartbeats, and Long-Running Loops',
   subtitle:
     'Learn when to ask Codex to keep working toward proof, and when to have a thread check back later.',
   releaseDate: '2026-05-17',
@@ -18,7 +18,7 @@ export const module13: ModuleData = {
   sections: [
     {
       id: 'section-13-1',
-      title: '13.1 - Not Every Task Should Be A Goal',
+      title: '13.1 - Not Every Task Should Be a Goal',
       content: [
         {
           type: 'paragraph',
@@ -26,7 +26,7 @@ export const module13: ModuleData = {
         },
         {
           type: 'comparison',
-          headers: ['Use A Normal Request', 'Use A Goal'],
+          headers: ['Use a Normal Request', 'Use a Goal'],
           rows: [
             {
               cells: [
@@ -56,7 +56,7 @@ export const module13: ModuleData = {
     },
     {
       id: 'section-13-3',
-      title: '13.3 - Make Progress Easy To Check',
+      title: '13.3 - Make Progress Easy to Check',
       content: [
         {
           type: 'unorderedList',

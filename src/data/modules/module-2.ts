@@ -14,7 +14,7 @@ export const module2: ModuleData = {
   sections: [
     {
       id: 'section-2-1',
-      title: '2.1 - Codex Is A Doer, Not Just A Tutor',
+      title: '2.1 - Codex Is a Doer, Not Just a Tutor',
       content: [
         {
           type: 'paragraph',

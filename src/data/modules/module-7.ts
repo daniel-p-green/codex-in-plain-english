@@ -4,7 +4,7 @@ import { SOURCE_GABRIEL_X, SOURCE_OPENAI_SKILLS_DOC } from '../attribution';
 export const module7: ModuleData = {
   id: 'module-7',
   number: 7,
-  title: 'Team Practices: Consistency And Scale',
+  title: 'Team Practices: Consistency and Scale',
   subtitle:
     'Turn one person\'s good Codex habit into a shared way of working that a team can trust.',
   releaseDate: '2026-05-17',
@@ -14,7 +14,7 @@ export const module7: ModuleData = {
   sections: [
     {
       id: 'section-7-1',
-      title: '7.1 - Tacit Knowledge Is The Real Bottleneck',
+      title: '7.1 - Tacit Knowledge Is the Real Bottleneck',
       content: [
         {
           type: 'paragraph',
@@ -24,7 +24,7 @@ export const module7: ModuleData = {
     },
     {
       id: 'section-7-2',
-      title: '7.2 - Small Team Or Enterprise, Same Pattern',
+      title: '7.2 - Small Team or Enterprise, Same Pattern',
       content: [
         {
           type: 'comparison',
@@ -45,7 +45,7 @@ export const module7: ModuleData = {
     },
     {
       id: 'section-7-3',
-      title: '7.3 - Lightweight Care For Skills',
+      title: '7.3 - Lightweight Care for Skills',
       content: [
         {
           type: 'orderedList',

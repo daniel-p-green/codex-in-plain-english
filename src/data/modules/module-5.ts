@@ -4,7 +4,7 @@ import { SOURCE_GABRIEL_X, SOURCE_OPENAI_SKILLS_DOC } from '../attribution';
 export const module5: ModuleData = {
   id: 'module-5',
   number: 5,
-  title: 'Skills 101: Reusable Prompting As Workflow',
+  title: 'Skills 101: Reusable Prompting as Workflow',
   subtitle:
     'Understand skills as reusable instructions for work you want Codex to do the same way again.',
   releaseDate: '2026-05-17',
@@ -30,7 +30,7 @@ export const module5: ModuleData = {
     },
     {
       id: 'section-5-2',
-      title: '5.2 - What A Skill Is',
+      title: '5.2 - What a Skill Is',
       content: [
         {
           type: 'paragraph',

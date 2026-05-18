@@ -16,7 +16,7 @@ export default function LandingPage() {
   const starterCards = [
     {
       id: 'left-primary',
-      title: 'From Clicking To Delegating',
+      title: 'From Clicking to Delegating',
       subtitle: 'Core Course',
       href: `/module/${moduleOne.number}`,
       copy: 'Start with the original plain-English foundation: say what you want, set boundaries, and check the result.',
@@ -24,7 +24,7 @@ export default function LandingPage() {
     },
     {
       id: 'right-secondary',
-      title: 'Codex As A Work Super App',
+      title: 'Codex as a Work Super App',
       subtitle: 'Expanded Codex 2026',
       href: `/module/${moduleNine.number}`,
       copy: 'Jump to the new expansion track for the places Codex can now work and keep going.',

@@ -8,7 +8,7 @@ import {
 export const module10: ModuleData = {
   id: 'module-10',
   number: 10,
-  title: 'Browser, Chrome, And Computer Use',
+  title: 'Browser, Chrome, and Computer Use',
   subtitle:
     'Learn when Codex should look at a page, use a signed-in browser, or operate a desktop app.',
   releaseDate: '2026-05-17',
@@ -36,7 +36,7 @@ export const module10: ModuleData = {
       content: [
         {
           type: 'comparison',
-          headers: ['Workspace', 'Best For', 'Review Habit'],
+          headers: ['Workspace', 'Best for', 'Review Habit'],
           rows: [
             {
               cells: ['In-app browser', 'Local previews, simple webpages, public pages, and page comments.', 'Check the same page Codex is acting on.'],
@@ -53,7 +53,7 @@ export const module10: ModuleData = {
     },
     {
       id: 'section-10-3',
-      title: '10.3 - When To Avoid Computer Use',
+      title: '10.3 - When to Avoid Computer Use',
       content: [
         {
           type: 'unorderedList',

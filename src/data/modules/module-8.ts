@@ -4,7 +4,7 @@ import { SOURCE_GABRIEL_X, SOURCE_OPENAI_SKILLS_DOC } from '../attribution';
 export const module8: ModuleData = {
   id: 'module-8',
   number: 8,
-  title: 'Build Or Adopt Your First Skill',
+  title: 'Build or Adopt Your First Skill',
   subtitle:
     'Turn one repeated workflow into a practical skill and decide how you will use it again.',
   releaseDate: '2026-05-17',
@@ -14,7 +14,7 @@ export const module8: ModuleData = {
   sections: [
     {
       id: 'section-8-1',
-      title: '8.1 - Pick The Right First Workflow',
+      title: '8.1 - Pick the Right First Workflow',
       content: [
         {
           type: 'unorderedList',

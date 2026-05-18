@@ -4,7 +4,7 @@ import { SOURCE_GABRIEL_X, SOURCE_OPENAI_CODEX_DOCS } from '../attribution';
 export const module1: ModuleData = {
   id: 'module-1',
   number: 1,
-  title: 'From Clicking To Delegating',
+  title: 'From Clicking to Delegating',
   subtitle:
     'Understand why so much digital work feels busy and how outcome-based delegation changes the game for non-coders.',
   releaseDate: '2026-05-17',
@@ -34,7 +34,7 @@ export const module1: ModuleData = {
     },
     {
       id: 'section-1-2',
-      title: '1.2 - Why Automation Used To Feel Locked Away',
+      title: '1.2 - Why Automation Used to Feel Locked Away',
       content: [
         {
           type: 'comparison',

@@ -9,7 +9,7 @@ import {
 export const module9: ModuleData = {
   id: 'module-9',
   number: 9,
-  title: 'Codex As A Work Super App',
+  title: 'Codex as a Work Super App',
   subtitle:
     'See Codex as a place where more kinds of digital work can live, continue, and be reviewed.',
   releaseDate: '2026-05-17',
@@ -19,7 +19,7 @@ export const module9: ModuleData = {
   sections: [
     {
       id: 'section-9-1',
-      title: '9.1 - Why The Course Now Expands',
+      title: '9.1 - Why the Course Now Expands',
       content: [
         {
           type: 'paragraph',
@@ -51,7 +51,7 @@ export const module9: ModuleData = {
     },
     {
       id: 'section-9-3',
-      title: '9.3 - Where Should The Work Happen?',
+      title: '9.3 - Where Should the Work Happen?',
       content: [
         {
           type: 'comparison',

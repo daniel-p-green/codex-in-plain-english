@@ -77,23 +77,23 @@ Output files are written to `out/`.
 
 #### Core Course
 
-1. From Clicking To Delegating
+1. From Clicking to Delegating
 2. What Codex Actually Does
-3. Two Ways Codex Works: Files Or Screens
+3. Two Ways Codex Works: Files or Screens
 4. First Delegation Playbook for Non-Coders
-5. Skills 101: Reusable Prompting As Workflow
+5. Skills 101: Reusable Prompting as Workflow
 6. Keeping Skill Instructions Focused
-7. Team Practices: Consistency And Scale
-8. Build Or Adopt Your First Skill
+7. Team Practices: Consistency and Scale
+8. Build or Adopt Your First Skill
 
 #### Expanded Codex 2026
 
-9. Codex As A Work Super App
-10. Browser, Chrome, And Computer Use
-11. Mobile Remote Control And Steering
-12. Durable Threads, Memory, And Work Notes
-13. Goals, Heartbeats, And Long-Running Loops
-14. Review, Safety, And The Living Course
+9. Codex as a Work Super App
+10. Browser, Chrome, and Computer Use
+11. Mobile Remote Control and Steering
+12. Durable Threads, Memory, and Work Notes
+13. Goals, Heartbeats, and Long-Running Loops
+14. Review, Safety, and the Living Course
 
 ## Deploy
 

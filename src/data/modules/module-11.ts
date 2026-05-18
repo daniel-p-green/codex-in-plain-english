@@ -4,7 +4,7 @@ import { SOURCE_JASON_LIU_CODEX_MAXXING, SOURCE_OPENAI_CODEX_DOCS } from '../att
 export const module11: ModuleData = {
   id: 'module-11',
   number: 11,
-  title: 'Mobile Remote Control And Steering',
+  title: 'Mobile Remote Control and Steering',
   subtitle:
     'Learn how to start Codex work on the host machine, then continue, approve, and redirect it from mobile.',
   releaseDate: '2026-05-17',
@@ -30,7 +30,7 @@ export const module11: ModuleData = {
     },
     {
       id: 'section-11-2',
-      title: '11.2 - What You Can Do From Mobile',
+      title: '11.2 - What You Can Do from Mobile',
       content: [
         {
           type: 'unorderedList',

@@ -4,7 +4,7 @@ import { SOURCE_GABRIEL_X, SOURCE_OPENAI_CODEX_DOCS } from '../attribution';
 export const module3: ModuleData = {
   id: 'module-3',
   number: 3,
-  title: 'Two Ways Codex Works: Files Or Screens',
+  title: 'Two Ways Codex Works: Files or Screens',
   subtitle:
     'Learn when Codex should work behind the scenes with files and data, and when it should operate a screen like a person.',
   releaseDate: '2026-05-17',
@@ -14,7 +14,7 @@ export const module3: ModuleData = {
   sections: [
     {
       id: 'section-3-1',
-      title: '3.1 - Way A: Behind The Scenes',
+      title: '3.1 - Way A: Behind the Scenes',
       content: [
         {
           type: 'paragraph',
@@ -32,7 +32,7 @@ export const module3: ModuleData = {
     },
     {
       id: 'section-3-2',
-      title: '3.2 - Way B: On The Screen',
+      title: '3.2 - Way B: On the Screen',
       content: [
         {
           type: 'paragraph',

@@ -8,7 +8,7 @@ import {
 export const module12: ModuleData = {
   id: 'module-12',
   number: 12,
-  title: 'Durable Threads, Memory, And Work Notes',
+  title: 'Durable Threads, Memory, and Work Notes',
   subtitle:
     'Learn how long-running work stays understandable through focused threads, written notes, memories, and clear project instructions.',
   releaseDate: '2026-05-17',
@@ -42,7 +42,7 @@ export const module12: ModuleData = {
         },
         {
           type: 'table',
-          headers: ['What To Save', 'Good Home', 'Why'],
+          headers: ['What to Save', 'Good Home', 'Why'],
           rows: [
             ['Required project rules', 'AGENTS.md or checked-in docs', 'Shared, reviewable instructions.'],
             ['Open loops', 'TODO.md or project notes', 'Keeps follow-ups from getting buried.'],
@@ -70,11 +70,11 @@ export const module12: ModuleData = {
     },
     {
       id: 'section-12-4',
-      title: '12.4 - Memories Are Helpful, But Not Rules',
+      title: '12.4 - Memories Are Helpful, but Not Rules',
       content: [
         {
           type: 'comparison',
-          headers: ['Use Memory For', 'Use Files For'],
+          headers: ['Use Memory for', 'Use Files for'],
           rows: [
             { cells: ['Stable preferences and recurring habits.', 'Rules that must be inspected, changed, reviewed, or shared.'] },
             { cells: ['Known pitfalls you want Codex to recall.', 'Project instructions, compliance notes, source links, and task state.'] },

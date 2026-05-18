@@ -115,7 +115,7 @@ export default function CompletionPage() {
 
       {allComplete && (
         <div className="completion-next">
-          <h2 className="section-title">What To Do Next</h2>
+          <h2 className="section-title">What to Do Next</h2>
           <ol className="content-list">
             {NEXT_STEPS.map((step, i) => (
               <li key={i}>{step}</li>
