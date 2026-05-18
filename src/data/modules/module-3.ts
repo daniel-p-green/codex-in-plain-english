@@ -9,7 +9,6 @@ export const module3: ModuleData = {
     'Learn when Codex should work behind the scenes with files and data, and when it should operate a screen like a person.',
   releaseDate: '2026-05-17',
   depthZone: 'Core Course',
-  depthMeters: 60,
   estimatedMinutes: 16,
   sections: [
     {
@@ -93,8 +92,17 @@ export const module3: ModuleData = {
     },
     {
       id: 'section-3-5',
-      title: '3.5 - Dex Checkpoint',
+      title: '3.5 - Mini Capstone: Choose Files or Screens',
       content: [
+        {
+          type: 'paragraph',
+          text: 'Pick one task and decide whether Codex should work behind the scenes, on the screen, or both.',
+        },
+        {
+          type: 'code',
+          language: 'text',
+          code: 'Task:\nBest path: Behind the scenes / On the screen / Both\nWhy:\nStable input to use:\nReview evidence:',
+        },
         {
           type: 'callout',
           variant: 'info',
@@ -109,10 +117,10 @@ export const module3: ModuleData = {
       id: 'q3-1',
       question: 'Why is behind-the-scenes work often better for recurring work?',
       options: [
-        { id: 'a', text: 'It looks more complicated' },
+        { id: 'a', text: 'It avoids the need for any success checks' },
         { id: 'b', text: 'It is usually faster, more reliable, and easier to repeat' },
-        { id: 'c', text: 'It always requires no review' },
-        { id: 'd', text: 'It works only for coders' },
+        { id: 'c', text: 'It hides the work from the reviewer' },
+        { id: 'd', text: 'It is best when the only source is a changing screen' },
       ],
       correctAnswer: 'b',
       explanation:
@@ -122,10 +130,10 @@ export const module3: ModuleData = {
       id: 'q3-2',
       question: 'When is screen work reasonable?',
       options: [
-        { id: 'a', text: 'When clean files or app connections exist' },
+        { id: 'a', text: 'When it feels more familiar than using a clean export' },
         { id: 'b', text: 'When the interface is the only available path' },
-        { id: 'c', text: 'For all high-volume recurring tasks' },
-        { id: 'd', text: 'Only for design teams' },
+        { id: 'c', text: 'When recurring work needs the fastest repeatable path' },
+        { id: 'd', text: 'When you want to avoid defining the output first' },
       ],
       correctAnswer: 'b',
       explanation:
@@ -135,10 +143,10 @@ export const module3: ModuleData = {
       id: 'q3-3',
       question: 'Which reliability habit is recommended?',
       options: [
-        { id: 'a', text: 'Skip dry-runs to save time' },
-        { id: 'b', text: 'Avoid logs to reduce clutter' },
+        { id: 'a', text: 'Start with screen clicks before checking for exports' },
+        { id: 'b', text: 'Keep rerun notes only in memory' },
         { id: 'c', text: 'Prefer stable inputs and clear success checks' },
-        { id: 'd', text: 'Rely on memory for reruns' },
+        { id: 'd', text: 'Review only the final chat summary' },
       ],
       correctAnswer: 'c',
       explanation:

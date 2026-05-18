@@ -11,7 +11,6 @@ export interface ModuleData {
   subtitle: string;
   releaseDate?: string;
   depthZone: string;
-  depthMeters: number;
   estimatedMinutes: number;
   sections: Section[];
   quiz: QuizQuestion[];

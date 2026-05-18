@@ -13,7 +13,6 @@ export const module10: ModuleData = {
     'Learn when Codex should look at a page, use a signed-in browser, or operate a desktop app.',
   releaseDate: '2026-05-17',
   depthZone: 'Expanded Codex 2026',
-  depthMeters: 270,
   estimatedMinutes: 22,
   sections: [
     {
@@ -85,8 +84,17 @@ export const module10: ModuleData = {
     },
     {
       id: 'section-10-5',
-      title: '10.5 - Dex Checkpoint',
+      title: '10.5 - Mini Capstone: Write a Visual Work Contract',
       content: [
+        {
+          type: 'paragraph',
+          text: 'Pick a page, document, spreadsheet, or app screen where the result has to be inspected visually. Write the work contract before you ask Codex to act.',
+        },
+        {
+          type: 'code',
+          language: 'text',
+          code: 'Goal:\nVisual workspace: In-app browser, Chrome, or Computer Use\nWhat Codex should inspect:\nWhat Codex may change:\nWhat Codex must not do:\nProof I want back:',
+        },
         {
           type: 'callout',
           variant: 'info',

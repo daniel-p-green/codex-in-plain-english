@@ -9,7 +9,6 @@ export const module7: ModuleData = {
     'Turn one person\'s good Codex habit into a shared way of working that a team can trust.',
   releaseDate: '2026-05-17',
   depthZone: 'Core Course',
-  depthMeters: 180,
   estimatedMinutes: 17,
   sections: [
     {
@@ -97,8 +96,17 @@ export const module7: ModuleData = {
     },
     {
       id: 'section-7-5',
-      title: '7.5 - Dex Checkpoint',
+      title: '7.5 - Mini Capstone: Plan a Small Rollout',
       content: [
+        {
+          type: 'paragraph',
+          text: 'Choose one workflow that a small team could standardize. Define how you would pilot it before asking everyone to use it.',
+        },
+        {
+          type: 'code',
+          language: 'text',
+          code: 'Workflow:\nOwner:\nPilot users:\nQuality checklist:\nFailure cases to collect:\nWhen to scale:',
+        },
         {
           type: 'callout',
           variant: 'info',
@@ -113,10 +121,10 @@ export const module7: ModuleData = {
       id: 'q7-1',
       question: 'What kind of knowledge do skills help capture?',
       options: [
-        { id: 'a', text: 'Only factual trivia' },
+        { id: 'a', text: 'Personal preferences that never affect output quality' },
         { id: 'b', text: 'Procedural habits and quality checks' },
-        { id: 'c', text: 'Only UI color preferences' },
-        { id: 'd', text: 'Nothing; they are cosmetic' },
+        { id: 'c', text: 'Meeting notes that are unrelated to the workflow' },
+        { id: 'd', text: 'Every possible variation before a process is tested' },
       ],
       correctAnswer: 'b',
       explanation:
@@ -126,10 +134,10 @@ export const module7: ModuleData = {
       id: 'q7-2',
       question: 'Which rollout strategy is recommended?',
       options: [
-        { id: 'a', text: 'Deploy every new skill org-wide on day one' },
+        { id: 'a', text: 'Share broadly once the first version works for its creator' },
         { id: 'b', text: 'Pilot narrowly, gather failures, then scale' },
-        { id: 'c', text: 'Avoid changelogs to stay fast' },
-        { id: 'd', text: 'Keep ownership undefined' },
+        { id: 'c', text: 'Let each team edit its own copy before there is a baseline' },
+        { id: 'd', text: 'Delay review until usage is already widespread' },
       ],
       correctAnswer: 'b',
       explanation:
@@ -139,10 +147,10 @@ export const module7: ModuleData = {
       id: 'q7-3',
       question: 'Why assign skill owners?',
       options: [
-        { id: 'a', text: 'To create bottlenecks intentionally' },
+        { id: 'a', text: 'To make one person approve every normal use' },
         { id: 'b', text: 'To ensure maintenance, updates, and accountability' },
-        { id: 'c', text: 'To prevent documentation' },
-        { id: 'd', text: 'To avoid versioning' },
+        { id: 'c', text: 'To keep the skill private until it is perfect' },
+        { id: 'd', text: 'To avoid asking users where the skill fails' },
       ],
       correctAnswer: 'b',
       explanation:

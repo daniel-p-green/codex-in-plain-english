@@ -9,7 +9,6 @@ export const module2: ModuleData = {
     'See Codex as a work partner that can plan steps, use tools, try the work, and report back when it needs your judgment.',
   releaseDate: '2026-05-17',
   depthZone: 'Core Course',
-  depthMeters: 30,
   estimatedMinutes: 20,
   sections: [
     {
@@ -106,8 +105,17 @@ export const module2: ModuleData = {
     },
     {
       id: 'section-2-5',
-      title: '2.5 - Dex Checkpoint',
+      title: '2.5 - Mini Capstone: Write a Doer Request',
       content: [
+        {
+          type: 'paragraph',
+          text: 'Take one task you would normally ask about and rewrite it as work Codex can do, verify, and report back on.',
+        },
+        {
+          type: 'code',
+          language: 'text',
+          code: 'Job Codex should do:\nContext Codex should inspect:\nBoundary:\nWhat Codex should verify:\nWhen Codex should stop and ask:',
+        },
         {
           type: 'callout',
           variant: 'info',
@@ -122,10 +130,10 @@ export const module2: ModuleData = {
       id: 'q2-1',
       question: 'Which description best matches Codex in this course?',
       options: [
-        { id: 'a', text: 'A browser extension only for writing code snippets' },
+        { id: 'a', text: 'A place to ask for advice before doing the work yourself' },
         { id: 'b', text: 'A helper that can plan steps and carry out work from plain-language goals' },
-        { id: 'c', text: 'A replacement for all human review' },
-        { id: 'd', text: 'A static technical manual' },
+        { id: 'c', text: 'A tool that should execute first and explain later' },
+        { id: 'd', text: 'A writing assistant that should avoid files and tools' },
       ],
       correctAnswer: 'b',
       explanation:
@@ -135,10 +143,10 @@ export const module2: ModuleData = {
       id: 'q2-2',
       question: 'What makes a delegation request stronger?',
       options: [
-        { id: 'a', text: 'Adding more adjectives' },
-        { id: 'b', text: 'Hiding boundaries so Codex can improvise' },
+        { id: 'a', text: 'Adding more background without naming the output' },
+        { id: 'b', text: 'Leaving boundaries flexible until Codex finds a path' },
         { id: 'c', text: 'Specifying outputs, boundaries, and success checks' },
-        { id: 'd', text: 'Using advanced jargon only' },
+        { id: 'd', text: 'Starting with the tool you prefer instead of the result you need' },
       ],
       correctAnswer: 'c',
       explanation:
@@ -148,10 +156,10 @@ export const module2: ModuleData = {
       id: 'q2-3',
       question: 'Which responsibility remains with the human?',
       options: [
-        { id: 'a', text: 'Never reviewing output' },
+        { id: 'a', text: 'Letting Codex set the acceptance criteria alone' },
         { id: 'b', text: 'Defining quality and approving sensitive actions' },
-        { id: 'c', text: 'Typing every script manually' },
-        { id: 'd', text: 'Avoiding all automation' },
+        { id: 'c', text: 'Approving every tiny internal step before Codex moves' },
+        { id: 'd', text: 'Choosing speed over final evidence' },
       ],
       correctAnswer: 'b',
       explanation:

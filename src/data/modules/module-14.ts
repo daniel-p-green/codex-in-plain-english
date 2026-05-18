@@ -10,12 +10,11 @@ import {
 export const module14: ModuleData = {
   id: 'module-14',
   number: 14,
-  title: 'Review, Safety, and the Living Course',
+  title: 'Review, Safety, and Capstone Practice',
   subtitle:
-    'Close the expanded course with the habits that keep Codex useful as it grows: proof, approvals, source notes, and clear updates.',
+    'Close the expanded course by practicing the full loop: delegate, choose the work surface, review proof, and preserve what matters.',
   releaseDate: '2026-05-17',
   depthZone: 'Expanded Codex 2026',
-  depthMeters: 390,
   estimatedMinutes: 20,
   sections: [
     {
@@ -40,35 +39,39 @@ export const module14: ModuleData = {
             ['Approval', 'The point where Codex pauses before a higher-risk action.'],
             ['Diff', 'The exact file changes you review before accepting.'],
             ['Reviewable output', 'The file, draft, screenshot, page, or checklist you can inspect and reuse.'],
-            ['Source notes', 'The record of where course claims came from.'],
+            ['Evidence', 'The proof that lets you decide whether the work is done.'],
           ],
         },
       ],
     },
     {
       id: 'section-14-3',
-      title: '14.3 - The Living Course Rule',
+      title: '14.3 - The Review Contract',
       content: [
         {
           type: 'paragraph',
-          text: 'This project should grow as Codex grows. New features become new modules when they change how normal people delegate work. Smaller changes become source notes, glossary entries, or updated callouts.',
+          text: 'Before Codex acts, decide what you will need to see before you approve the result. This keeps review practical instead of emotional.',
         },
         {
           type: 'orderedList',
           items: [
-            'Confirm current behavior against official OpenAI docs.',
-            'Translate product terms into plain-English decisions.',
-            'Add or update source notes in Markdown.',
-            'Keep one clear course-level update note for returning learners.',
-            'Keep the original plain-English foundation visible.',
+            'Name the outcome in plain English.',
+            'Set the boundary around files, accounts, private data, money, or publishing.',
+            'Ask for a reviewable output, such as a draft, diff, screenshot, or checklist.',
+            'Require proof that matches the risk of the task.',
+            'Pause or narrow the task when the proof cannot be inspected.',
           ],
         },
       ],
     },
     {
       id: 'section-14-4',
-      title: '14.4 - Capstone Operating Loop',
+      title: '14.4 - Final Mini Capstone: Run the Full Loop',
       content: [
+        {
+          type: 'paragraph',
+          text: 'Use one real, bounded task. The point is not to use every Codex feature. The point is to choose the smallest useful loop and review it well.',
+        },
         {
           type: 'numberedSteps',
           steps: [
@@ -94,6 +97,11 @@ export const module14: ModuleData = {
             },
           ],
         },
+        {
+          type: 'code',
+          language: 'text',
+          code: 'My task:\nWhere Codex should work:\nBoundary:\nDeliverable:\nProof I will review:\nWhat I will preserve for next time:',
+        },
       ],
     },
     {
@@ -104,7 +112,7 @@ export const module14: ModuleData = {
           type: 'callout',
           variant: 'info',
           title: 'You are now ready',
-          text: 'Codex in Plain English is a living practice: direct the work, set boundaries, review the proof, preserve what mattered, and keep expanding as the app expands.',
+          text: 'You now have the operating loop: direct the work, set boundaries, choose the right surface, review the proof, and preserve the useful pattern.',
         },
       ],
     },
@@ -116,7 +124,7 @@ export const module14: ModuleData = {
       options: [
         { id: 'a', text: 'What proof would let me approve this responsibly?' },
         { id: 'b', text: 'How can I avoid all boundaries?' },
-        { id: 'c', text: 'How can I skip source notes?' },
+        { id: 'c', text: 'How can I skip review?' },
         { id: 'd', text: 'How can I make the course developer-only?' },
       ],
       correctAnswer: 'a',
@@ -125,29 +133,29 @@ export const module14: ModuleData = {
     },
     {
       id: 'q14-2',
-      question: 'When should a new Codex feature become a new course module?',
+      question: 'What belongs in a good review contract?',
       options: [
-        { id: 'a', text: 'When it changes how normal people delegate, review, or repeat work' },
-        { id: 'b', text: 'Whenever a product term exists' },
-        { id: 'c', text: 'Only when it has developer details' },
-        { id: 'd', text: 'Never; living courses should not grow' },
+        { id: 'a', text: 'Outcome, boundary, reviewable output, and proof' },
+        { id: 'b', text: 'A vague hope that Codex will know what matters' },
+        { id: 'c', text: 'Only product terminology' },
+        { id: 'd', text: 'Permission to skip inspection' },
       ],
       correctAnswer: 'a',
       explanation:
-        'The course should expand when the feature changes how learners delegate, review, or repeat work.',
+        'A review contract makes approval concrete by defining what should be true and how you will inspect it.',
     },
     {
       id: 'q14-3',
-      question: 'What should returning learners be able to see?',
+      question: 'What is the point of the final capstone loop?',
       options: [
-        { id: 'a', text: 'A clear course-level update note and source trail' },
-        { id: 'b', text: 'Only hidden source changes' },
-        { id: 'c', text: 'No update trail' },
-        { id: 'd', text: 'Only developer docs' },
+        { id: 'a', text: 'Use one real task to practice delegation, surface choice, review, and preservation' },
+        { id: 'b', text: 'Use every available Codex feature at once' },
+        { id: 'c', text: 'Avoid boundaries so Codex can move faster' },
+        { id: 'd', text: 'Finish without checking proof' },
       ],
       correctAnswer: 'a',
       explanation:
-        'Returning learners need a clear update trail without cluttering every module card.',
+        'The capstone turns the course into a repeatable operating habit, not a feature checklist.',
     },
   ],
   sourceRefs: [

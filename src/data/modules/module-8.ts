@@ -9,7 +9,6 @@ export const module8: ModuleData = {
     'Turn one repeated workflow into a practical skill and decide how you will use it again.',
   releaseDate: '2026-05-17',
   depthZone: 'Core Course',
-  depthMeters: 210,
   estimatedMinutes: 22,
   sections: [
     {
@@ -97,8 +96,17 @@ export const module8: ModuleData = {
     },
     {
       id: 'section-8-5',
-      title: '8.5 - Final Checkpoint',
+      title: '8.5 - Mini Capstone: Package the First Version',
       content: [
+        {
+          type: 'paragraph',
+          text: 'Turn your candidate workflow into a first-version skill plan. The goal is not polish. The goal is a narrow workflow you can test and improve.',
+        },
+        {
+          type: 'code',
+          language: 'text',
+          code: 'Skill folder name:\nMain instruction file should cover:\nReference or example to include:\nFirst test input:\nPassing result:\nOne thing to improve after the first run:',
+        },
         {
           type: 'callout',
           variant: 'info',
@@ -113,10 +121,10 @@ export const module8: ModuleData = {
       id: 'q8-1',
       question: 'What makes a good first skill candidate?',
       options: [
-        { id: 'a', text: 'High-risk live task' },
-        { id: 'b', text: 'Rare one-time task with unclear outputs' },
+        { id: 'a', text: 'A high-impact task where mistakes are costly' },
+        { id: 'b', text: 'A rare task where the desired output changes each time' },
         { id: 'c', text: 'Recurring low-risk workflow with clear checks' },
-        { id: 'd', text: 'Task that cannot be evaluated' },
+        { id: 'd', text: 'A workflow where only one expert can judge success' },
       ],
       correctAnswer: 'c',
       explanation:
@@ -126,10 +134,10 @@ export const module8: ModuleData = {
       id: 'q8-2',
       question: 'Why should first-version skills stay narrow?',
       options: [
-        { id: 'a', text: 'To reduce learning opportunities' },
+        { id: 'a', text: 'Because broad skills should wait until the model improves' },
         { id: 'b', text: 'Because narrow scope improves reliability and iteration speed' },
-        { id: 'c', text: 'Because agents cannot handle more than one task' },
-        { id: 'd', text: 'To avoid documentation' },
+        { id: 'c', text: 'Because narrow skills do not need examples or checks' },
+        { id: 'd', text: 'Because team workflows should avoid maintenance' },
       ],
       correctAnswer: 'b',
       explanation:
@@ -139,10 +147,10 @@ export const module8: ModuleData = {
       id: 'q8-3',
       question: 'Which success check supports repeatability?',
       options: [
-        { id: 'a', text: 'Looks creative each run' },
+        { id: 'a', text: 'Output varies enough to show fresh thinking' },
         { id: 'b', text: 'Equivalent output on repeated runs with same input' },
-        { id: 'c', text: 'No logs retained' },
-        { id: 'd', text: 'Depends on who runs it' },
+        { id: 'c', text: 'The result is useful but hard to compare' },
+        { id: 'd', text: 'Each teammate adjusts the instructions privately' },
       ],
       correctAnswer: 'b',
       explanation:

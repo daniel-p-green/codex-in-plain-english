@@ -9,7 +9,6 @@ export const module1: ModuleData = {
     'Understand why so much digital work feels busy and how outcome-based delegation changes the game for non-coders.',
   releaseDate: '2026-05-17',
   depthZone: 'Core Course',
-  depthMeters: 10,
   estimatedMinutes: 18,
   sections: [
     {
@@ -126,8 +125,17 @@ export const module1: ModuleData = {
     },
     {
       id: 'section-1-5',
-      title: '1.5 - Dex Checkpoint',
+      title: '1.5 - Mini Capstone: Spot One Manual Loop',
       content: [
+        {
+          type: 'paragraph',
+          text: 'Pick one repetitive task you did recently. Write it as an outcome instead of a list of clicks.',
+        },
+        {
+          type: 'code',
+          language: 'text',
+          code: 'Manual loop:\nDesired outcome:\nBoundary:\nWhat I would check before trusting it:',
+        },
         {
           type: 'callout',
           variant: 'tip',
@@ -142,10 +150,10 @@ export const module1: ModuleData = {
       id: 'q1-1',
       question: 'What is the main problem with manual digital workflows?',
       options: [
-        { id: 'a', text: 'They are impossible to learn' },
+        { id: 'a', text: 'They are usually too small to document' },
         { id: 'b', text: 'They are repetitive and error-prone at scale' },
-        { id: 'c', text: 'They always require paid software' },
-        { id: 'd', text: 'They cannot be documented' },
+        { id: 'c', text: 'They are best handled by memorizing faster shortcuts' },
+        { id: 'd', text: 'They are safe to leave manual when one person owns them' },
       ],
       correctAnswer: 'b',
       explanation:
@@ -155,10 +163,10 @@ export const module1: ModuleData = {
       id: 'q1-2',
       question: 'What changes with outcome-based delegation?',
       options: [
-        { id: 'a', text: 'You stop caring about results' },
-        { id: 'b', text: 'You focus on tools only' },
+        { id: 'a', text: 'You describe every click in more detail' },
+        { id: 'b', text: 'You choose the tool before defining the result' },
         { id: 'c', text: 'You define the end state and boundaries, then review the result' },
-        { id: 'd', text: 'You must become a professional developer first' },
+        { id: 'd', text: 'You let Codex decide the quality bar after it starts' },
       ],
       correctAnswer: 'c',
       explanation:
@@ -168,10 +176,10 @@ export const module1: ModuleData = {
       id: 'q1-3',
       question: 'Which statement is most accurate?',
       options: [
-        { id: 'a', text: 'Automation became possible only after AI' },
+        { id: 'a', text: 'Automation is mainly useful once work is already complex' },
         { id: 'b', text: 'Automation was always possible; access was the barrier' },
-        { id: 'c', text: 'Automation only applies to coding teams' },
-        { id: 'd', text: 'Automation is mainly about writing longer prompts' },
+        { id: 'c', text: 'Automation is safest when success checks are left flexible' },
+        { id: 'd', text: 'Automation works best when every step stays manual but documented' },
       ],
       correctAnswer: 'b',
       explanation:

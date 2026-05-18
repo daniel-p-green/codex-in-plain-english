@@ -9,7 +9,6 @@ export const module4: ModuleData = {
     'Use a repeatable brief template to delegate file, document, and report tasks with confidence.',
   releaseDate: '2026-05-17',
   depthZone: 'Core Course',
-  depthMeters: 90,
   estimatedMinutes: 18,
   sections: [
     {
@@ -77,8 +76,17 @@ export const module4: ModuleData = {
     },
     {
       id: 'section-4-5',
-      title: '4.5 - Dex Checkpoint',
+      title: '4.5 - Mini Capstone: Draft Your First Brief',
       content: [
+        {
+          type: 'paragraph',
+          text: 'Choose a low-risk repetitive task and fill in the brief template before you ask Codex to run it.',
+        },
+        {
+          type: 'code',
+          language: 'text',
+          code: 'Goal:\nInput location:\nOutput format:\nDo not change:\nEdge cases:\nSuccess checks:',
+        },
         {
           type: 'callout',
           variant: 'info',
@@ -93,10 +101,10 @@ export const module4: ModuleData = {
       id: 'q4-1',
       question: 'What is the main purpose of the delegation brief template?',
       options: [
-        { id: 'a', text: 'To impress technical teammates' },
+        { id: 'a', text: 'To make the prompt longer so Codex has more text' },
         { id: 'b', text: 'To define scope, boundaries, and success checks in one place' },
-        { id: 'c', text: 'To replace all QA' },
-        { id: 'd', text: 'To avoid specifying outputs' },
+        { id: 'c', text: 'To let Codex choose the output format after it sees the files' },
+        { id: 'd', text: 'To document the process after the work is complete' },
       ],
       correctAnswer: 'b',
       explanation:
@@ -106,10 +114,10 @@ export const module4: ModuleData = {
       id: 'q4-2',
       question: 'Which is a strong success check?',
       options: [
-        { id: 'a', text: 'Looks fine to me' },
-        { id: 'b', text: 'Done quickly' },
+        { id: 'a', text: 'The file seems cleaner when opened' },
+        { id: 'b', text: 'Codex says it finished without errors' },
         { id: 'c', text: 'Row counts checked and date formats normalized' },
-        { id: 'd', text: 'No logs needed' },
+        { id: 'd', text: 'The output is close enough for a first pass' },
       ],
       correctAnswer: 'c',
       explanation:
@@ -119,10 +127,10 @@ export const module4: ModuleData = {
       id: 'q4-3',
       question: 'How should beginners start with delegation?',
       options: [
-        { id: 'a', text: 'Pick high-risk production tasks first' },
-        { id: 'b', text: 'Skip review to build speed' },
+        { id: 'a', text: 'Start with the task that has the biggest possible upside' },
+        { id: 'b', text: 'Ask Codex to infer the review criteria from the output' },
         { id: 'c', text: 'Begin with low-risk repetitive tasks and iterate' },
-        { id: 'd', text: 'Use only one-line prompts with no context' },
+        { id: 'd', text: 'Begin with broad cleanup so Codex can find opportunities' },
       ],
       correctAnswer: 'c',
       explanation:

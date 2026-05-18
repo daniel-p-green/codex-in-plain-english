@@ -132,9 +132,7 @@ export default function ModulePage() {
       <header className="module-header">
         <div className="module-header-meta">
           <span className="badge">{moduleData.depthZone}</span>
-          <span>{moduleData.depthMeters}m depth</span>
           <span>~{moduleData.estimatedMinutes} min</span>
-          <span>{moduleData.sourceRefs.length} sources linked</span>
           <span>{progress.xp} XP</span>
           {isModuleComplete(moduleId) && <span className="module-complete-chip">Complete</span>}
         </div>

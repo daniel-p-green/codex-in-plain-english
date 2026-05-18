@@ -9,7 +9,6 @@ export const module5: ModuleData = {
     'Understand skills as reusable instructions for work you want Codex to do the same way again.',
   releaseDate: '2026-05-17',
   depthZone: 'Core Course',
-  depthMeters: 120,
   estimatedMinutes: 20,
   sections: [
     {
@@ -78,8 +77,17 @@ export const module5: ModuleData = {
     },
     {
       id: 'section-5-5',
-      title: '5.5 - Dex Checkpoint',
+      title: '5.5 - Mini Capstone: Pick a Skill Candidate',
       content: [
+        {
+          type: 'paragraph',
+          text: 'Identify one repeated prompt or workflow that might deserve to become a skill. Keep the first candidate narrow.',
+        },
+        {
+          type: 'code',
+          language: 'text',
+          code: 'Repeated workflow:\nWho uses it:\nExpected output:\nExamples or references needed:\nWhy a skill would improve consistency:',
+        },
         {
           type: 'callout',
           variant: 'info',
@@ -94,10 +102,10 @@ export const module5: ModuleData = {
       id: 'q5-1',
       question: 'What is the main problem skills solve?',
       options: [
-        { id: 'a', text: 'Lack of model intelligence' },
+        { id: 'a', text: 'One-time tasks that do not need repeatability' },
         { id: 'b', text: 'People getting different results from copied prompts' },
-        { id: 'c', text: 'Need for faster internet' },
-        { id: 'd', text: 'Missing UI themes' },
+        { id: 'c', text: 'Tasks where the expected output is unknown' },
+        { id: 'd', text: 'Workflows that are too sensitive to document' },
       ],
       correctAnswer: 'b',
       explanation:
@@ -107,10 +115,10 @@ export const module5: ModuleData = {
       id: 'q5-2',
       question: 'Which best describes a skill?',
       options: [
-        { id: 'a', text: 'A random model persona setting' },
+        { id: 'a', text: 'A saved prompt with no supporting context' },
         { id: 'b', text: 'A reusable workflow package with instructions and optional resources' },
-        { id: 'c', text: 'A compiled binary only' },
-        { id: 'd', text: 'A one-line shortcut with no context' },
+        { id: 'c', text: 'A place to store every preference for every task' },
+        { id: 'd', text: 'A checklist that people read but Codex cannot use' },
       ],
       correctAnswer: 'b',
       explanation:
@@ -120,10 +128,10 @@ export const module5: ModuleData = {
       id: 'q5-3',
       question: 'When should you create a skill?',
       options: [
-        { id: 'a', text: 'Only after 1,000 uses' },
+        { id: 'a', text: 'As soon as any prompt works once' },
         { id: 'b', text: 'When a process repeats and consistency matters' },
-        { id: 'c', text: 'Never; prompts are enough forever' },
-        { id: 'd', text: 'Only for coding tasks' },
+        { id: 'c', text: 'When the task is vague and hard to evaluate' },
+        { id: 'd', text: 'When the workflow changes every time it runs' },
       ],
       correctAnswer: 'b',
       explanation:

@@ -14,7 +14,6 @@ export const module9: ModuleData = {
     'See Codex as a place where more kinds of digital work can live, continue, and be reviewed.',
   releaseDate: '2026-05-17',
   depthZone: 'Expanded Codex 2026',
-  depthMeters: 240,
   estimatedMinutes: 20,
   sections: [
     {
@@ -83,8 +82,17 @@ export const module9: ModuleData = {
     },
     {
       id: 'section-9-5',
-      title: '9.5 - Dex Checkpoint',
+      title: '9.5 - Mini Capstone: Map One Real Task',
       content: [
+        {
+          type: 'paragraph',
+          text: 'Choose one real task you might delegate this week. Before asking Codex to do it, map where the work should happen and what proof would make the result reviewable.',
+        },
+        {
+          type: 'code',
+          language: 'text',
+          code: 'Task:\nBest place for the work:\nWhy that place fits:\nBoundary:\nReviewable output:\nDone when:',
+        },
         {
           type: 'callout',
           variant: 'info',

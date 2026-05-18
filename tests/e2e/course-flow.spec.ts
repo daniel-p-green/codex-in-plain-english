@@ -29,7 +29,7 @@ test('landing page shows attribution and source links', async ({ page }) => {
 
   await expect(page.getByRole('heading', { level: 1, name: 'Codex in Plain English: The Course' })).toBeVisible();
   await expect(page.locator('.landing-hero .hero-title-suffix')).toHaveText('The Course');
-  await expect(page.getByText(/A living course updated May 17, 2026/)).toBeVisible();
+  await expect(page.locator('.landing-hero-note')).toHaveText(/Updated May 17, 2026/);
   await expect(page.getByRole('heading', { level: 2, name: 'How this course works' })).toBeVisible();
 
   const clarityPanel = page.locator('.course-clarity');
@@ -40,7 +40,7 @@ test('landing page shows attribution and source links', async ({ page }) => {
   await expect(page.getByText('Start Module 1 (18 min) →')).toBeVisible();
   await expect(page.getByText('Open Module 10 →')).toBeVisible();
   await expect(page.getByText('Open Module 13 →')).toBeVisible();
-  await expect(page.getByText('Updated May 17, 2026.').first()).toBeVisible();
+  await expect(page.getByText(/Updated May 17, 2026 by/)).toBeVisible();
   await expect(page.getByText('New May 17')).toHaveCount(0);
 
   await expect(page.getByRole('heading', { level: 2, name: 'Attribution' })).toBeVisible();
@@ -77,7 +77,7 @@ test('landing page shows attribution and source links', async ({ page }) => {
 test('all modules are directly accessible for fresh users', async ({ page }) => {
   await page.goto('/#/module/14');
   await expect(page).toHaveURL(/#\/module\/14$/);
-  await expect(page.getByRole('heading', { level: 1, name: 'Review, Safety, And The Living Course' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: 'Review, Safety, And Capstone Practice' })).toBeVisible();
   await expect(page.getByText('New May 17')).toHaveCount(0);
 });
 
@@ -319,7 +319,7 @@ test('quiz remains optional but functional', async ({ page }) => {
 test('quiz wrong-answer flow shows clear retry guidance', async ({ page }) => {
   await page.goto('/#/module/1?focus=quiz');
 
-  await page.locator('.quiz-option', { hasText: 'They are impossible to learn' }).first().click();
+  await page.locator('.quiz-option', { hasText: 'They are usually too small to document' }).first().click();
   await page.getByRole('button', { name: 'Check Answer' }).click();
 
   await expect(page.getByText('Not correct yet')).toBeVisible();

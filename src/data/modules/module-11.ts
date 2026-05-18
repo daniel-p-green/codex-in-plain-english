@@ -9,7 +9,6 @@ export const module11: ModuleData = {
     'Learn how to start Codex work on the host machine, then continue, approve, and redirect it from mobile.',
   releaseDate: '2026-05-17',
   depthZone: 'Expanded Codex 2026',
-  depthMeters: 300,
   estimatedMinutes: 18,
   sections: [
     {
@@ -77,8 +76,17 @@ export const module11: ModuleData = {
     },
     {
       id: 'section-11-5',
-      title: '11.5 - Dex Checkpoint',
+      title: '11.5 - Mini Capstone: Prepare a Steering Message',
       content: [
+        {
+          type: 'paragraph',
+          text: 'Imagine Codex has paused while you are away from your desk. Write the short mobile reply that gives direction without expanding the job.',
+        },
+        {
+          type: 'code',
+          language: 'text',
+          code: 'Current state:\nDecision Codex needs:\nMy steering message:\nApproval boundary:\nEvidence I want before final approval:',
+        },
         {
           type: 'callout',
           variant: 'info',

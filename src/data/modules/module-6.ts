@@ -9,7 +9,6 @@ export const module6: ModuleData = {
     'Learn why a good skill starts simple, then gives Codex more detail only when that detail is useful.',
   releaseDate: '2026-05-17',
   depthZone: 'Core Course',
-  depthMeters: 150,
   estimatedMinutes: 18,
   sections: [
     {
@@ -72,8 +71,17 @@ export const module6: ModuleData = {
     },
     {
       id: 'section-6-5',
-      title: '6.5 - Dex Checkpoint',
+      title: '6.5 - Mini Capstone: Outline a Focused Skill',
       content: [
+        {
+          type: 'paragraph',
+          text: 'Sketch the smallest useful version of a skill. Only include supporting material that Codex would actually need to produce the output.',
+        },
+        {
+          type: 'code',
+          language: 'text',
+          code: 'Skill name:\nWhen to use it:\nMain instruction:\nReference needed:\nExpected output:\nWhat to leave out for version 1:',
+        },
         {
           type: 'callout',
           variant: 'info',
@@ -88,10 +96,10 @@ export const module6: ModuleData = {
       id: 'q6-1',
       question: 'What does "start small, open details later" mean?',
       options: [
-        { id: 'a', text: 'Loading every reference immediately' },
+        { id: 'a', text: 'Putting all possible background into the main instruction' },
         { id: 'b', text: 'Opening detailed instructions only when they are relevant' },
-        { id: 'c', text: 'Hiding all instructions from the model' },
-        { id: 'd', text: 'Removing documentation entirely' },
+        { id: 'c', text: 'Keeping examples outside the skill so they do not distract' },
+        { id: 'd', text: 'Writing short instructions and skipping expected outputs' },
       ],
       correctAnswer: 'b',
       explanation:
@@ -101,10 +109,10 @@ export const module6: ModuleData = {
       id: 'q6-2',
       question: 'Why does folder structure matter in skills?',
       options: [
-        { id: 'a', text: 'It has no impact' },
+        { id: 'a', text: 'It mainly makes the folder look complete' },
         { id: 'b', text: 'It helps Codex know what to use and when' },
-        { id: 'c', text: 'It only helps with git merge speed' },
-        { id: 'd', text: 'It replaces all prompt instructions' },
+        { id: 'c', text: 'It lets every file become equally important' },
+        { id: 'd', text: 'It avoids the need to describe when the skill applies' },
       ],
       correctAnswer: 'b',
       explanation:
@@ -114,10 +122,10 @@ export const module6: ModuleData = {
       id: 'q6-3',
       question: 'Which item belongs in a strong skill package?',
       options: [
-        { id: 'a', text: 'Only a title, no workflow steps' },
-        { id: 'b', text: 'No references to keep files short' },
+        { id: 'a', text: 'A broad mission statement without a trigger' },
+        { id: 'b', text: 'All related notes, even if most are rarely used' },
         { id: 'c', text: 'Clear use description and explicit outputs' },
-        { id: 'd', text: 'Unrelated notes and random snippets' },
+        { id: 'd', text: 'A long list of edge cases before the core workflow' },
       ],
       correctAnswer: 'c',
       explanation:

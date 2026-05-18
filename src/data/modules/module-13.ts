@@ -13,7 +13,6 @@ export const module13: ModuleData = {
     'Learn when to ask Codex to keep working toward proof, and when to have a thread check back later.',
   releaseDate: '2026-05-17',
   depthZone: 'Expanded Codex 2026',
-  depthMeters: 360,
   estimatedMinutes: 24,
   sections: [
     {
@@ -98,8 +97,17 @@ export const module13: ModuleData = {
     },
     {
       id: 'section-13-5',
-      title: '13.5 - Dex Checkpoint',
+      title: '13.5 - Mini Capstone: Choose the Right Loop',
       content: [
+        {
+          type: 'paragraph',
+          text: 'Pick a task that may need more than one pass. Decide whether it should be a normal request, a Goal, or a Heartbeat.',
+        },
+        {
+          type: 'code',
+          language: 'text',
+          code: 'Task:\nBest loop: Normal request, Goal, or Heartbeat\nFinish line or check-back condition:\nBoundaries:\nProof:\nWhen Codex should stop and ask:',
+        },
         {
           type: 'callout',
           variant: 'info',

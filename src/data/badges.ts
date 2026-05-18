@@ -14,7 +14,7 @@ export const BADGES: Badge[] = [
   { id: 'mobile-steerer', name: 'Pocket Commander', description: 'Finish Module 11 and keep work moving when you leave the desk.', icon: 'M11', criteria: 'module-11' },
   { id: 'memory-keeper', name: 'Thread Timekeeper', description: 'Finish Module 12 and leave useful context behind for the next loop.', icon: 'M12', criteria: 'module-12' },
   { id: 'loop-runner', name: 'Loop Maestro', description: 'Finish Module 13 and give long-running work a real operating rhythm.', icon: 'M13', criteria: 'module-13' },
-  { id: 'living-course-steward', name: 'Future-Proof Operator', description: 'Finish Module 14 and know how to keep the system honest as Codex grows.', icon: 'M14', criteria: 'module-14' },
+  { id: 'capstone-operator', name: 'Capstone Operator', description: 'Finish Module 14 and practice the full delegation, review, and proof loop.', icon: 'M14', criteria: 'module-14' },
   { id: 'perfect-quiz', name: 'One-Take Wonder', description: 'Get 100% on any quiz on the first try.', icon: '100', criteria: 'perfect-any' },
   { id: 'all-perfect', name: 'No-Guess Dynasty', description: 'Get 100% on all quizzes on the first try.', icon: 'ALL', criteria: 'perfect-all' },
   { id: 'course-complete', name: 'Plain-English Power User', description: 'Complete every current module in the course.', icon: 'CERT', criteria: 'all-modules' },

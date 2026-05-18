@@ -65,7 +65,7 @@ export default function LandingPage() {
         </h1>
         <p>Learn to delegate real digital work with confidence, one practical module at a time.</p>
         <p className="landing-hero-note">
-          A living course updated May 17, 2026 for Computer Use, mobile steering, Goals, Heartbeats, Skills, and outputs you can review.
+          Updated May 17, 2026 for Computer Use, mobile steering, Goals, Heartbeats, Skills, and outputs you can review.
         </p>
       </section>
 

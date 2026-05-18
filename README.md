@@ -2,7 +2,7 @@
 
 Interactive course for non-coders to learn how to delegate digital work with Codex across the current app, browser, mobile, Goals, Heartbeats, Computer Use, and Skills.
 
-This is a living course. The original 8-module foundation stays intact, and newer Codex capabilities become expansion modules when they change how normal people delegate, review, or repeat digital work.
+The original 8-module foundation stays intact, and newer Codex capabilities become expansion modules when they change how normal people delegate, review, or repeat digital work.
 
 ## Attribution
 
@@ -69,7 +69,7 @@ Output files are written to `out/`.
 - 3 quiz questions per module (42 total)
 - Open module access (start anywhere in the 14-module journey)
 - Section-based completion with optional quizzes for mastery
-- Course-level refresh note for returning learners
+- Hands-on mini capstone practice in every module
 - XP, streaks, badges, and progress flow
 - Local progress persistence (`localStorage`)
 
@@ -93,7 +93,7 @@ Output files are written to `out/`.
 11. Mobile Remote Control and Steering
 12. Durable Threads, Memory, and Work Notes
 13. Goals, Heartbeats, and Long-Running Loops
-14. Review, Safety, and the Living Course
+14. Review, Safety, and Capstone Practice
 
 ## Deploy
 

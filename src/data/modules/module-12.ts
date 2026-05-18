@@ -13,7 +13,6 @@ export const module12: ModuleData = {
     'Learn how long-running work stays understandable through focused threads, written notes, memories, and clear project instructions.',
   releaseDate: '2026-05-17',
   depthZone: 'Expanded Codex 2026',
-  depthMeters: 330,
   estimatedMinutes: 22,
   sections: [
     {
@@ -85,8 +84,17 @@ export const module12: ModuleData = {
     },
     {
       id: 'section-12-5',
-      title: '12.5 - Dex Checkpoint',
+      title: '12.5 - Mini Capstone: Leave a Work Trail',
       content: [
+        {
+          type: 'paragraph',
+          text: 'For one ongoing task, decide what belongs in the thread and what should be written down where you can inspect it later.',
+        },
+        {
+          type: 'code',
+          language: 'text',
+          code: 'Thread purpose:\nDecision to preserve:\nOpen loop:\nFile or note where it belongs:\nMemory only if stable preference:\nNext review point:',
+        },
         {
           type: 'callout',
           variant: 'info',

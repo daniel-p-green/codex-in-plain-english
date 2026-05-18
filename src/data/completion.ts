@@ -12,7 +12,7 @@ export const COURSE_SUMMARY = [
   { module: 'Module 11', takeaway: 'Mobile remote control keeps momentum by letting you steer, approve, and review work after the desktop setup is already running.' },
   { module: 'Module 12', takeaway: 'Long-running threads need written memory: notes, decisions, attempts, project rules, and stable preferences people can inspect.' },
   { module: 'Module 13', takeaway: 'Goals keep Codex working until a measurable finish line is proven; Heartbeats wake a thread up later to check back.' },
-  { module: 'Module 14', takeaway: 'A living course grows with Codex by preserving source notes, keeping updates clear, and keeping review habits central.' },
+  { module: 'Module 14', takeaway: 'The final operating loop is simple: direct the work, choose the surface, set boundaries, review proof, and preserve useful patterns.' },
 ];
 
 export const NEXT_STEPS = [
@@ -20,5 +20,5 @@ export const NEXT_STEPS = [
   'Choose where Codex should work before starting: local files, cloud work, chat, browser, Chrome, or Computer Use.',
   'Ask Codex to produce something you can review, not just a chat answer.',
   'Keep short work notes with decisions, attempts, blockers, and final evidence.',
-  'When Codex changes, add source notes first, then update the course-level refresh note.',
+  'Turn a repeated successful task into a Skill, Goal, or Heartbeat only after the pattern proves useful.',
 ];
