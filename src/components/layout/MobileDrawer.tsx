@@ -15,6 +15,23 @@ export default function MobileDrawer({ open, groups, pathname, onClose }: Mobile
   const panelRef = useRef<HTMLElement | null>(null);
   const lastFocusedRef = useRef<HTMLElement | null>(null);
 
+  const renderLinkLabel = (label: string) => {
+    const moduleMatch = label.match(/^(Module \d+):\s(.+)$/);
+
+    if (!moduleMatch) {
+      return <span className="mobile-drawer-label">{label}</span>;
+    }
+
+    const [, moduleNumber, title] = moduleMatch;
+
+    return (
+      <span className="mobile-drawer-label mobile-drawer-module-label">
+        <span className="mobile-drawer-module-number">{moduleNumber}</span>
+        <span className="mobile-drawer-module-title">{title}</span>
+      </span>
+    );
+  };
+
   const renderLinkMeta = (item: NavGroup['items'][number]) => (
     <span className="mobile-drawer-meta">
       {item.releaseLabel && item.releaseStatus && (
@@ -133,8 +150,8 @@ export default function MobileDrawer({ open, groups, pathname, onClose }: Mobile
                   return (
                     <li key={item.id}>
                       {item.locked ? (
-                        <span className="mobile-drawer-link locked" aria-disabled="true">
-                          <span className="mobile-drawer-label">{item.label}</span>
+                        <span className="mobile-drawer-link locked" aria-disabled="true" aria-label={item.label}>
+                          {renderLinkLabel(item.label)}
                           <span className="mobile-drawer-meta">
                             <span className="mobile-drawer-lock" aria-hidden="true">
                               Locked
@@ -146,8 +163,9 @@ export default function MobileDrawer({ open, groups, pathname, onClose }: Mobile
                           className={`mobile-drawer-link ${active ? 'active' : ''}`}
                           to={item.href}
                           onClick={onClose}
+                          aria-label={item.label}
                         >
-                          <span className="mobile-drawer-label">{item.label}</span>
+                          {renderLinkLabel(item.label)}
                           {renderLinkMeta(item)}
                         </Link>
                       )}

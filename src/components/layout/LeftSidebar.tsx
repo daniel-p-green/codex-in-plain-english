@@ -8,6 +8,23 @@ interface LeftSidebarProps {
 }
 
 export default function LeftSidebar({ groups, pathname }: LeftSidebarProps) {
+  const renderLinkLabel = (label: string) => {
+    const moduleMatch = label.match(/^(Module \d+):\s(.+)$/);
+
+    if (!moduleMatch) {
+      return <span className="left-sidebar-label">{label}</span>;
+    }
+
+    const [, moduleNumber, title] = moduleMatch;
+
+    return (
+      <span className="left-sidebar-label left-sidebar-module-label">
+        <span className="left-sidebar-module-number">{moduleNumber}</span>
+        <span className="left-sidebar-module-title">{title}</span>
+      </span>
+    );
+  };
+
   const renderLinkMeta = (item: NavGroup['items'][number]) => (
     <span className="left-sidebar-meta">
       {item.releaseLabel && item.releaseStatus && (
@@ -37,8 +54,8 @@ export default function LeftSidebar({ groups, pathname }: LeftSidebarProps) {
                 if (item.locked) {
                   return (
                     <li key={item.id}>
-                      <span className="left-sidebar-link locked" aria-disabled="true">
-                        <span className="left-sidebar-label">{item.label}</span>
+                      <span className="left-sidebar-link locked" aria-disabled="true" aria-label={item.label}>
+                        {renderLinkLabel(item.label)}
                         <span className="left-sidebar-meta">
                           <span className="left-sidebar-lock" aria-hidden="true">
                             Locked
@@ -51,8 +68,8 @@ export default function LeftSidebar({ groups, pathname }: LeftSidebarProps) {
 
                 return (
                   <li key={item.id}>
-                    <Link className={`left-sidebar-link ${active ? 'active' : ''}`} to={item.href}>
-                      <span className="left-sidebar-label">{item.label}</span>
+                    <Link className={`left-sidebar-link ${active ? 'active' : ''}`} to={item.href} aria-label={item.label}>
+                      {renderLinkLabel(item.label)}
                       {renderLinkMeta(item)}
                     </Link>
                   </li>

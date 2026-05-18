@@ -401,6 +401,24 @@ button {
   min-width: 0;
 }
 
+.left-sidebar-module-label {
+  display: grid;
+  gap: 1px;
+}
+
+.left-sidebar-module-number {
+  color: var(--text-900);
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.left-sidebar-module-title {
+  color: inherit;
+  font-size: 0.92rem;
+  line-height: 1.25;
+}
+
 .left-sidebar-meta {
   display: inline-flex;
   align-items: center;
@@ -2045,6 +2063,24 @@ button {
 
 .mobile-drawer-label {
   min-width: 0;
+}
+
+.mobile-drawer-module-label {
+  display: grid;
+  gap: 1px;
+}
+
+.mobile-drawer-module-number {
+  color: var(--text-900);
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.mobile-drawer-module-title {
+  color: inherit;
+  font-size: 0.92rem;
+  line-height: 1.25;
 }
 
 .mobile-drawer-meta {
