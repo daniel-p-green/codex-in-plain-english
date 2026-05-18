@@ -545,12 +545,15 @@ button {
   letter-spacing: -0.02em;
 }
 
-.landing-hero-note {
+.landing-hero .landing-hero-note {
   margin-top: var(--space-3);
   color: var(--text-600);
-  font-size: 0.98rem;
+  font-size: 1rem;
   letter-spacing: 0;
-  line-height: 1.45;
+  line-height: 1.35;
+  max-width: 74ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .course-clarity {
@@ -2359,7 +2362,7 @@ button {
     margin-right: 0;
   }
 
-  .landing-hero-note {
+  .landing-hero .landing-hero-note {
     margin-top: var(--space-2);
     font-size: 0.8rem;
     line-height: 1.42;
@@ -2554,7 +2557,7 @@ button {
     font-size: 0.88rem;
   }
 
-  .landing-hero-note {
+  .landing-hero .landing-hero-note {
     font-size: 0.77rem;
   }
 
