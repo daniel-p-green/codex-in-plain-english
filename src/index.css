@@ -402,21 +402,24 @@ button {
 }
 
 .left-sidebar-module-label {
-  display: grid;
-  gap: 1px;
+  display: block;
+  line-height: 1.24;
 }
 
 .left-sidebar-module-number {
   color: var(--text-900);
-  font-size: 0.72rem;
+  display: inline;
+  font-size: 0.7rem;
   font-weight: 800;
-  line-height: 1.15;
+  line-height: inherit;
+  margin-right: 4px;
 }
 
 .left-sidebar-module-title {
   color: inherit;
-  font-size: 0.92rem;
-  line-height: 1.25;
+  display: inline;
+  font-size: 0.9rem;
+  line-height: inherit;
 }
 
 .left-sidebar-meta {
@@ -2066,21 +2069,24 @@ button {
 }
 
 .mobile-drawer-module-label {
-  display: grid;
-  gap: 1px;
+  display: block;
+  line-height: 1.24;
 }
 
 .mobile-drawer-module-number {
   color: var(--text-900);
-  font-size: 0.72rem;
+  display: inline;
+  font-size: 0.7rem;
   font-weight: 800;
-  line-height: 1.15;
+  line-height: inherit;
+  margin-right: 4px;
 }
 
 .mobile-drawer-module-title {
   color: inherit;
-  font-size: 0.92rem;
-  line-height: 1.25;
+  display: inline;
+  font-size: 0.9rem;
+  line-height: inherit;
 }
 
 .mobile-drawer-meta {
