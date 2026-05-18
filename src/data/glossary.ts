@@ -93,7 +93,7 @@ export const GLOSSARY_ENTRIES: GlossaryEntry[] = [
   {
     term: 'Work Contract',
     definition: 'A plain-language task brief with a goal, context, boundaries, deliverable, done check, and stop condition.',
-    example: 'Example: "Goal: merge these exports. Constraints: keep originals untouched. Done when row counts match."',
+    example: 'Example: "Goal: merge these exports. Boundaries: keep originals untouched. Done when row counts match."',
   },
   {
     term: 'Worktree',

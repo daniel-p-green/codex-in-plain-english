@@ -75,7 +75,7 @@ Done when every practice prompt uses this structure:
 
 - Goal: what should be true.
 - Context: what Codex should read or know first.
-- Constraints: what must not change.
+- Boundaries: what must not change.
 - Deliverable: what should be produced.
 - Done when: how the learner and Codex can verify the result.
 
