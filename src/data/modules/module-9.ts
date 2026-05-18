@@ -59,7 +59,7 @@ export const module9: ModuleData = {
           rows: [
             { cells: ['Local', 'Codex needs your machine, files, tools, or sign-in state.', 'Work here.'] },
             { cells: ['Worktree', 'Codex should try changes without disturbing the main copy.', 'Try safely beside the work.'] },
-            { cells: ['Cloud', 'The task can run away from your laptop.', 'Let Codex keep working remotely.'] },
+            { cells: ['Cloud', 'Codex should run in a configured remote environment.', 'Work remotely when the project supports it.'] },
             { cells: ['Chat', 'The task is planning, research, or coordination.', 'Think before files matter.'] },
           ],
         },

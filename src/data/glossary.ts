@@ -32,12 +32,12 @@ export const GLOSSARY_ENTRIES: GlossaryEntry[] = [
   },
   {
     term: 'Cloud',
-    definition: 'A remote place where Codex can keep working when the task does not need your local machine.',
-    example: 'Example: Ask Codex to work on a project task in the cloud while your laptop is closed.',
+    definition: 'A configured remote environment where Codex can run work away from your local project folder.',
+    example: 'Example: Use cloud work when the project supports a remote Codex environment.',
   },
   {
     term: 'Computer Use',
-    definition: 'A Codex capability for operating desktop apps and screen-only workflows on your Mac.',
+    definition: 'Where available, a Codex capability for operating desktop apps and screen-only workflows.',
     example: 'Example: Use Computer Use when the only way to upload a file is through a desktop file picker.',
   },
   {

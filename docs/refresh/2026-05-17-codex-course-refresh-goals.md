@@ -61,7 +61,7 @@ Done when the course includes a plain-English chooser:
 |---|---|
 | Ask about or change files on my machine | Local project/thread |
 | Try changes without touching my main checkout | Worktree |
-| Start work from another device or GitHub-backed environment | Cloud |
+| Run work in a configured remote Codex environment | Cloud |
 | Research, planning, or connector-heavy work without a repo | Chat |
 | Review a local webpage or static file | In-app browser |
 | Work inside signed-in browser state | Chrome extension |

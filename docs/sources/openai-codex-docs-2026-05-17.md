@@ -56,13 +56,13 @@ The learner does not need a developer taxonomy. They need a chooser:
 - App: easiest place to work with projects, files, previews, and artifacts.
 - IDE: good when the learner or teammate already lives in an editor.
 - CLI: terminal-first surface.
-- Cloud: GitHub-backed remote work and background tasks.
+- Cloud: work in a configured remote Codex environment.
 
 ### Local, Worktree, Cloud, And Chat Are Work Locations
 
 - Local: Codex works in your current project folder.
 - Worktree: Codex works in an isolated Git worktree so experiments do not collide with your main checkout.
-- Cloud: Codex works in a remote environment.
+- Cloud: Codex works in a configured remote environment.
 - Chat: Codex is not tied to a repository and can be used for planning, research, and connected-tool workflows.
 
 ### Browser, Chrome, And Computer Use Have Different Jobs
@@ -70,7 +70,7 @@ The learner does not need a developer taxonomy. They need a chooser:
 - In-app browser: shared visual review of local pages, file-backed previews, and public pages that do not require sign-in.
 - Browser use: lets Codex click, type, inspect, and verify inside that in-app browser.
 - Chrome extension: better fit for signed-in browser state and existing Chrome tabs.
-- Computer Use: GUI-only workflows on macOS, with careful scope and approvals.
+- Computer Use: GUI-only workflows where available, with careful scope and approvals.
 
 ### Automations And Heartbeats Are Recurring Loops
 

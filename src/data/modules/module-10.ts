@@ -45,7 +45,7 @@ export const module10: ModuleData = {
               cells: ['Chrome extension', 'Signed-in pages and existing Chrome tabs.', 'Keep account actions narrow and approval-based.'],
             },
             {
-              cells: ['Computer Use', 'Desktop apps, upload buttons, file pickers, and screen-only tasks.', 'Use the smallest possible task and watch sensitive steps.'],
+              cells: ['Computer Use', 'Where available, desktop apps, upload buttons, file pickers, and screen-only tasks.', 'Use the smallest possible task and watch sensitive steps.'],
             },
           ],
         },
