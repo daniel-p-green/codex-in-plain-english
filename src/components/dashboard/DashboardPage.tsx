@@ -100,8 +100,8 @@ export default function DashboardPage() {
       )}
 
       <div className="badge-section-header">
-        <h2 className="section-title">Badge Cabinet</h2>
-        <p>Small wins for every new delegation move you unlock.</p>
+        <h2 className="section-title">Milestones</h2>
+        <p>Wins you unlock as your Codex delegation skills grow.</p>
       </div>
       <div className="badge-grid">
         {BADGES.map(badge => {
